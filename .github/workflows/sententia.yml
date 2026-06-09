@@ -2,8 +2,9 @@ name: Sententia diei
 
 # Rotates assets/sententia.svg to a new pre-rendered classical quote each day.
 # The cards are committed under assets/sententia/NN.svg; this only swaps which
-# one is on display. Changing the committed file is what forces GitHub's image
-# proxy (Camo) to re-fetch, so the profile actually updates.
+# one is on display. Same-repo README images are served via the /raw/ route
+# (not the Camo proxy, which only fronts external images), so the swapped file
+# shows up on the profile as soon as raw's short cache TTL rolls over.
 
 on:
   schedule:
