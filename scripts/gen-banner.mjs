@@ -98,7 +98,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   <rect x="12" y="12" width="${W - 24}" height="${H - 24}" rx="11" fill="none" stroke="${C.gold}" stroke-width="1" opacity="0.16"/>
 
   <!-- Fresco panel with pulsing gold halo -->
-  <ellipse cx="${PX + PS / 2}" cy="${PY + PS / 2}" rx="${PS / 2 + 6}" ry="${PS / 2 + 6}" fill="url(#halo)" filter="url(#soft)">
+  <ellipse cx="${PX + PS / 2}" cy="${PY + PS / 2}" rx="${PS / 2 + 6}" ry="${PS / 2 + 6}" fill="url(#halo)" filter="url(#soft)" opacity="0.5">
     <animate attributeName="opacity" values="0.5;0.92;0.5" dur="5.5s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
   </ellipse>
   <g opacity="1"><animate attributeName="opacity" from="0" to="1" dur="1s" begin="0s" fill="freeze"/>
