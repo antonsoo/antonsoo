@@ -64,12 +64,12 @@ const TX = 304;
 const eyebrow = lineSvg('ΓΝΩΘΙ  ΣΑΥΤΟΝ', TX + 2, 114, 19, 6, T.gold);
 const name = lineSvg('ANTON SOLOVIEV', TX, 178, 52, 2.4, T.cream);
 const role1 = lineSvg('Founder & CEO of PRAVIEL', TX + 1, 232, 22, 0.4, T.roleCream);
-const role2 = lineSvg('AI researcher. Reviving the languages the world calls dead.', TX + 1, 263, 18, 0.2, T.muted);
+const role2 = lineSvg('Reviving the languages the world calls dead.', TX + 1, 263, 18, 0.2, T.muted);
 
 const ulY = 196;
 const ulW = name.width;
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Anton Soloviev. Founder and CEO of PRAVIEL. AI researcher.">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Anton Soloviev. Founder and CEO of PRAVIEL. Reviving the languages the world calls dead.">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1">
       <stop offset="0" stop-color="#17130E"/>
