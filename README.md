@@ -23,7 +23,7 @@ By training, an AI researcher; by calling, a teacher of very old languages: elev
 
 ## Dē mē &nbsp;·&nbsp; about
 
-- Founder & CEO of **[PRAVIEL](https://praviel.com)**, a lessons-first app for learning ancient languages as living, speakable systems.
+- Founder & CEO of **[PRAVIEL](https://praviel.com)**, a lessons-first app that teaches ancient languages as living, speakable systems.
 - Trained in **artificial intelligence** at the Institute of Science Tokyo. Before PRAVIEL: speech recognition on supercomputers, LLM agents, and a startup or two.
 - I care about pronunciation, provenance, and shipping. Order depends on the day.
 - My bio reads **ΓΝΩΘΙ ΣΑΥΤΟΝ**, *know thyself*. Still a work in progress.
@@ -39,15 +39,17 @@ By training, an AI researcher; by calling, a teacher of very old languages: elev
 </td>
 <td valign="middle">
 
-**PRAVIEL: Ancient Languages.** Short daily lessons in speaking, listening, and reading, with authentic ancient pronunciation. Hold a conversation with a historical persona, or tap any word in a real text to take it apart. Built for beginners, checked by experts. Free to start, on web, iPhone, and Android.
+**PRAVIEL: Ancient Languages.** Duolingo proved that five minutes a day can carry a language; PRAVIEL points that habit at Latin, Ancient Greek, and nine other ancient tongues, and holds it to a scholar's standard. Short daily lessons in speaking, listening, and reading, with reconstructed pronunciation you can actually hear. Hold a conversation with a historical persona, or tap any word of a real text to take it apart. Built for beginners, checked by experts. Free to start, on web, iPhone, and Android.
 
-<a href="https://apps.apple.com/app/id6756199566"><img src="https://img.shields.io/badge/App_Store-0D96F6?style=for-the-badge&logo=apple&logoColor=white" alt="Download PRAVIEL on the App Store" /></a>
-<a href="https://play.google.com/store/apps/details?id=com.praviel"><img src="https://img.shields.io/badge/Google_Play-34A853?style=for-the-badge&logo=googleplay&logoColor=white" alt="Get PRAVIEL on Google Play" /></a>
-<a href="https://www.linkedin.com/company/praviel-ancient-languages/"><img src="https://img.shields.io/badge/PRAVIEL_on_LinkedIn-0A66C2?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D&logoColor=white" alt="PRAVIEL on LinkedIn" /></a>
+<a href="https://apps.apple.com/app/id6756199566"><img src="https://img.shields.io/badge/App_Store-1A1919?style=for-the-badge&logo=apple&logoColor=white" alt="Download PRAVIEL on the App Store" /></a>
+<a href="https://play.google.com/store/apps/details?id=com.praviel"><img src="https://img.shields.io/badge/Google_Play-1A1919?style=for-the-badge&logo=googleplay&logoColor=white" alt="Get PRAVIEL on Google Play" /></a>
+<a href="https://www.linkedin.com/company/praviel-ancient-languages/"><img src="https://img.shields.io/badge/PRAVIEL_on_LinkedIn-1A1919?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D&logoColor=white" alt="PRAVIEL on LinkedIn" /></a>
 
 </td>
 </tr>
 </table>
+
+<sub>Under the hood: one <strong>Flutter and Dart</strong> codebase carries the app to iPhone, Android, and the web; the marketing site is <strong>Next.js on Node</strong> at praviel.com; the AI tutors keep their sources in order. The languages remain the hard part.</sub>
 
 **From the workshop.** A few public pieces from the machine-learning years:
 
@@ -61,47 +63,27 @@ By training, an AI researcher; by calling, a teacher of very old languages: elev
 
 <img src="assets/divider-gold.svg" alt="" width="100%" />
 
-## Linguae &nbsp;·&nbsp; the tongues
-
 <div align="center">
 
-<img src="assets/linguae.svg" alt="The languages PRAVIEL teaches, each in its native script: Classical Chinese, Classical Arabic, Classical Sanskrit, Classical Latin, Ancient Greek, Hebrew, Aramaic, Church Slavonic, Middle English, and Gothic. Ancient Egyptian, in hieroglyphs, is also taught in the app." width="100%" />
+<img src="assets/linguae.svg" alt="Linguae: the languages PRAVIEL teaches, each in its native script: Classical Chinese, Classical Arabic, Classical Sanskrit, Classical Latin, Ancient Greek, Hebrew, Aramaic, Church Slavonic, Middle English, and Gothic. Ancient Egyptian, in hieroglyphs, is also taught in the app." width="100%" />
 
 <sub>Every script baked to vector paths: the Arabic joins, the Sanskrit ligates, the Hebrew runs right to left. Egyptian hieroglyphs live in the app.</sub>
 
-</div>
+<br/><br/>
 
-<img src="assets/divider-gold.svg" alt="" width="100%" />
-
-## Instrūmenta &nbsp;·&nbsp; tools of the trade
-
-<div align="center">
-
-<img src="assets/instrumenta.svg" alt="Instrumenta, the tools of the trade. Machine learning: Python, PyTorch, TensorFlow, scikit-learn. Web and mobile: Dart, Flutter, TypeScript, React, Next.js, Tailwind, Node.js. Systems and infrastructure: C++, Docker, Postgres, Redis, Cloudflare, Git, Linux." width="100%" />
+<img src="assets/instrumenta.svg" alt="Instrumenta, the tools of the trade, on a wax tablet. Machine learning: Python, PyTorch, TensorFlow, scikit-learn. Web and mobile: Dart, Flutter, TypeScript, React, Next.js, Tailwind, Node.js. Systems and infrastructure: C++, Docker, Postgres, Redis, Cloudflare, Git, Linux." width="100%" />
 
 <sub>The adjective is Pliny's: he files Archimedes under <em>machinalis scientia</em> (Natural History 7.125).</sub>
 
-</div>
-
-<img src="assets/divider-gold.svg" alt="" width="100%" />
-
-## Sententia diēī &nbsp;·&nbsp; today's line
-
-<div align="center">
+<br/><br/>
 
 <img src="assets/sententia.svg" alt="A classical sententia, rotated daily" width="100%" />
 
 <sub>A new line each morning, by GitHub Action, from people considerably wiser than me.</sub>
 
-</div>
+<br/><br/>
 
-<img src="assets/divider-gold.svg" alt="" width="100%" />
-
-## Tabula &nbsp;·&nbsp; the numbers
-
-<div align="center">
-
-<img src="assets/stats.svg" width="100%" alt="The public ledger: years on GitHub, public repositories, and followers, in Roman numerals." />
+<img src="assets/stats.svg" width="100%" alt="The public ledger, on a tabula ansata: years on GitHub, public repositories, and followers, in Roman numerals." />
 
 <sub>GitHub sees only my open half; the busiest repositories are private. Roman numerals make any figure look deliberate.</sub>
 
@@ -113,14 +95,20 @@ By training, an AI researcher; by calling, a teacher of very old languages: elev
 
 <img src="assets/divider-gold.svg" alt="" width="100%" />
 
+## Sēmina &nbsp;·&nbsp; seeds
+
+Two ideas sit in the drawer and receive the occasional weekend visit: a proper **game for learning ancient languages**, with a world in it rather than flashcards with confetti, and an app that finally teaches **music theory** the way theory deserves. PRAVIEL holds the floor until further notice. Good seeds keep.
+
+<img src="assets/divider-gold.svg" alt="" width="100%" />
+
 ## Vincula &nbsp;·&nbsp; the links
 
 <div align="center">
 
 <a href="https://praviel.com"><img src="https://img.shields.io/badge/praviel.com-8B1E1E?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" /></a>
-<a href="https://www.linkedin.com/in/anton-soloviev-b1331240b/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D&logoColor=white" alt="LinkedIn" /></a>
-<a href="https://x.com/antonsolv"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X (Twitter)" /></a>
-<a href="https://discord.gg/ExMJ76x5X"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="PRAVIEL on Discord" /></a>
+<a href="https://www.linkedin.com/in/anton-soloviev-b1331240b/"><img src="https://img.shields.io/badge/LinkedIn-1A1919?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D&logoColor=white" alt="LinkedIn" /></a>
+<a href="https://x.com/antonsolv"><img src="https://img.shields.io/badge/X-1A1919?style=for-the-badge&logo=x&logoColor=white" alt="X (Twitter)" /></a>
+<a href="https://discord.gg/ExMJ76x5X"><img src="https://img.shields.io/badge/Discord-1A1919?style=for-the-badge&logo=discord&logoColor=white" alt="PRAVIEL on Discord" /></a>
 <a href="mailto:anton@praviel.com"><img src="https://img.shields.io/badge/anton@praviel.com-6E1818?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMCA0SDRjLTEuMSAwLTEuOTkuOS0xLjk5IDJMMiAxOGMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjZjMC0xLjEtLjktMi0yLTJ6bTAgNGwtOCA1LTgtNVY2bDggNSA4LTV2MnoiLz48L3N2Zz4%3D&logoColor=white" alt="Email" /></a>
 
 </div>
