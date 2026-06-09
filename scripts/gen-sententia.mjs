@@ -142,7 +142,7 @@ function buildCard(q, idx, total) {
   ${corners}
 
   <g fill="${C.goldInk}" opacity="0.92"><path transform="translate(${PAD} 60)" d="${label.d}"/></g>
-  <g fill="${C.brownSoft}" opacity="0.7"><path transform="translate(${round(W - PAD - numLaid.width)} 60)" d="${numLaid.d}"/></g>
+  <g fill="${C.brownSoft}" opacity="0.85"><path transform="translate(${round(W - PAD - numLaid.width)} 60)" d="${numLaid.d}"/></g>
 
   <g opacity="1">
     <animate attributeName="opacity" from="0" to="1" dur="0.85s" begin="0s" fill="freeze"/>

@@ -20,7 +20,7 @@ const T = {
   roleCream: '#E7DCC9',
   gold: '#D9BE7A',
   goldLine: '#C5A059',
-  muted: '#A99B89',
+  muted: '#BDB09C',
 };
 
 const missing = [];

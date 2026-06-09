@@ -49,10 +49,10 @@ let figSvg = '';
 figures.forEach((f, i) => {
   const cx = W * (0.25 + 0.25 * i);
   const num = layoutLine(f.roman, 54, { letterSpacing: 2 });
-  const lab = layoutLine(f.label, 12.5, { letterSpacing: 2.4 });
+  const lab = layoutLine(f.label, 13, { letterSpacing: 2.4 });
   missing.push(...num.missing, ...lab.missing);
   figSvg += `<g fill="${C.ink}"><path transform="translate(${round(cx - num.width / 2)} ${figY})" d="${num.d}"/></g>`;
-  figSvg += `<g fill="${C.brown}" opacity="0.85"><path transform="translate(${round(cx - lab.width / 2)} ${labY})" d="${lab.d}"/></g>`;
+  figSvg += `<g fill="${C.brown}"><path transform="translate(${round(cx - lab.width / 2)} ${labY})" d="${lab.d}"/></g>`;
   if (i < figures.length - 1) {
     const sx = W * (0.375 + 0.25 * i);
     figSvg += diamond(sx, figY - 16, 2.6, C.gold, 0.6);
@@ -91,7 +91,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   ${diamond(26, 26, 2.6, C.gold, 0.7)}${diamond(W - 26, 26, 2.6, C.gold, 0.7)}${diamond(26, H - 26, 2.6, C.gold, 0.7)}${diamond(W - 26, H - 26, 2.6, C.gold, 0.7)}
 
   <g fill="${C.goldInk}" opacity="0.92"><path transform="translate(${PAD} 58)" d="${title.d}"/></g>
-  <g fill="${C.brownSoft}" opacity="0.7"><path transform="translate(${round(W - PAD - gloss.width)} 58)" d="${gloss.d}"/></g>
+  <g fill="${C.brownSoft}" opacity="0.85"><path transform="translate(${round(W - PAD - gloss.width)} 58)" d="${gloss.d}"/></g>
 
   <g opacity="1">
     <animate attributeName="opacity" from="0" to="1" dur="0.85s" begin="0s" fill="freeze"/>

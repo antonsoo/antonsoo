@@ -82,10 +82,10 @@ const TILE_W = 146;
 const rowNative = [137, 227];
 const rowLabel = [161, 251];
 
-// One shared label size so every caption matches: largest <= 10.5 that fits.
-let labelSize = 10.5;
+// One shared label size so every caption matches: largest <= 11.5 that fits.
+let labelSize = 11.5;
 for (const t of tiles) {
-  while (labelSize > 7 && layoutLine(t.label, labelSize, { font: disp, letterSpacing: 1.8 }).width > TILE_W + 8) labelSize -= 0.5;
+  while (labelSize > 8.5 && layoutLine(t.label, labelSize, { font: disp, letterSpacing: 1.8 }).width > TILE_W + 8) labelSize -= 0.5;
 }
 
 let tileSvg = '';
@@ -99,7 +99,7 @@ tiles.forEach((t, i) => {
   missing.push(...lab.missing);
 
   tileSvg += `<g fill="${C.ink}" transform="translate(${round(cx - nat.width / 2)} ${ny})">${nat.inner}</g>`;
-  tileSvg += `<g fill="${C.goldInk}" opacity="0.92"><path transform="translate(${round(cx - lab.width / 2)} ${ly})" d="${lab.d}"/></g>`;
+  tileSvg += `<g fill="${C.goldInk}"><path transform="translate(${round(cx - lab.width / 2)} ${ly})" d="${lab.d}"/></g>`;
   tileSvg += `<line x1="${round(cx - 12)}" y1="${round(ly + 9)}" x2="${round(cx + 12)}" y2="${round(ly + 9)}" stroke="${C.gold}" stroke-width="1" opacity="0.45" stroke-linecap="round"/>`;
 });
 
@@ -139,7 +139,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   ${diamond(26, 26, 2.6, C.gold, 0.7)}${diamond(W - 26, 26, 2.6, C.gold, 0.7)}${diamond(26, fy2 + 6, 2.6, C.gold, 0.7)}${diamond(W - 26, fy2 + 6, 2.6, C.gold, 0.7)}
 
   <g fill="${C.goldInk}" opacity="0.92"><path transform="translate(${PAD} 58)" d="${title.d}"/></g>
-  <g fill="${C.brownSoft}" opacity="0.7"><path transform="translate(${round(W - PAD - gloss.width)} 58)" d="${gloss.d}"/></g>
+  <g fill="${C.brownSoft}" opacity="0.85"><path transform="translate(${round(W - PAD - gloss.width)} 58)" d="${gloss.d}"/></g>
 
   <g opacity="1">
     <animate attributeName="opacity" from="0" to="1" dur="0.85s" begin="0s" fill="freeze"/>
