@@ -119,3 +119,4 @@ By training an AI researcher; by calling, a teacher of very old languages. At th
 <div align="center">
 <sub>The banner, the daily card, and the ledger were drawn by code in <a href="https://github.com/antonsoo/antonsoo/tree/main/scripts">/scripts</a>. Yes, even the Greek. <strong>Manū propriā.</strong></sub>
 </div>
+
