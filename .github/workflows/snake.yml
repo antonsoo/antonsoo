@@ -22,13 +22,17 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate snake (crimson snake, parchment-to-crimson dots)
+      # Two outputs, one per GitHub theme; the README picks via <picture>.
+      # Light: crimson snake, toasted-parchment empty cells (visible on white).
+      # Dark: pale-gold snake, umber-to-gold ramp (brightest = most commits).
+      - name: Generate snake (light and dark, PRAVIEL palette)
         uses: Platane/snk@v3
         id: snake
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/snake.svg?palette=github-light&color_snake=%238B1E1E&color_dots=%23F3EFE7,%23E6CF94,%23C5A059,%23A24E30,%238B1E1E
+            dist/snake.svg?color_snake=%238B1E1E&color_dots=%23EDE4D3,%23E6CF94,%23C5A059,%23A24E30,%238B1E1E
+            dist/snake-dark.svg?palette=github-dark&color_snake=%23E6CF94&color_dots=%23262220,%234A3A22,%237A5C2E,%23A8853F,%23C5A059
 
       - name: Publish to the output branch
         uses: crazy-max/ghaction-github-pages@v4
