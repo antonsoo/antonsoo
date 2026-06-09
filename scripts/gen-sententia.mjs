@@ -119,9 +119,13 @@ function buildCard(q, idx, total) {
   const sepTop = 30;
   const sepLen = H - 14 - sepTop - 16;
 
+  // Latin quotes carry their own final period; only add one where the
+  // original (Greek, unpunctuated) ends bare, so aria never reads "..".
+  const ariaSep = /[.!?;]$/.test(q.text.trim()) ? '' : '.';
+
   return {
     missing: allMissing,
-    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${escapeXml(q.text)}. ${escapeXml(q.translation)} (${escapeXml(q.source)})">
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${escapeXml(q.text)}${ariaSep} ${escapeXml(q.translation)} (${escapeXml(q.source)})">
   <defs>
     <linearGradient id="parch" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#FEFCF8"/>
