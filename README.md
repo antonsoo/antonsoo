@@ -36,8 +36,8 @@ By training an AI researcher; by calling, a teacher of very old languages. At th
 
 <table>
 <tr>
-<td width="120" align="center" valign="middle">
-  <img src="assets/praviel-icon.png" width="92" alt="PRAVIEL app icon" />
+<td width="150" align="center" valign="middle">
+  <img src="assets/praviel-icon.jpg" width="120" alt="PRAVIEL app icon" />
 </td>
 <td valign="middle">
 
