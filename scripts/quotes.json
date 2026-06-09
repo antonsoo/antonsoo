@@ -9,19 +9,19 @@
     "lang": "grc",
     "text": "γηράσκω δ’ αἰεὶ πολλὰ διδασκόμενος",
     "translation": "I grow old forever learning many things.",
-    "source": "Solon, fragment 18"
+    "source": "Solon, fr. 18 West"
   },
   {
     "lang": "grc",
     "text": "φύσις κρύπτεσθαι φιλεῖ",
     "translation": "Nature loves to hide.",
-    "source": "Heraclitus, fr. 123"
+    "source": "Heraclitus, DK 22 B123"
   },
   {
     "lang": "grc",
     "text": "ἦθος ἀνθρώπῳ δαίμων",
     "translation": "Character is a person's fate.",
-    "source": "Heraclitus, fr. 119"
+    "source": "Heraclitus, DK 22 B119"
   },
   {
     "lang": "grc",
@@ -33,13 +33,13 @@
     "lang": "grc",
     "text": "πόλλ’ οἶδ’ ἀλώπηξ, ἀλλ’ ἐχῖνος ἓν μέγα",
     "translation": "The fox knows many things, the hedgehog one big one.",
-    "source": "Archilochus, fr. 201"
+    "source": "Archilochus, fr. 201 West"
   },
   {
     "lang": "grc",
-    "text": "μνάσεσθαί τινά φαμι καὶ ὕστερον ἀμμέων",
+    "text": "μνάσεσθαί τινά φαῖμι καὶ ἕτερον ἀμμέων",
     "translation": "Someone, I say, will remember us in time to come.",
-    "source": "Sappho, fragment 147"
+    "source": "Sappho, fr. 147 Voigt"
   },
   {
     "lang": "grc",
@@ -49,15 +49,15 @@
   },
   {
     "lang": "grc",
-    "text": "πάντων χρημάτων μέτρον ἄνθρωπος",
+    "text": "πάντων χρημάτων μέτρον ἐστὶν ἄνθρωπος",
     "translation": "The human being is the measure of all things.",
-    "source": "Protagoras"
+    "source": "Protagoras, DK 80 B1"
   },
   {
     "lang": "grc",
     "text": "μέτρον ἄριστον",
     "translation": "Moderation is best.",
-    "source": "Cleobulus, of the Seven Sages"
+    "source": "Cleobulus of Lindus, in Diogenes Laertius 1.93"
   },
   {
     "lang": "lat",
@@ -81,13 +81,13 @@
     "lang": "lat",
     "text": "Gutta cavat lapidem, consumitur anulus usu.",
     "translation": "The drop hollows the stone; the ring is worn away by use.",
-    "source": "Ovid, Letters from Pontus 4.10"
+    "source": "Ovid, Epistulae ex Ponto 4.10.5"
   },
   {
     "lang": "lat",
     "text": "Dimidium facti qui coepit habet.",
     "translation": "Whoever has begun has half the deed done.",
-    "source": "Horace, Epistles 1.2"
+    "source": "Horace, Epistles 1.2.40"
   },
   {
     "lang": "lat",
@@ -105,7 +105,7 @@
     "lang": "lat",
     "text": "Etiam capillus unus habet umbram suam.",
     "translation": "Even a single hair casts its own shadow.",
-    "source": "Publilius Syrus, Maxims"
+    "source": "Publilius Syrus, Sententiae"
   },
   {
     "lang": "lat",
@@ -117,6 +117,36 @@
     "lang": "grc",
     "text": "χαλεπὰ τὰ καλά",
     "translation": "What is beautiful is hard-won.",
-    "source": "Greek proverb, in Plato's Republic 435c"
+    "source": "Greek proverb, in Plato, Hippias Major 304e and Republic 435c"
+  },
+  {
+    "lang": "lat",
+    "text": "Nusquam est, qui ubique est.",
+    "translation": "One who is everywhere is nowhere.",
+    "source": "Seneca, Letters 2.2"
+  },
+  {
+    "lang": "grc",
+    "text": "τῆς δ’ ἀρετῆς ἱδρῶτα θεοὶ προπάροιθεν ἔθηκαν ἀθάνατοι",
+    "translation": "Before excellence the immortal gods have set sweat.",
+    "source": "Hesiod, Works and Days 289"
+  },
+  {
+    "lang": "grc",
+    "text": "ἐσθλῶν μὲν γὰρ ἄπ’ ἐσθλὰ μαθήσεαι",
+    "translation": "From noble men you will learn noble things.",
+    "source": "Theognis, Elegies 35 West"
+  },
+  {
+    "lang": "lat",
+    "text": "Quae legentem fefellissent, transferentem fugere non possunt.",
+    "translation": "What might escape a reader cannot escape a translator.",
+    "source": "Pliny the Younger, Letters 7.9.2"
+  },
+  {
+    "lang": "grc",
+    "text": "μέγα βιβλίον μέγα κακόν",
+    "translation": "A big book is a big evil.",
+    "source": "Callimachus, fr. 465 Pfeiffer, in Athenaeus 3.72a"
   }
 ]
