@@ -1,0 +1,48 @@
+name: Sententia diei
+
+# Rotates assets/sententia.svg to a new pre-rendered classical quote each day.
+# The cards are committed under assets/sententia/NN.svg; this only swaps which
+# one is on display. Changing the committed file is what forces GitHub's image
+# proxy (Camo) to re-fetch, so the profile actually updates.
+
+on:
+  schedule:
+    - cron: "17 6 * * *" # 06:17 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sententia
+  cancel-in-progress: false
+
+jobs:
+  rotate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select today's card
+        run: |
+          set -euo pipefail
+          count=$(find assets/sententia -name '*.svg' | wc -l)
+          if [ "$count" -eq 0 ]; then echo "no cards found"; exit 1; fi
+          doy=$(date -u +%j)            # day of year, 001..366
+          idx=$(( (10#$doy - 1) % count ))
+          printf -v src 'assets/sententia/%02d.svg' "$idx"
+          echo "day $doy of year -> card $idx of $count ($src)"
+          cp "$src" assets/sententia.svg
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- assets/sententia.svg; then
+            echo "no change today"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/sententia.svg
+          git commit -m "chore(sententia): rotate daily card [skip ci]"
+          git push

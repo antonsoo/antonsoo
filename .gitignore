@@ -1,0 +1,8 @@
+node_modules/
+*.log
+.DS_Store
+.preview/
+_preview.html
+scripts/.fonttest.mjs
+scripts/.raster.cjs
+scripts/.fonts/

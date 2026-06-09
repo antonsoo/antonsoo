@@ -1,0 +1,14 @@
+{
+  "name": "antonsoo-profile",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "GitHub profile README for antonsoo, with bespoke Imperial-Roman SVG widgets.",
+  "scripts": {
+    "gen": "node scripts/gen-sententia.mjs",
+    "gen:banner": "node scripts/gen-banner.mjs"
+  },
+  "devDependencies": {
+    "opentype.js": "^1.3.4"
+  }
+}
