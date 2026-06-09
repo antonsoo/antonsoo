@@ -94,7 +94,7 @@ By training, an AI researcher; by calling, a teacher of very old languages: elev
   <img src="https://raw.githubusercontent.com/antonsoo/antonsoo/output/snake.svg" alt="My contribution graph, being eaten by a snake" width="100%" />
 </picture>
 
-<sub>A serpent once grazed the offerings at Anchises' tomb, and Aeneas took it for the spirit of the place (Aeneid 5.84-96). This one grazes on commits.</sub>
+<sub>A serpent once grazed the offerings at Anchises' tomb, and Aeneas wondered if it was the spirit of the place (Aeneid 5.84-96). This one grazes on commits.</sub>
 
 </div>
 
