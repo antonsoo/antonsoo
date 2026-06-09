@@ -1,7 +1,11 @@
 {
   "createdYear": 2018,
-  "publicRepos": 18,
+  "publicRepos": 19,
   "followers": 12,
-  "focus": ["Machine learning", "Ancient languages", "Full-stack"],
+  "focus": [
+    "Machine learning",
+    "Ancient languages",
+    "Full-stack"
+  ],
   "_note": "Refreshed by .github/workflows/tabula.yml. publicRepos counts public non-fork repos."
 }
