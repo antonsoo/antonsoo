@@ -6,6 +6,12 @@
 // as a rubricator would), a ruled writing zone for the quote, a crimson hedera
 // distinguens between original and translation, and the source set as a
 // colophon in the lower right. Deliberately asymmetric; no corner ornaments.
+// Manuscript apparatus: pricking (the scribe's guide pinholes) down the outer
+// margin with a faint frame line, a language note (GRAECE / LATINE) under the
+// rubric, and a catchword (custos) in the lower margin: the first word of the
+// NEXT card's quote, the device binders used to keep quires in order. The
+// daily rotation walks the cards in index order, so the catchword is true
+// every day except across the New Year boundary, when day-of-year resets.
 
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -112,9 +118,34 @@ function buildCard(q, idx, total) {
   const numLaid = layoutLine(num, 13, { letterSpacing: 1.4 });
   allMissing.push(...rub1.missing, ...rub2.missing, ...numLaid.missing);
 
+  // Language note under the rubric, the way a margin hand flags the tongue.
+  const langNote = layoutLine(isGreek ? 'GRAECE' : 'LATINE', 11.5, { letterSpacing: 2.2 });
+  allMissing.push(...langNote.missing);
+
   // Colophon (source), lower right of the writing zone.
   const source = layoutLine(q.source, 14, { letterSpacing: 1.2 });
   allMissing.push(...source.missing);
+
+  // Custos: tomorrow's first word, set small in the lower margin. An article
+  // alone ("ὁ") would read as a stray mark, so very short openers take the
+  // next word with them, as a scribe would.
+  const nextQ = quotes[(idx + 1) % total];
+  const nextWords = nextQ.text.trim().split(/\s+/);
+  const custos = Array.from(nextWords[0]).length < 3 && nextWords[1]
+    ? `${nextWords[0]} ${nextWords[1]}`
+    : nextWords[0];
+  const catchword = layoutLine(custos, 13, { letterSpacing: 0.3 });
+  allMissing.push(...catchword.missing);
+
+  // Pricking: one pinhole per ruling line, just outside a faint frame line
+  // that bounds the writing zone on the right (the left bound is the heavier
+  // column separator).
+  const BOUND_X = 830;
+  const PRICK_X = 839;
+  let pricks = '';
+  for (let py = 76; py <= 244; py += 24) {
+    pricks += `<circle cx="${PRICK_X}" cy="${py}" r="1.1" fill="${C.gold}"/>`;
+  }
 
   const sepTop = 30;
   const sepLen = H - 14 - sepTop - 16;
@@ -139,6 +170,8 @@ function buildCard(q, idx, total) {
   </g>
 
   ${ruling(ZONE_X0, 76, ZONE_X1 - ZONE_X0, 168, 24)}
+  <line x1="${BOUND_X}" y1="66" x2="${BOUND_X}" y2="254" stroke="${C.gold}" stroke-width="0.6" opacity="0.3"/>
+  <g opacity="0.55">${pricks}</g>
 
   <line x1="${SEP_X}" y1="${sepTop}" x2="${SEP_X}" y2="${sepTop + sepLen}" stroke="${C.gold}" stroke-width="1" opacity="0.5" stroke-dasharray="${sepLen}" stroke-dashoffset="0">
     <animate attributeName="stroke-dashoffset" from="${sepLen}" to="0" dur="0.9s" begin="0s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" values="${sepLen};0"/>
@@ -149,6 +182,7 @@ function buildCard(q, idx, total) {
     <path transform="translate(${MARGIN_X} 88)" d="${rub2.d}"/>
   </g>
   <g fill="${C.brownSoft}"><path transform="translate(${MARGIN_X} 118)" d="${numLaid.d}"/></g>
+  <g fill="${C.goldInk}" opacity="0.85"><path transform="translate(${MARGIN_X} 142)" d="${langNote.d}"/></g>
   ${hedera(MARGIN_X + 10, H - 46, 15, C.gold, 0.8)}
 
   <g opacity="1">
@@ -162,6 +196,7 @@ function buildCard(q, idx, total) {
   </g>
 
   <g fill="${C.goldInk}" stroke="${C.goldInk}" stroke-width="0.2" opacity="1"><animate attributeName="opacity" from="0" to="1" dur="1.2s" begin="0s" fill="freeze"/><path transform="translate(${round(ZONE_X1 - source.width)} ${H - 34})" d="${source.d}"/></g>
+  <g fill="${C.brown}" opacity="0.7"><path transform="translate(${ZONE_X0} ${H - 34})" d="${catchword.d}"/></g>
 </svg>`,
   };
 }
