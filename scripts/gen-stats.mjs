@@ -11,7 +11,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { C, layoutLine, round, escapeXml, hedera, ansaFrame, incised, toRoman } from './svglib.mjs';
+import { C, layoutLine, round, escapeXml, hedera, ansaFrame, incised, toRoman, staticize } from './svglib.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -40,9 +40,18 @@ const figY = 158;
 const latY = 192;
 const gloY = 213;
 let figSvg = '';
+// Column half-width budget: hederae sit at W*0.375 / W*0.625, each leaf body
+// reaches ~5.8px from its centre; keep 4px clearance. The workflow feeds live
+// numbers, so wide numerals (LXXXVIII and friends) must shrink, not collide.
+const MAX_NUM_HALF = W * 0.125 - 5.8 - 4;
 figures.forEach((f, i) => {
   const cx = W * (0.25 + 0.25 * i);
-  const num = layoutLine(f.roman, 56, { letterSpacing: 2 });
+  let numSize = 56;
+  let num = layoutLine(f.roman, numSize, { letterSpacing: 2 });
+  while (num.width / 2 > MAX_NUM_HALF && numSize > 28) {
+    numSize -= 1;
+    num = layoutLine(f.roman, numSize, { letterSpacing: 2 });
+  }
   const lat = layoutLine(f.latin, 14, { letterSpacing: 2.6 });
   const glo = layoutLine(f.gloss, 11.5, { letterSpacing: 0.8 });
   missing.push(...num.missing, ...lat.missing, ...glo.missing);
@@ -62,7 +71,7 @@ const focusText = data.focus.join(' · ').toUpperCase();
 const focus = layoutLine(focusText, 13, { letterSpacing: 2.4 });
 missing.push(...focus.missing);
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="The public ledger: ${years} years on GitHub, ${data.publicRepos} public repositories, ${data.followers} followers. Focus: ${data.focus.join(', ')}.">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="The public ledger: ${years} years on GitHub, ${data.publicRepos} public repositories, ${data.followers} followers. Focus: ${escapeXml(data.focus.join(', '))}.">
   <defs>
     <linearGradient id="parch" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#FEFCF8"/>
@@ -96,8 +105,7 @@ if (missing.length) console.warn('MISSING GLYPHS:', JSON.stringify(missing));
 else console.log('All glyphs resolved.');
 
 if (process.env.STATIC) {
-  const stat = svg.replaceAll(' opacity="0"', ' opacity="1"');
   const dir = join(ROOT, '.preview');
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, 'stats.svg'), stat, 'utf8');
+  writeFileSync(join(dir, 'stats.svg'), staticize(svg), 'utf8');
 }

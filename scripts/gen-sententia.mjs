@@ -10,7 +10,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { C, fitText, textBlock, layoutLine, round, escapeXml, hedera, ruling, toRoman } from './svglib.mjs';
+import { C, fitText, textBlock, layoutLine, round, escapeXml, hedera, ruling, toRoman, staticize } from './svglib.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -162,12 +162,6 @@ function buildCard(q, idx, total) {
   };
 }
 
-// For offline visual QA: collapse animations to their final state so a static
-// rasterizer (librsvg/sharp, which ignore SMIL) shows the finished card.
-function staticize(svg) {
-  // Leading space avoids clobbering stop-opacity / fill-opacity etc.
-  return svg.replaceAll(' opacity="0"', ' opacity="1"');
-}
 const STATIC = !!process.env.STATIC;
 let staticDir = null;
 if (STATIC) {
@@ -176,14 +170,12 @@ if (STATIC) {
 }
 
 // Render all cards.
-const manifest = [];
 let totalMissing = 0;
 quotes.forEach((q, i) => {
   const { svg, missing } = buildCard(q, i, quotes.length);
   const name = `${String(i).padStart(2, '0')}.svg`;
   writeFileSync(join(OUT, name), svg, 'utf8');
   if (STATIC) writeFileSync(join(staticDir, name), staticize(svg), 'utf8');
-  manifest.push({ i, file: `assets/sententia/${name}`, source: q.source, lang: q.lang, missing });
   if (missing.length) {
     totalMissing += missing.length;
     console.warn(`  ! ${name} (${q.source}) missing glyphs: ${JSON.stringify(missing)}`);

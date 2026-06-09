@@ -99,7 +99,9 @@ export function measure(text, fontSize, letterSpacing = 0, fnt) {
   return layoutLine(text, fontSize, { letterSpacing, font: fnt }).width;
 }
 
-// Greedy word-wrap to a max width at a given font size. Returns array of lines.
+// Word-wrap to a max width at a given font size. Greedy first; a 2-line
+// result is then rebalanced (break point minimising the width difference,
+// both lines still within maxWidth) so the second line is never a widow.
 export function wrap(text, fontSize, maxWidth, letterSpacing = 0, fnt) {
   const words = text.split(/\s+/).filter(Boolean);
   const lines = [];
@@ -114,6 +116,20 @@ export function wrap(text, fontSize, maxWidth, letterSpacing = 0, fnt) {
     }
   }
   if (cur) lines.push(cur);
+  if (lines.length === 2) {
+    let best = { diff: Infinity, k: -1 };
+    for (let k = 1; k < words.length; k++) {
+      const w1 = measure(words.slice(0, k).join(' '), fontSize, letterSpacing, fnt);
+      const w2 = measure(words.slice(k).join(' '), fontSize, letterSpacing, fnt);
+      if (w1 <= maxWidth && w2 <= maxWidth) {
+        const diff = Math.abs(w1 - w2);
+        if (diff < best.diff) best = { diff, k };
+      }
+    }
+    if (best.k !== -1) {
+      return [words.slice(0, best.k).join(' '), words.slice(best.k).join(' ')];
+    }
+  }
   return lines;
 }
 
@@ -194,9 +210,12 @@ export function hedera(cx, cy, size = 16, fill = C.crimson, opacity = 1, flip = 
 }
 
 // Greek-key fret strip: repeated squared-spiral hooks, stroke-drawn. `s` is the
-// step; each hook is 3s wide and 3s tall on a pitch of 4s. Returns one <path>
-// with M-separated subpaths, so a stroke-dashoffset draw-in still works.
-export function meanderStrip(x, y, w, s = 3, stroke = C.gold, strokeWidth = 1, opacity = 0.45) {
+// step; each hook is 3s wide and 3s tall (path length 14s) on a pitch of 4s.
+// Pass drawIn = { len: 14*s, dur: '1s' } for a SMIL draw-in intro; the dash
+// attributes then live on the <path> itself, because animating an inherited
+// presentation attribute on a parent <g> does not reach child paths in
+// Chromium/Firefox. Base state stays fully drawn (dashoffset 0).
+export function meanderStrip(x, y, w, s = 3, stroke = C.gold, strokeWidth = 1, opacity = 0.45, drawIn = null) {
   const pitch = 4 * s;
   const n = Math.max(1, Math.floor((w - 3 * s) / pitch) + 1);
   const used = (n - 1) * pitch + 3 * s;
@@ -206,7 +225,11 @@ export function meanderStrip(x, y, w, s = 3, stroke = C.gold, strokeWidth = 1, o
     const ux = round(x0 + i * pitch);
     d += `M${ux} ${round(y + 3 * s)}v${-3 * s}h${3 * s}v${3 * s}h${-2 * s}v${-2 * s}h${s}`;
   }
-  return `<path d="${d}" fill="none" stroke="${stroke}" stroke-width="${strokeWidth}" opacity="${opacity}"/>`;
+  const dash = drawIn ? ` stroke-dasharray="${drawIn.len}" stroke-dashoffset="0"` : '';
+  const anim = drawIn
+    ? `<animate attributeName="stroke-dashoffset" from="${drawIn.len}" to="0" dur="${drawIn.dur}" begin="0s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" values="${drawIn.len};0"/>`
+    : '';
+  return `<path d="${d}" fill="none" stroke="${stroke}" stroke-width="${strokeWidth}" opacity="${opacity}"${dash}>${anim}</path>`;
 }
 
 // Tabula ansata: plaque body plus trapezoidal dovetail handles (ansae) on the
@@ -231,6 +254,13 @@ export function ruling(x, y, w, h, step = 24, stroke = C.gold, opacity = 0.14) {
     out += `<line x1="${round(x)}" y1="${round(ly)}" x2="${round(x + w)}" y2="${round(ly)}" stroke="${stroke}" stroke-width="0.6"/>`;
   }
   return `<g opacity="${opacity}">${out}</g>`;
+}
+
+// Strip every SMIL element so a static rasterizer (librsvg/sharp, which
+// ignore SMIL anyway) and a browser preview both show the finished frame.
+// All animate elements emitted by this repo are self-closing.
+export function staticize(svg) {
+  return svg.replace(/<animate(?:Transform)?\b[^>]*\/>/g, '');
 }
 
 // Chiseled (V-cut) lettering on parchment: a pale catch-light peeking below,

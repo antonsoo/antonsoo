@@ -12,7 +12,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { C, layoutLine, round, escapeXml } from './svglib.mjs';
+import { C, layoutLine, round, escapeXml, staticize } from './svglib.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -135,5 +135,5 @@ else console.log('All glyphs resolved (no .notdef).');
 if (process.env.STATIC) {
   const dir = join(ROOT, '.preview');
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, 'instrumenta.svg'), svg, 'utf8');
+  writeFileSync(join(dir, 'instrumenta.svg'), staticize(svg), 'utf8');
 }

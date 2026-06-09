@@ -4,10 +4,10 @@
 // staggered SMIL reveals. All text is baked to vector paths; the fresco is an
 // embedded base64 JPEG (768px, cut from the 4096px master icon).
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { C, layoutLine, round, meanderStrip } from './svglib.mjs';
+import { C, layoutLine, round, meanderStrip, staticize } from './svglib.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -120,11 +120,9 @@ console.log(`banner.svg written (${svg.length} bytes). name width=${round(name.w
 if (missing.length) console.warn('MISSING GLYPHS:', JSON.stringify(missing));
 else console.log('All glyphs resolved.');
 
-// Static QA copy (animations collapsed to final state).
+// Static QA copy (SMIL stripped; base state is already the final frame).
 if (process.env.STATIC) {
-  const stat = svg
-    .replaceAll(' opacity="0"', ' opacity="1"')
-    .replace(new RegExp(`stroke-dashoffset="${round(ulW)}"`), 'stroke-dashoffset="0"');
   const dir = join(ROOT, '.preview');
-  writeFileSync(join(dir, 'banner.svg'), stat, 'utf8');
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, 'banner.svg'), staticize(svg), 'utf8');
 }

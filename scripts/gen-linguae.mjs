@@ -20,7 +20,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { C, layoutLine, round, escapeXml, font, loadFont, fontFile, meanderStrip } from './svglib.mjs';
+import { C, layoutLine, round, escapeXml, font, loadFont, fontFile, meanderStrip, staticize } from './svglib.mjs';
 import { shapeLine } from './shape.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -142,10 +142,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   <g fill="${C.crimson}" stroke="${C.crimson}" stroke-width="0.25"><path transform="translate(${PAD} 56)" d="${title.d}"/></g>
   <g fill="${C.brownSoft}"><path transform="translate(${round(W - PAD - gloss.width)} 56)" d="${gloss.d}"/></g>
 
-  <g stroke-dasharray="${hookLen}" stroke-dashoffset="0">
-    <animate attributeName="stroke-dashoffset" from="${hookLen}" to="0" dur="1s" begin="0s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" values="${hookLen};0"/>
-    ${meanderStrip(PAD, 68, W - 2 * PAD, 3, C.gold, 1, 0.4)}
-  </g>
+  ${meanderStrip(PAD, 68, W - 2 * PAD, 3, C.gold, 1, 0.4, { len: hookLen, dur: '1s' })}
 
   ${colRules}
 
@@ -164,8 +161,7 @@ if (missing.length) console.warn('MISSING GLYPHS:', JSON.stringify(missing));
 else console.log('All glyphs resolved (no .notdef).');
 
 if (process.env.STATIC) {
-  const stat = svg.replaceAll(' opacity="0"', ' opacity="1"');
   const dir = join(ROOT, '.preview');
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, 'linguae.svg'), stat, 'utf8');
+  writeFileSync(join(dir, 'linguae.svg'), staticize(svg), 'utf8');
 }
