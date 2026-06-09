@@ -10,13 +10,17 @@
 //     joining) and Devanagari (Sanskrit conjuncts + reordering).
 // Egyptian hieroglyphs (quadrat layout) are named in the footer, not drawn here.
 //
+// Design: a monumental titulus (inscription panel). Sharp-cornered incised
+// frame, a Greek-key frieze under the heading, the grid divided by faint
+// column rules as on a stone tablet. Heading rubricated (epigraphic V for U).
+//
 // Languages are ordered by global reach, leading with Classical Chinese, Arabic,
 // and Sanskrit.
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { C, layoutLine, round, escapeXml, font, loadFont, fontFile } from './svglib.mjs';
+import { C, layoutLine, round, escapeXml, font, loadFont, fontFile, meanderStrip } from './svglib.mjs';
 import { shapeLine } from './shape.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -24,7 +28,7 @@ const ROOT = join(__dirname, '..');
 
 const W = 860;
 const H = 360;
-const PAD = 46;
+const PAD = 44;
 
 // Faces (opentype.js).
 const disp = font();                                       // Latin / Greek / Cyrillic
@@ -56,10 +60,6 @@ const tiles = [
 
 const missing = [];
 
-function diamond(cx, cy, r, fill, opacity = 1) {
-  return `<path d="M${round(cx)} ${round(cy - r)}L${round(cx + r)} ${round(cy)}L${round(cx)} ${round(cy + r)}L${round(cx - r)} ${round(cy)}Z" fill="${fill}" opacity="${opacity}"/>`;
-}
-
 // Lay out one native word as { inner, width } with baseline at y=0, left edge at
 // x=0, shrinking to fit maxWidth. `inner` is one or more <path> elements.
 function fitNative(t, maxWidth) {
@@ -76,11 +76,11 @@ function fitNative(t, maxWidth) {
   return { inner: `<path d="${r.d}"/>`, width: r.width };
 }
 
-// Geometry: 5 columns x 2 rows.
+// Geometry: 5 columns x 2 rows, faint column rules between them.
 const colX = [121, 276, 430, 584, 739];
 const TILE_W = 146;
-const rowNative = [137, 227];
-const rowLabel = [161, 251];
+const rowNative = [150, 246];
+const rowLabel = [174, 270];
 
 // One shared label size so every caption matches: largest <= 13 that fits.
 // Cap width at 148 (column pitch 155 minus a gutter) so neighbouring captions
@@ -103,23 +103,29 @@ tiles.forEach((t, i) => {
 
   tileSvg += `<g fill="${C.ink}" transform="translate(${round(cx - nat.width / 2)} ${ny})">${nat.inner}</g>`;
   tileSvg += `<g fill="${C.goldInk}" stroke="${C.goldInk}" stroke-width="0.25"><path transform="translate(${round(cx - lab.width / 2)} ${ly})" d="${lab.d}"/></g>`;
-  tileSvg += `<line x1="${round(cx - 12)}" y1="${round(ly + 9)}" x2="${round(cx + 12)}" y2="${round(ly + 9)}" stroke="${C.gold}" stroke-width="1" opacity="0.45" stroke-linecap="round"/>`;
+  tileSvg += `<line x1="${round(cx - 12)}" y1="${round(ly + 9)}" x2="${round(cx + 12)}" y2="${round(ly + 9)}" stroke="${C.gold}" stroke-width="0.8" opacity="0.35" stroke-linecap="round"/>`;
 });
 
-// Header.
-const title = layoutLine('LINGUAE', 15, { letterSpacing: 3.6 });
-const gloss = layoutLine('each tongue in its own hand', 14, { letterSpacing: 1.2 });
+// Faint column rules between tiles, like the ruled guides of a lapicide.
+const colRuleX = [198.5, 353, 507, 661.5];
+let colRules = '';
+for (const rx of colRuleX) {
+  colRules += `<line x1="${rx}" y1="96" x2="${rx}" y2="284" stroke="${C.gold}" stroke-width="0.6" opacity="0.2"/>`;
+}
+
+// Header (epigraphic V for U, rubricated) and gloss.
+const title = layoutLine('LINGVAE', 16, { letterSpacing: 3.6 });
+const gloss = layoutLine('each tongue in its own hand', 13, { letterSpacing: 1.2 });
 missing.push(...title.missing, ...gloss.missing);
 
 // Footer: the script we teach but do not draw as vectors here.
-const footer = layoutLine('ALSO IN THE APP   ·   ANCIENT EGYPTIAN, IN HIEROGLYPHS', 13.5, { letterSpacing: 2.2 });
+const footer = layoutLine('ALSO IN THE APP · ANCIENT EGYPTIAN, IN HIEROGLYPHS', 12.5, { letterSpacing: 2 });
 missing.push(...footer.missing);
 
-const ruleY = 286;
-const ruleHalf = 150;
-const fy2 = H - 16;
-
 const aria = `Linguae. The languages PRAVIEL teaches, each in its native script: Classical Chinese, Classical Arabic, Classical Sanskrit, Classical Latin, Ancient Greek, Hebrew, Aramaic, Church Slavonic, Middle English, and Gothic. Ancient Egyptian, in hieroglyphs, is also taught in the app.`;
+
+// Hook length of one meander unit at s=3 (for the draw-in intro).
+const hookLen = 14 * 3;
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${escapeXml(aria)}">
   <defs>
@@ -127,22 +133,21 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
       <stop offset="0" stop-color="#FEFCF8"/>
       <stop offset="1" stop-color="#F1ECE2"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.12" r="0.9">
-      <stop offset="0" stop-color="${C.gold}" stop-opacity="0.13"/>
-      <stop offset="0.5" stop-color="${C.gold}" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.035 0"/></filter>
     <filter id="lift" x="-8%" y="-8%" width="116%" height="120%"><feDropShadow dx="0" dy="3" stdDeviation="7" flood-color="#3A2A18" flood-opacity="0.20"/></filter>
   </defs>
 
-  <g filter="url(#lift)"><rect x="6" y="5" width="${W - 12}" height="${H - 14}" rx="15" fill="url(#parch)" stroke="${C.cardEdge}" stroke-width="1"/></g>
-  <rect x="6" y="5" width="${W - 12}" height="${H - 14}" rx="15" fill="url(#glow)"/>
-  <rect x="6" y="5" width="${W - 12}" height="${H - 14}" rx="15" fill="#000" filter="url(#grain)" opacity="0.5" clip-path="inset(0 round 15px)"/>
-  <rect x="16" y="16" width="${W - 32}" height="${H - 36}" rx="9" fill="none" stroke="${C.gold}" stroke-width="1" opacity="0.55"/>
-  ${diamond(26, 26, 2.6, C.gold, 0.7)}${diamond(W - 26, 26, 2.6, C.gold, 0.7)}${diamond(26, fy2 + 6, 2.6, C.gold, 0.7)}${diamond(W - 26, fy2 + 6, 2.6, C.gold, 0.7)}
+  <g filter="url(#lift)"><rect x="6" y="5" width="${W - 12}" height="${H - 14}" rx="3" fill="url(#parch)" stroke="${C.cardEdge}" stroke-width="1"/></g>
+  <rect x="20" y="18" width="${W - 40}" height="${H - 36}" fill="none" stroke="${C.gold}" stroke-width="1.1" opacity="0.55"/>
 
-  <g fill="${C.goldInk}" stroke="${C.goldInk}" stroke-width="0.2"><path transform="translate(${PAD} 58)" d="${title.d}"/></g>
-  <g fill="${C.brownSoft}"><path transform="translate(${round(W - PAD - gloss.width)} 58)" d="${gloss.d}"/></g>
+  <g fill="${C.crimson}" stroke="${C.crimson}" stroke-width="0.25"><path transform="translate(${PAD} 56)" d="${title.d}"/></g>
+  <g fill="${C.brownSoft}"><path transform="translate(${round(W - PAD - gloss.width)} 56)" d="${gloss.d}"/></g>
+
+  <g stroke-dasharray="${hookLen}" stroke-dashoffset="0">
+    <animate attributeName="stroke-dashoffset" from="${hookLen}" to="0" dur="1s" begin="0s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" values="${hookLen};0"/>
+    ${meanderStrip(PAD, 68, W - 2 * PAD, 3, C.gold, 1, 0.4)}
+  </g>
+
+  ${colRules}
 
   <g opacity="1">
     <animate attributeName="opacity" from="0" to="1" dur="0.85s" begin="0s" fill="freeze"/>
@@ -150,14 +155,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
     ${tileSvg}
   </g>
 
-  <g opacity="0.9">
-    <line x1="${W / 2 - ruleHalf}" y1="${ruleY}" x2="${W / 2 + ruleHalf}" y2="${ruleY}" stroke="${C.gold}" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="${ruleHalf * 2}" stroke-dashoffset="0">
-      <animate attributeName="stroke-dashoffset" from="${ruleHalf * 2}" to="0" dur="1.1s" begin="0s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" values="${ruleHalf * 2};0"/>
-    </line>
-    ${diamond(W / 2, ruleY, 3.2, C.crimson, 1)}
-  </g>
-
-  <g fill="${C.goldInk}" stroke="${C.goldInk}" stroke-width="0.2" opacity="1"><animate attributeName="opacity" from="0" to="1" dur="1.2s" begin="0s" fill="freeze"/><path transform="translate(${round(W / 2 - footer.width / 2)} 312)" d="${footer.d}"/></g>
+  <g fill="${C.goldInk}" stroke="${C.goldInk}" stroke-width="0.2" opacity="1"><animate attributeName="opacity" from="0" to="1" dur="1.2s" begin="0s" fill="freeze"/><path transform="translate(${PAD} 327)" d="${footer.d}"/></g>
 </svg>`;
 
 writeFileSync(join(ROOT, 'assets', 'linguae.svg'), svg, 'utf8');
@@ -166,9 +164,7 @@ if (missing.length) console.warn('MISSING GLYPHS:', JSON.stringify(missing));
 else console.log('All glyphs resolved (no .notdef).');
 
 if (process.env.STATIC) {
-  const stat = svg
-    .replaceAll(' opacity="0"', ' opacity="1"')
-    .replaceAll(`stroke-dashoffset="${ruleHalf * 2}"`, 'stroke-dashoffset="0"');
+  const stat = svg.replaceAll(' opacity="0"', ' opacity="1"');
   const dir = join(ROOT, '.preview');
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, 'linguae.svg'), stat, 'utf8');

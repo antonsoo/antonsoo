@@ -158,3 +158,87 @@ export function textBlock(
 export function round(n) {
   return Math.round(n * 100) / 100;
 }
+
+// Roman numerals, subtractive notation; 0 -> N (nulla).
+export function toRoman(n) {
+  if (n <= 0) return 'N';
+  const map = [
+    [1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'], [100, 'C'], [90, 'XC'],
+    [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I'],
+  ];
+  let out = '';
+  for (const [v, s] of map) while (n >= v) { out += s; n -= v; }
+  return out;
+}
+
+// ---------------------------------------------------------------------------
+// Ornament vocabulary. Authentic Greco-Roman devices, shared by every widget:
+// the hedera distinguens (ivy-leaf divider of Roman inscriptions), the meander
+// fret, the tabula ansata (dovetail-handled dedication plaque), scriptorium
+// ruling, and a chiseled "incised lettering" treatment. These replaced the old
+// corner diamonds / radial glow card template on purpose; do not bring it back.
+// ---------------------------------------------------------------------------
+
+// Ivy leaf on a horizontal axis: tip points right, stalk curls away left
+// (set flip=true to mirror). `size` is the leaf+stalk width in px.
+// Designed on a 17x14 box centred on the leaf body.
+export function hedera(cx, cy, size = 16, fill = C.crimson, opacity = 1, flip = false) {
+  const k = round(size / 17);
+  const sx = flip ? -k : k;
+  const leaf = 'M7 0C5 -5.6 -0.6 -7.2 -3.9 -5C-6.6 -3.1 -6.5 -0.9 -3.4 0C-6.5 0.9 -6.6 3.1 -3.9 5C-0.6 7.2 5 5.6 7 0Z';
+  const stalk = 'M-3.4 0C-6.2 -0.3 -7.9 -1.4 -9.1 -3.3';
+  return `<g transform="translate(${round(cx)} ${round(cy)}) scale(${sx} ${k})" opacity="${opacity}">` +
+    `<path d="${leaf}" fill="${fill}"/>` +
+    `<path d="${stalk}" fill="none" stroke="${fill}" stroke-width="1.2" stroke-linecap="round"/>` +
+    `</g>`;
+}
+
+// Greek-key fret strip: repeated squared-spiral hooks, stroke-drawn. `s` is the
+// step; each hook is 3s wide and 3s tall on a pitch of 4s. Returns one <path>
+// with M-separated subpaths, so a stroke-dashoffset draw-in still works.
+export function meanderStrip(x, y, w, s = 3, stroke = C.gold, strokeWidth = 1, opacity = 0.45) {
+  const pitch = 4 * s;
+  const n = Math.max(1, Math.floor((w - 3 * s) / pitch) + 1);
+  const used = (n - 1) * pitch + 3 * s;
+  let d = '';
+  const x0 = round(x + (w - used) / 2);
+  for (let i = 0; i < n; i++) {
+    const ux = round(x0 + i * pitch);
+    d += `M${ux} ${round(y + 3 * s)}v${-3 * s}h${3 * s}v${3 * s}h${-2 * s}v${-2 * s}h${s}`;
+  }
+  return `<path d="${d}" fill="none" stroke="${stroke}" stroke-width="${strokeWidth}" opacity="${opacity}"/>`;
+}
+
+// Tabula ansata: plaque body plus trapezoidal dovetail handles (ansae) on the
+// left and right, each pierced by a nail hole. Returns { body, ansae, holes }
+// path strings so callers can fill/stroke layers independently.
+export function ansaFrame(x, y, w, h, { ansaW = 32, ansaH = 88, taper = 18, holeR = 3.6 } = {}) {
+  const cy = y + h / 2;
+  const body = `M${x} ${y}H${x + w}V${y + h}H${x}Z`;
+  const left = `M${x} ${round(cy - ansaH / 2)}L${x} ${round(cy + ansaH / 2)}L${x - ansaW} ${round(cy + ansaH / 2 - taper)}L${x - ansaW} ${round(cy - ansaH / 2 + taper)}Z`;
+  const right = `M${x + w} ${round(cy - ansaH / 2)}L${x + w} ${round(cy + ansaH / 2)}L${x + w + ansaW} ${round(cy + ansaH / 2 - taper)}L${x + w + ansaW} ${round(cy - ansaH / 2 + taper)}Z`;
+  const holes = [
+    { cx: round(x - ansaW * 0.52), cy: round(cy), r: holeR },
+    { cx: round(x + w + ansaW * 0.52), cy: round(cy), r: holeR },
+  ];
+  return { body, ansae: left + right, holes };
+}
+
+// Scriptorium ruling: faint horizontal guide lines behind a writing zone.
+export function ruling(x, y, w, h, step = 24, stroke = C.gold, opacity = 0.14) {
+  let out = '';
+  for (let ly = y; ly <= y + h; ly += step) {
+    out += `<line x1="${round(x)}" y1="${round(ly)}" x2="${round(x + w)}" y2="${round(ly)}" stroke="${stroke}" stroke-width="0.6"/>`;
+  }
+  return `<g opacity="${opacity}">${out}</g>`;
+}
+
+// Chiseled (V-cut) lettering on parchment: a pale catch-light peeking below,
+// a dark sliver above, stone-brown face on top. `laid` is a layoutLine result.
+export function incised(laid, x, y, { face = C.brown, light = '#FFFFFF', dark = '#2A2018' } = {}) {
+  return (
+    `<path transform="translate(${round(x)} ${round(y + 1.5)})" d="${laid.d}" fill="${light}" opacity="0.85"/>` +
+    `<path transform="translate(${round(x)} ${round(y - 0.9)})" d="${laid.d}" fill="${dark}" opacity="0.35"/>` +
+    `<path transform="translate(${round(x)} ${round(y)})" d="${laid.d}" fill="${face}"/>`
+  );
+}
