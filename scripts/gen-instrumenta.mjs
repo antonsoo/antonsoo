@@ -52,15 +52,15 @@ let rowSvg = '';
 rows.forEach((r, i) => {
   const by = rowBase[i];
 
-  const lab = layoutLine(r.latin, 13, { letterSpacing: 2.6 });
-  const glo = layoutLine(r.gloss, 12.5, { letterSpacing: 0.8 });
+  const lab = layoutLine(r.latin, 14.5, { letterSpacing: 2.6 });
+  const glo = layoutLine(r.gloss, 13.5, { letterSpacing: 0.8 });
   missing.push(...lab.missing, ...glo.missing);
-  rowSvg += `<g fill="${C.goldInk}"><path transform="translate(${LABEL_X} ${by - 6})" d="${lab.d}"/></g>`;
-  rowSvg += `<g fill="${C.brownSoft}" opacity="0.9"><path transform="translate(${LABEL_X} ${by + 12})" d="${glo.d}"/></g>`;
+  rowSvg += `<g fill="${C.goldInk}" stroke="${C.goldInk}" stroke-width="0.25"><path transform="translate(${LABEL_X} ${by - 6})" d="${lab.d}"/></g>`;
+  rowSvg += `<g fill="${C.brownSoft}"><path transform="translate(${LABEL_X} ${by + 13})" d="${glo.d}"/></g>`;
 
   // Tool line, shrunk to fit if a list ever grows.
   const text = r.tools.join('  ·  ');
-  let size = 17.5;
+  let size = 18.5;
   let line = layoutLine(text, size, { letterSpacing: 0.3 });
   while (line.width > TOOLS_MAX && size > 12) {
     size -= 0.5;
@@ -77,8 +77,8 @@ rows.forEach((r, i) => {
 });
 
 // Header.
-const title = layoutLine('INSTRVMENTA', 13.5, { letterSpacing: 3.6 });
-const gloss = layoutLine('tools of the trade', 12.5, { letterSpacing: 1.2 });
+const title = layoutLine('INSTRVMENTA', 15, { letterSpacing: 3.6 });
+const gloss = layoutLine('tools of the trade', 14, { letterSpacing: 1.2 });
 missing.push(...title.missing, ...gloss.missing);
 
 const fy2 = H - 16;
@@ -104,8 +104,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   <rect x="16" y="16" width="${W - 32}" height="${H - 36}" rx="9" fill="none" stroke="${C.gold}" stroke-width="1" opacity="0.55"/>
   ${diamond(26, 26, 2.6, C.gold, 0.7)}${diamond(W - 26, 26, 2.6, C.gold, 0.7)}${diamond(26, fy2 - 14, 2.6, C.gold, 0.7)}${diamond(W - 26, fy2 - 14, 2.6, C.gold, 0.7)}
 
-  <g fill="${C.goldInk}" opacity="0.92"><path transform="translate(${PAD} 58)" d="${title.d}"/></g>
-  <g fill="${C.brownSoft}" opacity="0.85"><path transform="translate(${round(W - PAD - gloss.width)} 58)" d="${gloss.d}"/></g>
+  <g fill="${C.goldInk}" stroke="${C.goldInk}" stroke-width="0.2"><path transform="translate(${PAD} 58)" d="${title.d}"/></g>
+  <g fill="${C.brownSoft}"><path transform="translate(${round(W - PAD - gloss.width)} 58)" d="${gloss.d}"/></g>
 
   <g opacity="1">
     <animate attributeName="opacity" from="0" to="1" dur="0.85s" begin="0s" fill="freeze"/>

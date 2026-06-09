@@ -39,7 +39,7 @@ function buildCard(q, idx, total) {
     maxWidth: W - 2 * (PAD + 70),
     maxLines: 2,
     startSize: 22,
-    minSize: 15,
+    minSize: 16,
     letterSpacing: 0.2,
   });
 
@@ -101,12 +101,12 @@ function buildCard(q, idx, total) {
       </g>`;
 
   // Top label + index, bottom-right source.
-  const label = layoutLine('SENTENTIA  DIEI', 13.5, { letterSpacing: 3.4 });
+  const label = layoutLine('SENTENTIA  DIEI', 15, { letterSpacing: 3.4 });
   allMissing.push(...label.missing);
   const num = `${String(idx + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
-  const numLaid = layoutLine(num, 12.5, { letterSpacing: 2 });
+  const numLaid = layoutLine(num, 13.5, { letterSpacing: 2 });
 
-  const source = layoutLine(q.source, 14.5, { letterSpacing: 1.2 });
+  const source = layoutLine(q.source, 16, { letterSpacing: 1.2 });
   allMissing.push(...source.missing);
 
   // Inner-frame corner ornaments.
@@ -141,8 +141,8 @@ function buildCard(q, idx, total) {
   <rect x="16" y="16" width="${W - 32}" height="${H - 36}" rx="9" fill="none" stroke="${C.gold}" stroke-width="1" opacity="0.55"/>
   ${corners}
 
-  <g fill="${C.goldInk}" opacity="0.92"><path transform="translate(${PAD} 60)" d="${label.d}"/></g>
-  <g fill="${C.brownSoft}" opacity="0.85"><path transform="translate(${round(W - PAD - numLaid.width)} 60)" d="${numLaid.d}"/></g>
+  <g fill="${C.goldInk}" stroke="${C.goldInk}" stroke-width="0.2"><path transform="translate(${PAD} 60)" d="${label.d}"/></g>
+  <g fill="${C.brownSoft}"><path transform="translate(${round(W - PAD - numLaid.width)} 60)" d="${numLaid.d}"/></g>
 
   <g opacity="1">
     <animate attributeName="opacity" from="0" to="1" dur="0.85s" begin="0s" fill="freeze"/>
@@ -154,7 +154,7 @@ function buildCard(q, idx, total) {
     </g>
   </g>
 
-  <g fill="${C.goldInk}" opacity="0.9"><animate attributeName="opacity" from="0" to="0.9" dur="1.2s" begin="0s" fill="freeze"/><path transform="translate(${round(W - PAD - source.width)} ${H - 38})" d="${source.d}"/></g>
+  <g fill="${C.goldInk}" stroke="${C.goldInk}" stroke-width="0.2" opacity="1"><animate attributeName="opacity" from="0" to="1" dur="1.2s" begin="0s" fill="freeze"/><path transform="translate(${round(W - PAD - source.width)} ${H - 38})" d="${source.d}"/></g>
 </svg>`,
   };
 }

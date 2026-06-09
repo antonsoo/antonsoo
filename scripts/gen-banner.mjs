@@ -20,7 +20,7 @@ const T = {
   roleCream: '#E7DCC9',
   gold: '#D9BE7A',
   goldLine: '#C5A059',
-  muted: '#BDB09C',
+  muted: '#CDC2AE',
 };
 
 const missing = [];
@@ -59,10 +59,10 @@ const PY = (H - PS) / 2;
 
 // Text column (right of panel).
 const TX = 304;
-const eyebrow = lineSvg('ΓΝΩΘΙ  ΣΑΥΤΟΝ', TX + 2, 116, 19, 6.5, T.gold);
+const eyebrow = lineSvg('ΓΝΩΘΙ  ΣΑΥΤΟΝ', TX + 2, 116, 20, 6.5, T.gold);
 const name = lineSvg('ANTON SOLOVIEV', TX, 182, 57, 2.4, T.cream);
 const role1 = lineSvg('Founder & CEO of PRAVIEL', TX + 1, 238, 23, 0.4, T.roleCream);
-const role2 = lineSvg('AI researcher. Reviving the languages the world calls dead.', TX + 1, 270, 17, 0.2, T.muted);
+const role2 = lineSvg('AI researcher. Reviving the languages the world calls dead.', TX + 1, 270, 19, 0.2, T.muted);
 
 const ulY = 200;
 const ulW = name.width;

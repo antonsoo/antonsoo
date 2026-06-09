@@ -18,12 +18,12 @@ export const C = {
   cardEdge: '#EAE3D6',
   ink: '#1A1919',
   brown: '#5D4E42',
-  brownSoft: '#6A5D52',
+  brownSoft: '#5D5147',
   crimson: '#8B1E1E',
   crimsonDeep: '#6E1818',
   terracotta: '#C45B36',
   gold: '#C5A059',
-  goldInk: '#6B5128',
+  goldInk: '#5E4722',
   goldSoft: '#D8C390',
 };
 
