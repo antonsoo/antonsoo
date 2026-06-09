@@ -43,8 +43,8 @@ By training an AI researcher; by calling, a teacher of very old languages. At th
 
 **PRAVIEL: Ancient Languages.** Short daily lessons with authentic pronunciation, image-paired vocabulary, and guided reading. Built for beginners, checked by experts. Web, iPhone, and Android.
 
-<a href="https://praviel.com"><img src="https://img.shields.io/badge/App_Store-6E1818?style=for-the-badge&logo=apple&logoColor=F4EFE4" alt="App Store" /></a>
-<a href="https://praviel.com"><img src="https://img.shields.io/badge/Google_Play-6E1818?style=for-the-badge&logo=googleplay&logoColor=F4EFE4" alt="Google Play" /></a>
+<a href="https://apps.apple.com/app/id6756199566"><img src="https://img.shields.io/badge/App_Store-6E1818?style=for-the-badge&logo=apple&logoColor=F4EFE4" alt="Download PRAVIEL on the App Store" /></a>
+<a href="https://play.google.com/store/apps/details?id=com.praviel"><img src="https://img.shields.io/badge/Google_Play-6E1818?style=for-the-badge&logo=googleplay&logoColor=F4EFE4" alt="Get PRAVIEL on Google Play" /></a>
 <a href="https://www.linkedin.com/company/praviel-ancient-languages/"><img src="https://img.shields.io/badge/PRAVIEL_on_LinkedIn-816A3A?style=for-the-badge&logo=linkedin&logoColor=F4EFE4" alt="PRAVIEL on LinkedIn" /></a>
 
 </td>
@@ -68,7 +68,7 @@ By training an AI researcher; by calling, a teacher of very old languages. At th
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=py,pytorch,tensorflow,sklearn,dart,flutter,ts,nextjs,react,tailwind,nodejs,rust,cpp,docker,postgres,redis,cloudflare,git,linux&perline=10" alt="Python, PyTorch, TensorFlow, scikit-learn, Dart, Flutter, TypeScript, Next.js, React, Tailwind, Node, Rust, C++, Docker, Postgres, Redis, Cloudflare, Git, Linux" />
+<img src="https://skillicons.dev/icons?i=py,pytorch,tensorflow,sklearn,dart,flutter,ts,nextjs,react,tailwind,nodejs,cpp,docker,postgres,redis,cloudflare,git,linux&perline=9" alt="Python, PyTorch, TensorFlow, scikit-learn, Dart, Flutter, TypeScript, Next.js, React, Tailwind, Node, C++, Docker, Postgres, Redis, Cloudflare, Git, Linux" />
 
 </div>
 
@@ -94,11 +94,9 @@ By training an AI researcher; by calling, a teacher of very old languages. At th
 
 <sub>GitHub only sees my open half; the repositories I spend the most time in are private. Counted in Roman numerals, which makes any figure look deliberate.</sub>
 
-<!--
-  Contribution snake: re-enable this line once GitHub Actions are active on the
-  account (the snake.yml workflow publishes it to the output branch):
-  <img src="https://raw.githubusercontent.com/antonsoo/antonsoo/output/snake.svg" alt="My contribution graph, being eaten by a snake" width="100%" />
--->
+<br/><br/>
+
+<img src="https://raw.githubusercontent.com/antonsoo/antonsoo/output/snake.svg" alt="My contribution graph, being eaten by a snake" width="100%" />
 
 </div>
 
@@ -110,7 +108,8 @@ By training an AI researcher; by calling, a teacher of very old languages. At th
 
 <a href="https://praviel.com"><img src="https://img.shields.io/badge/praviel.com-8B1E1E?style=for-the-badge&logo=googlechrome&logoColor=F4EFE4" alt="Website" /></a>
 <a href="https://www.linkedin.com/in/anton-soloviev-b1331240b/"><img src="https://img.shields.io/badge/LinkedIn-8B1E1E?style=for-the-badge&logo=linkedin&logoColor=F4EFE4" alt="LinkedIn" /></a>
-<!-- X / Twitter: add <a href="https://x.com/YOURHANDLE"><img src="https://img.shields.io/badge/X-1A1919?style=for-the-badge&logo=x&logoColor=F4EFE4" alt="X" /></a> once the handle is known -->
+<a href="https://x.com/antonsolv"><img src="https://img.shields.io/badge/X-1A1919?style=for-the-badge&logo=x&logoColor=F4EFE4" alt="X (Twitter)" /></a>
+<a href="https://discord.gg/ExMJ76x5X"><img src="https://img.shields.io/badge/Discord-8B1E1E?style=for-the-badge&logo=discord&logoColor=F4EFE4" alt="PRAVIEL on Discord" /></a>
 <a href="mailto:anton@praviel.com"><img src="https://img.shields.io/badge/anton@praviel.com-6E1818?style=for-the-badge&logoColor=F4EFE4" alt="Email" /></a>
 
 </div>
