@@ -6,3 +6,4 @@ _preview.html
 scripts/.fonttest.mjs
 scripts/.raster.cjs
 scripts/.fonts/
+scripts/fonts/.cache/
