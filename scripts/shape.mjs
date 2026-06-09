@@ -41,7 +41,7 @@ export function shapeLine(path, text, fontSize) {
   let svg = '';
   const missing = [];
   for (const g of items) {
-    if (g.codepoint === 0) missing.push(g.cluster);
+    if (g.codepoint === 0) missing.push(text[g.cluster] ?? `#${g.cluster}`);
     const d = font.glyphToPath(g.codepoint);
     if (d && d.length > 4) {
       const tx = round((cursor + (g.xOffset || 0)) * scale);

@@ -1,8 +1,9 @@
 // Renders assets/instrumenta.svg: the "Instrumenta" ledger of working tools,
 // replacing the third-party skillicons strip. Three engraved rows (machine
 // learning / web & mobile / systems), each headed by a Latin label: ars
-// machinalis is Pliny's collocation for the engineer's art (machinalis
-// scientia, NH 7.125), fabrica the workshop, fundamenta the foundations.
+// machinalis is this repo's coinage after Pliny's machinalis scientia, the
+// learning he credits to Archimedes (NH 7.125); fabrica the workshop,
+// fundamenta the foundations.
 //
 // Design: a tabula cerata (Roman wax tablet). A wooden border band around a
 // recessed writing surface with cut corners, a margin rule separating the

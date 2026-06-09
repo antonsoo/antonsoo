@@ -175,9 +175,9 @@ export function round(n) {
   return Math.round(n * 100) / 100;
 }
 
-// Roman numerals, subtractive notation; 0 -> N (nulla).
+// Roman numerals, subtractive notation; 0 (or anything non-numeric) -> N (nulla).
 export function toRoman(n) {
-  if (n <= 0) return 'N';
+  if (!Number.isFinite(n) || n <= 0) return 'N';
   const map = [
     [1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'], [100, 'C'], [90, 'XC'],
     [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I'],

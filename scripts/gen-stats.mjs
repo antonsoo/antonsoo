@@ -71,7 +71,7 @@ const focusText = data.focus.join(' · ').toUpperCase();
 const focus = layoutLine(focusText, 13, { letterSpacing: 2.4 });
 missing.push(...focus.missing);
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="The public ledger: ${years} years on GitHub, ${data.publicRepos} public repositories, ${data.followers} followers. Focus: ${escapeXml(data.focus.join(', '))}.">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="The public ledger: ${escapeXml(years)} years on GitHub, ${escapeXml(data.publicRepos)} public repositories, ${escapeXml(data.followers)} followers. Focus: ${escapeXml(data.focus.join(', '))}.">
   <defs>
     <linearGradient id="parch" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#FEFCF8"/>
@@ -102,7 +102,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
 writeFileSync(join(ROOT, 'assets', 'stats.svg'), svg, 'utf8');
 console.log(`stats.svg written: ${years}y, ${data.publicRepos} repos, ${data.followers} followers`);
 if (missing.length) console.warn('MISSING GLYPHS:', JSON.stringify(missing));
-else console.log('All glyphs resolved.');
+else console.log('All glyphs resolved (no .notdef).');
 
 if (process.env.STATIC) {
   const dir = join(ROOT, '.preview');
