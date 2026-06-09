@@ -35,7 +35,7 @@ By training, an AI researcher; by calling, a teacher of very old languages: elev
 <table>
 <tr>
 <td width="150" align="center" valign="middle">
-  <img src="assets/praviel-icon.png" width="120" alt="PRAVIEL app icon" />
+  <a href="https://praviel.com"><img src="assets/praviel-icon.gif" width="120" alt="PRAVIEL app icon: an animated fresco angel" /></a>
 </td>
 <td valign="middle">
 
