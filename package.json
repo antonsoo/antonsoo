@@ -10,7 +10,8 @@
     "gen:linguae": "node scripts/gen-linguae.mjs",
     "gen:instrumenta": "node scripts/gen-instrumenta.mjs",
     "gen:stats": "node scripts/gen-stats.mjs",
-    "gen:all": "npm run gen && npm run gen:banner && npm run gen:linguae && npm run gen:instrumenta && npm run gen:stats"
+    "gen:divider": "node scripts/gen-divider.mjs",
+    "gen:all": "npm run gen && npm run gen:banner && npm run gen:linguae && npm run gen:instrumenta && npm run gen:stats && npm run gen:divider"
   },
   "devDependencies": {
     "harfbuzzjs": "^1.2.1",
