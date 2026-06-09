@@ -1,11 +1,13 @@
 // Renders assets/banner.svg: the dramatic dark "imperial" hero. A gold-framed
-// PRAVIEL fresco panel beside the name, with staggered SMIL reveals. All text
-// is baked to vector paths; the fresco is an embedded base64 JPEG.
+// PRAVIEL fresco panel under a segmental arch (an aedicule niche), a meander
+// frieze along the foot of the wall, the name column to the right with
+// staggered SMIL reveals. All text is baked to vector paths; the fresco is an
+// embedded base64 JPEG (768px, cut from the 4096px master icon).
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { C, layoutLine, round } from './svglib.mjs';
+import { C, layoutLine, round, meanderStrip } from './svglib.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -59,12 +61,12 @@ const PY = (H - PS) / 2;
 
 // Text column (right of panel).
 const TX = 304;
-const eyebrow = lineSvg('ΓΝΩΘΙ  ΣΑΥΤΟΝ', TX + 2, 116, 20, 6.5, T.gold);
-const name = lineSvg('ANTON SOLOVIEV', TX, 182, 57, 2.4, T.cream);
-const role1 = lineSvg('Founder & CEO of PRAVIEL', TX + 1, 238, 23, 0.4, T.roleCream);
-const role2 = lineSvg('AI researcher. Reviving the languages the world calls dead.', TX + 1, 270, 19, 0.2, T.muted);
+const eyebrow = lineSvg('ΓΝΩΘΙ  ΣΑΥΤΟΝ', TX + 2, 114, 19, 6, T.gold);
+const name = lineSvg('ANTON SOLOVIEV', TX, 178, 52, 2.4, T.cream);
+const role1 = lineSvg('Founder & CEO of PRAVIEL', TX + 1, 232, 22, 0.4, T.roleCream);
+const role2 = lineSvg('AI researcher. Reviving the languages the world calls dead.', TX + 1, 263, 18, 0.2, T.muted);
 
-const ulY = 200;
+const ulY = 196;
 const ulW = name.width;
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Anton Soloviev. Founder and CEO of PRAVIEL. AI researcher.">
@@ -81,37 +83,32 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
       <stop offset="0" stop-color="${C.gold}" stop-opacity="0.18"/>
       <stop offset="0.6" stop-color="${C.gold}" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="${C.gold}" stop-opacity="0.42"/>
-      <stop offset="1" stop-color="${C.gold}" stop-opacity="0"/>
-    </radialGradient>
     <clipPath id="panelClip"><rect x="${PX}" y="${PY}" width="${PS}" height="${PS}" rx="16"/></clipPath>
+    <clipPath id="bgClip"><rect width="${W}" height="${H}" rx="18"/></clipPath>
     <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"/></filter>
-    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="26"/></filter>
   </defs>
 
   <rect width="${W}" height="${H}" rx="18" fill="url(#bg)"/>
   <rect width="${W}" height="${H}" rx="18" fill="url(#crimson)"/>
   <rect width="${W}" height="${H}" rx="18" fill="url(#goldwash)"/>
-  <rect width="${W}" height="${H}" rx="18" fill="#000" filter="url(#grain)" opacity="0.45" clip-path="inset(0 round 18px)"/>
+  <rect width="${W}" height="${H}" rx="18" fill="#000" filter="url(#grain)" opacity="0.45" clip-path="url(#bgClip)"/>
   <rect x="1" y="1" width="${W - 2}" height="${H - 2}" rx="17" fill="none" stroke="${C.gold}" stroke-width="1" opacity="0.30"/>
-  <rect x="12" y="12" width="${W - 24}" height="${H - 24}" rx="11" fill="none" stroke="${C.gold}" stroke-width="1" opacity="0.16"/>
 
-  <!-- Fresco panel with pulsing gold halo -->
-  <ellipse cx="${PX + PS / 2}" cy="${PY + PS / 2}" rx="${PS / 2 + 6}" ry="${PS / 2 + 6}" fill="url(#halo)" filter="url(#soft)" opacity="0.5">
-    <animate attributeName="opacity" values="0.5;0.92;0.5" dur="5.5s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" keyTimes="0;0.5;1"/>
-  </ellipse>
+  <!-- Meander frieze along the foot of the wall -->
+  ${meanderStrip(40, H - 32, W - 80, 3, C.gold, 1, 0.22)}
+
+  <!-- Fresco panel in an aedicule: a segmental arch springs from behind it -->
+  <path d="M${PX - 8} ${PY + 10}A${PS / 2 + 8} 56 0 0 1 ${PX + PS + 8} ${PY + 10}" fill="none" stroke="${C.gold}" stroke-width="1.1" opacity="0.5"/>
   <g opacity="1"><animate attributeName="opacity" from="0" to="1" dur="1s" begin="0s" fill="freeze"/>
     <rect x="${PX - 2}" y="${PY - 2}" width="${PS + 4}" height="${PS + 4}" rx="18" fill="#0E0B08"/>
     <image href="${ANGEL}" x="${PX}" y="${PY}" width="${PS}" height="${PS}" clip-path="url(#panelClip)" preserveAspectRatio="xMidYMid slice"/>
-    <rect x="${PX}" y="${PY}" width="${PS}" height="${PS}" rx="16" fill="none" stroke="${C.gold}" stroke-width="2" opacity="0.85"/>
-    <rect x="${PX + 6}" y="${PY + 6}" width="${PS - 12}" height="${PS - 12}" rx="11" fill="none" stroke="${C.gold}" stroke-width="1" opacity="0.45"/>
+    <rect x="${PX}" y="${PY}" width="${PS}" height="${PS}" rx="16" fill="none" stroke="${C.gold}" stroke-width="1.8" opacity="0.85"/>
   </g>
 
   <!-- Text column -->
   ${fadeUp(eyebrow.svg, 0.2)}
   ${fadeUp(name.svg, 0.35)}
-  <line x1="${TX}" y1="${ulY}" x2="${round(TX + ulW)}" y2="${ulY}" stroke="${T.goldLine}" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="${round(ulW)}" stroke-dashoffset="0">
+  <line x1="${TX}" y1="${ulY}" x2="${round(TX + ulW)}" y2="${ulY}" stroke="${T.goldLine}" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="${round(ulW)}" stroke-dashoffset="0">
     <animate attributeName="stroke-dashoffset" values="${round(ulW)};${round(ulW)};0" keyTimes="0;0.4;1" dur="1.35s" begin="0s" fill="freeze" calcMode="spline" keySplines="0 0 1 1;0.22 1 0.36 1"/>
   </line>
   ${fadeUp(role1.svg, 0.7)}
