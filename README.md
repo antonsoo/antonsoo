@@ -94,9 +94,11 @@ By training an AI researcher; by calling, a teacher of very old languages. At th
 
 <sub>GitHub only sees my open half; the repositories I spend the most time in are private. Counted in Roman numerals, which makes any figure look deliberate.</sub>
 
-<br/><br/>
-
-<img src="https://raw.githubusercontent.com/antonsoo/antonsoo/output/snake.svg" alt="My contribution graph, being eaten by a snake" width="100%" />
+<!--
+  Contribution snake: re-enable this line once GitHub Actions are active on the
+  account (the snake.yml workflow publishes it to the output branch):
+  <img src="https://raw.githubusercontent.com/antonsoo/antonsoo/output/snake.svg" alt="My contribution graph, being eaten by a snake" width="100%" />
+-->
 
 </div>
 
