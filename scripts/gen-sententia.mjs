@@ -189,10 +189,15 @@ quotes.forEach((q, i) => {
   }
 });
 
-// Default displayed card (workflow overwrites daily). Use index 0 as the seed.
-writeFileSync(join(ROOT, 'assets', 'sententia.svg'), buildCard(quotes[0], 0, quotes.length).svg, 'utf8');
+// Default displayed card: seed with TODAY's card using the same formula as the
+// rotation workflow (idx = (UTC day-of-year - 1) % count), so regenerating and
+// committing never knocks the profile back to card 0 mid-cycle.
+const now = new Date();
+const utcDayOfYear = Math.floor((Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()) - Date.UTC(now.getUTCFullYear(), 0, 0)) / 86400000);
+const seedIdx = (utcDayOfYear - 1) % quotes.length;
+writeFileSync(join(ROOT, 'assets', 'sententia.svg'), buildCard(quotes[seedIdx], seedIdx, quotes.length).svg, 'utf8');
 
 console.log(`Rendered ${quotes.length} sententia cards -> assets/sententia/`);
-console.log(`Seed card -> assets/sententia.svg`);
+console.log(`Seed card (UTC day ${utcDayOfYear} -> index ${seedIdx}) -> assets/sententia.svg`);
 if (totalMissing === 0) console.log('All glyphs resolved (no .notdef).');
 else console.log(`WARNING: ${totalMissing} missing glyph(s) above.`);

@@ -1,6 +1,6 @@
 // Renders assets/banner.svg: the dramatic dark "imperial" hero. A gold-framed
 // PRAVIEL fresco panel beside the name, with staggered SMIL reveals. All text
-// is baked to vector paths; the fresco is an embedded base64 PNG.
+// is baked to vector paths; the fresco is an embedded base64 JPEG.
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
