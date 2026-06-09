@@ -19,7 +19,7 @@
 
 </div>
 
-By training an AI researcher; by calling, a teacher of very old languages. That means teaching the world to read and speak eleven of them out loud, from Latin and Ancient Greek to Gothic and Classical Chinese, and building the tools that make it stick.
+By training, an AI researcher; by calling, a teacher of very old languages. That means teaching the world to read and speak eleven of them out loud, from Latin and Ancient Greek to Gothic and Classical Chinese, and building the tools that make it stick.
 
 <img src="assets/divider-gold.svg" alt="" width="100%" />
 

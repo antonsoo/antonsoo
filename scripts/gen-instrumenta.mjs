@@ -102,7 +102,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   <rect x="6" y="5" width="${W - 12}" height="${H - 14}" rx="15" fill="url(#glow)"/>
   <rect x="6" y="5" width="${W - 12}" height="${H - 14}" rx="15" fill="#000" filter="url(#grain)" opacity="0.5" clip-path="inset(0 round 15px)"/>
   <rect x="16" y="16" width="${W - 32}" height="${H - 36}" rx="9" fill="none" stroke="${C.gold}" stroke-width="1" opacity="0.55"/>
-  ${diamond(26, 26, 2.6, C.gold, 0.7)}${diamond(W - 26, 26, 2.6, C.gold, 0.7)}${diamond(26, fy2 - 2, 2.6, C.gold, 0.7)}${diamond(W - 26, fy2 - 2, 2.6, C.gold, 0.7)}
+  ${diamond(26, 26, 2.6, C.gold, 0.7)}${diamond(W - 26, 26, 2.6, C.gold, 0.7)}${diamond(26, fy2 - 14, 2.6, C.gold, 0.7)}${diamond(W - 26, fy2 - 14, 2.6, C.gold, 0.7)}
 
   <g fill="${C.goldInk}" opacity="0.92"><path transform="translate(${PAD} 58)" d="${title.d}"/></g>
   <g fill="${C.brownSoft}" opacity="0.7"><path transform="translate(${round(W - PAD - gloss.width)} 58)" d="${gloss.d}"/></g>
