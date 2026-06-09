@@ -26,7 +26,7 @@ By training, an AI researcher; by calling, a teacher of very old languages: elev
 - Founder & CEO of **[PRAVIEL](https://praviel.com)**, a lessons-first app that teaches ancient languages as living, speakable systems.
 - Trained in **artificial intelligence** at the Institute of Science Tokyo. Before PRAVIEL: speech recognition on supercomputers, LLM agents, and a startup or two.
 - I care about pronunciation, provenance, and shipping. Order depends on the day.
-- My bio reads **ΓΝΩΘΙ ΣΑΥΤΟΝ**, *know thyself*. Still a work in progress.
+- My bio reads **ΓΝΩΘΙ ΣΑΥΤΟΝ**, *know thyself*. Thales called it the hardest thing there is; the easiest, advising others (Diogenes Laertius 1.36).
 
 <img src="assets/divider-gold.svg" alt="" width="100%" />
 
@@ -73,11 +73,11 @@ By training, an AI researcher; by calling, a teacher of very old languages: elev
 
 <img src="assets/instrumenta.svg" alt="Instrumenta, the tools of the trade, on a wax tablet. Machine learning: Python, PyTorch, TensorFlow, scikit-learn. Web and mobile: Dart, Flutter, TypeScript, React, Next.js, Tailwind, Node.js. Systems and infrastructure: C++, Docker, Postgres, Redis, Cloudflare, Git, Linux." width="100%" />
 
-<sub>The adjective is Pliny's: he files Archimedes under <em>machinalis scientia</em> (Natural History 7.125).</sub>
+<sub>The first row's adjective is Pliny's: he files Archimedes under <em>machinalis scientia</em> (Natural History 7.125).</sub>
 
 <br/><br/>
 
-<img src="assets/sententia.svg" alt="A classical sententia, rotated daily" width="100%" />
+<img src="assets/sententia.svg" alt="The sententia of the day: a Greek or Latin line with its translation and source, changed each morning." width="100%" />
 
 <sub>A new line each morning, by GitHub Action, from people considerably wiser than me.</sub>
 
