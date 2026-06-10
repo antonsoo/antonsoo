@@ -117,8 +117,10 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
 
 writeFileSync(join(ROOT, 'assets', 'banner.svg'), svg, 'utf8');
 console.log(`banner.svg written (${svg.length} bytes). name width=${round(name.width)}`);
-if (missing.length) console.warn('MISSING GLYPHS:', JSON.stringify(missing));
-else console.log('All glyphs resolved (no .notdef).');
+if (missing.length) {
+  console.warn('MISSING GLYPHS:', JSON.stringify(missing));
+  process.exitCode = 1;
+} else console.log('All glyphs resolved (no .notdef).');
 
 // Static QA copy (SMIL stripped; base state is already the final frame).
 if (process.env.STATIC) {

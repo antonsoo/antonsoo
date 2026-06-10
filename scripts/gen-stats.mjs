@@ -52,6 +52,10 @@ figures.forEach((f, i) => {
     numSize -= 1;
     num = layoutLine(f.roman, numSize, { letterSpacing: 2 });
   }
+  if (num.width / 2 > MAX_NUM_HALF) {
+    console.warn(`numeral "${f.roman}" still over budget at minimum size (half-width ${round(num.width / 2)} > ${round(MAX_NUM_HALF)})`);
+    process.exitCode = 1;
+  }
   const lat = layoutLine(f.latin, 14, { letterSpacing: 2.6 });
   const glo = layoutLine(f.gloss, 11.5, { letterSpacing: 0.8 });
   missing.push(...num.missing, ...lat.missing, ...glo.missing);
@@ -101,8 +105,10 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
 
 writeFileSync(join(ROOT, 'assets', 'stats.svg'), svg, 'utf8');
 console.log(`stats.svg written: ${years}y, ${data.publicRepos} repos, ${data.followers} followers`);
-if (missing.length) console.warn('MISSING GLYPHS:', JSON.stringify(missing));
-else console.log('All glyphs resolved (no .notdef).');
+if (missing.length) {
+  console.warn('MISSING GLYPHS:', JSON.stringify(missing));
+  process.exitCode = 1;
+} else console.log('All glyphs resolved (no .notdef).');
 
 if (process.env.STATIC) {
   const dir = join(ROOT, '.preview');

@@ -51,6 +51,12 @@ const TOOLS_X = 254;
 const TOOLS_MAX = W - PAD - TOOLS_X;
 const rowBase = [126, 187, 248];
 
+// A fourth row would index past rowBase and render at a silent undefined
+// baseline. Fail loudly instead.
+if (rows.length !== rowBase.length) {
+  throw new Error(`instrumenta row count mismatch: ${rows.length} rows, ${rowBase.length} baselines`);
+}
+
 let rowSvg = '';
 rows.forEach((r, i) => {
   const by = rowBase[i];
@@ -130,8 +136,10 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
 
 writeFileSync(join(ROOT, 'assets', 'instrumenta.svg'), svg, 'utf8');
 console.log(`instrumenta.svg written (${svg.length} bytes), ${rows.length} rows.`);
-if (missing.length) console.warn('MISSING GLYPHS:', JSON.stringify(missing));
-else console.log('All glyphs resolved (no .notdef).');
+if (missing.length) {
+  console.warn('MISSING GLYPHS:', JSON.stringify(missing));
+  process.exitCode = 1;
+} else console.log('All glyphs resolved (no .notdef).');
 
 if (process.env.STATIC) {
   const dir = join(ROOT, '.preview');

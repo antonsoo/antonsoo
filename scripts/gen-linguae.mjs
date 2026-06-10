@@ -82,6 +82,12 @@ const TILE_W = 146;
 const rowNative = [150, 246];
 const rowLabel = [174, 270];
 
+// The grid is fixed; an 11th tile would index past rowNative and render as a
+// silent NaN transform. Fail loudly instead.
+if (tiles.length !== colX.length * rowNative.length) {
+  throw new Error(`linguae tile count mismatch: ${tiles.length} tiles, grid holds ${colX.length * rowNative.length}`);
+}
+
 // One shared label size so every caption matches: largest <= 13 that fits.
 // Cap width at 148 (column pitch 155 minus a gutter) so neighbouring captions
 // can never run into each other.
@@ -157,8 +163,10 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
 
 writeFileSync(join(ROOT, 'assets', 'linguae.svg'), svg, 'utf8');
 console.log(`linguae.svg written (${svg.length} bytes), ${tiles.length} tongues in-script, labelSize ${labelSize}.`);
-if (missing.length) console.warn('MISSING GLYPHS:', JSON.stringify(missing));
-else console.log('All glyphs resolved (no .notdef).');
+if (missing.length) {
+  console.warn('MISSING GLYPHS:', JSON.stringify(missing));
+  process.exitCode = 1;
+} else console.log('All glyphs resolved (no .notdef).');
 
 if (process.env.STATIC) {
   const dir = join(ROOT, '.preview');

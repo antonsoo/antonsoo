@@ -156,6 +156,7 @@ function buildCard(q, idx, total) {
 
   return {
     missing: allMissing,
+    stackBottom: round(offsetY + totalH),
     svg: `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${escapeXml(q.text)}${ariaSep} ${escapeXml(q.translation)} (${escapeXml(q.source)})">
   <defs>
     <linearGradient id="parch" x1="0" y1="0" x2="0" y2="1">
@@ -208,16 +209,25 @@ if (STATIC) {
   mkdirSync(staticDir, { recursive: true });
 }
 
-// Render all cards.
+// Render all cards. The quote/translation stack must stay inside the ruled
+// writing zone (last ruling line at y=244, +2px descender cushion); fitText
+// can legally return more lines than maxLines at minSize, so a future long
+// quote fails here instead of silently spilling onto the colophon.
+const STACK_BOTTOM_MAX = 246;
 let totalMissing = 0;
+let overflowCount = 0;
 quotes.forEach((q, i) => {
-  const { svg, missing } = buildCard(q, i, quotes.length);
+  const { svg, missing, stackBottom } = buildCard(q, i, quotes.length);
   const name = `${String(i).padStart(2, '0')}.svg`;
   writeFileSync(join(OUT, name), svg, 'utf8');
   if (STATIC) writeFileSync(join(staticDir, name), staticize(svg), 'utf8');
   if (missing.length) {
     totalMissing += missing.length;
     console.warn(`  ! ${name} (${q.source}) missing glyphs: ${JSON.stringify(missing)}`);
+  }
+  if (stackBottom > STACK_BOTTOM_MAX) {
+    overflowCount += 1;
+    console.warn(`  ! ${name} (${q.source}) overflows the writing zone: stack bottom ${stackBottom} > ${STACK_BOTTOM_MAX}`);
   }
 });
 
@@ -232,4 +242,11 @@ writeFileSync(join(ROOT, 'assets', 'sententia.svg'), buildCard(quotes[seedIdx], 
 console.log(`Rendered ${quotes.length} sententia cards -> assets/sententia/`);
 console.log(`Seed card (UTC day ${utcDayOfYear} -> index ${seedIdx}) -> assets/sententia.svg`);
 if (totalMissing === 0) console.log('All glyphs resolved (no .notdef).');
-else console.log(`WARNING: ${totalMissing} missing glyph(s) above.`);
+else {
+  console.log(`WARNING: ${totalMissing} missing glyph(s) above.`);
+  process.exitCode = 1;
+}
+if (overflowCount > 0) {
+  console.warn(`WARNING: ${overflowCount} card(s) overflow the writing zone.`);
+  process.exitCode = 1;
+}
