@@ -7,3 +7,5 @@ scripts/.fonttest.mjs
 scripts/.raster.cjs
 scripts/.fonts/
 scripts/fonts/.cache/
+CLAUDE.md
+AGENTS.md
