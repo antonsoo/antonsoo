@@ -27,12 +27,15 @@ jobs:
       - name: Select today's card
         run: |
           set -euo pipefail
-          count=$(find assets/sententia -name '*.svg' | wc -l)
-          if [ "$count" -eq 0 ]; then echo "no cards found"; exit 1; fi
+          # Count only the NN.svg cards, so a stray file can never inflate the
+          # modulo and point the rotation at a card that does not exist.
+          count=$(find assets/sententia -name '[0-9][0-9].svg' | wc -l)
+          if [ "$count" -eq 0 ]; then echo "no NN.svg cards found in assets/sententia"; exit 1; fi
           doy=$(date -u +%j)            # day of year, 001..366
           idx=$(( (10#$doy - 1) % count ))
           printf -v src 'assets/sententia/%02d.svg' "$idx"
           echo "day $doy of year -> card $idx of $count ($src)"
+          [ -f "$src" ] || { echo "card not found: $src (non-contiguous numbering?)"; exit 1; }
           cp "$src" assets/sententia.svg
 
       - name: Commit if changed
