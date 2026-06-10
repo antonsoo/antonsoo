@@ -1,0 +1,58 @@
+name: Verify generators
+
+# Regenerates every SVG from source and fails if anything drifted or degraded:
+# missing glyphs, writing-zone overflow, and grid-size assertions all exit
+# nonzero from the generators themselves; byte-stability then proves the
+# committed assets match the scripts. Two files are excluded from the byte
+# check by design: assets/sententia.svg (gen-sententia seeds it with TODAY's
+# card) and assets/stats.svg (years recompute from the current UTC year and
+# drift briefly at New Year until tabula.yml refreshes).
+
+on:
+  push:
+    paths:
+      - "scripts/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/verify.yml"
+  pull_request:
+    paths:
+      - "scripts/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/verify.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Regenerate all assets
+        run: npm run gen:all
+
+      - name: Check asset byte-stability
+        run: |
+          git diff --exit-code -- assets \
+            ':(exclude)assets/sententia.svg' \
+            ':(exclude)assets/stats.svg'
+
+      - name: Check for em/en dashes
+        run: |
+          if grep -rqP '\x{2014}|\x{2013}' README.md assets/; then
+            echo "ERROR: em or en dash found in README.md or assets/"
+            grep -rlP '\x{2014}|\x{2013}' README.md assets/
+            exit 1
+          fi
+          echo "No em/en dashes."
