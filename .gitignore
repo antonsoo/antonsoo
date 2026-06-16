@@ -7,6 +7,9 @@ scripts/.fonttest.mjs
 scripts/.raster.cjs
 scripts/.fonts/
 scripts/fonts/.cache/
+# Local-only image masters: the committed artifact is the baked b64 (e.g.
+# scripts/thoth.b64), not the heavyweight source it is generated from.
+assets/more_images/
 CLAUDE.md
 AGENTS.md
 .claude/
