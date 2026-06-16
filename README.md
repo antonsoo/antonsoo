@@ -12,7 +12,7 @@
 <br/>
 
 <a href="https://praviel.com"><img src="https://img.shields.io/badge/Visit-PRAVIEL-8B1E1E?style=flat-square&labelColor=6E1818" alt="PRAVIEL" /></a>
-<a href="https://github.com/antonsoo?tab=followers"><img src="https://img.shields.io/github/followers/antonsoo?style=flat-square&color=181717&labelColor=000000&logo=github&logoColor=white&label=followers" alt="Followers" /></a>
+<a href="https://github.com/antonsoo?tab=followers"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fantonsoo%2Fantonsoo%2Fmain%2Fscripts%2Fstats-data.json&query=%24.followers&style=flat-square&color=181717&labelColor=000000&logo=github&logoColor=white&label=followers" alt="Followers" /></a>
 <img src="https://img.shields.io/badge/est.-MMXVIII-5E4722?style=flat-square&labelColor=F3EFE7" alt="On GitHub since 2018" />
 
 </div>
