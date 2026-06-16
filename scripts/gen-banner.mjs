@@ -55,14 +55,15 @@ function fadeUp(inner, delay = 0, dy = 9) {
     `${inner}</g>`;
 }
 
-// Fresco panel geometry (left).
-const PX = 72;
-const PS = 192;
+// Fresco panel geometry (left). Enlarged to anchor the bigger title block and
+// close the empty dark bands above/below the portrait.
+const PX = 66;
+const PS = 212;
 const PY = (H - PS) / 2;
 
 // Text column (right of panel). Sized to fill the width: the name reaches deep
 // into the formerly empty right third, and the supporting lines scale with it.
-const TX = 296;
+const TX = 306;
 const eyebrow = lineSvg('ΓΝΩΘΙ  ΣΑΥΤΟΝ', TX + 2, 95, 22, 7, T.gold);
 const name = lineSvg('ANTON SOLOVIEV', TX, 166, 64, 2.4, T.cream);
 const role1 = lineSvg('Founder & CEO of PRAVIEL', TX + 1, 230, 26, 0.4, T.roleCream);
