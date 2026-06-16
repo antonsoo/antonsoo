@@ -16,13 +16,14 @@ const FRESCO = readFileSync(join(__dirname, 'thoth.b64'), 'utf8').trim();
 const W = 1000;
 const H = 340;
 
-// Banner-specific tones (dark ground, warm metals).
+// Banner-specific tones (dark ground, warm metals). Lifted brighter than the
+// page palette for legibility of small text over the grainy dark ground.
 const T = {
-  cream: '#F4EFE4',
-  roleCream: '#E7DCC9',
-  gold: '#D9BE7A',
-  goldLine: '#C5A059',
-  muted: '#CDC2AE',
+  cream: '#F6F1E7',
+  roleCream: '#F1E7D6',
+  gold: '#E3CA84',
+  goldLine: '#C9A661',
+  muted: '#DBD0BB',
 };
 
 const missing = [];
@@ -59,14 +60,15 @@ const PX = 72;
 const PS = 192;
 const PY = (H - PS) / 2;
 
-// Text column (right of panel).
-const TX = 304;
-const eyebrow = lineSvg('ΓΝΩΘΙ  ΣΑΥΤΟΝ', TX + 2, 114, 19, 6, T.gold);
-const name = lineSvg('ANTON SOLOVIEV', TX, 178, 52, 2.4, T.cream);
-const role1 = lineSvg('Founder & CEO of PRAVIEL', TX + 1, 232, 22, 0.4, T.roleCream);
-const role2 = lineSvg('Reviving the languages the world calls dead.', TX + 1, 263, 18, 0.2, T.muted);
+// Text column (right of panel). Sized to fill the width: the name reaches deep
+// into the formerly empty right third, and the supporting lines scale with it.
+const TX = 296;
+const eyebrow = lineSvg('ΓΝΩΘΙ  ΣΑΥΤΟΝ', TX + 2, 95, 22, 7, T.gold);
+const name = lineSvg('ANTON SOLOVIEV', TX, 166, 64, 2.4, T.cream);
+const role1 = lineSvg('Founder & CEO of PRAVIEL', TX + 1, 230, 26, 0.4, T.roleCream);
+const role2 = lineSvg('Reviving the languages the world calls dead.', TX + 1, 265, 21, 0.2, T.muted);
 
-const ulY = 196;
+const ulY = 186;
 const ulW = name.width;
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Anton Soloviev. Founder and CEO of PRAVIEL. Reviving the languages the world calls dead.">
