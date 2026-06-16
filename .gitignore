@@ -9,3 +9,4 @@ scripts/.fonts/
 scripts/fonts/.cache/
 CLAUDE.md
 AGENTS.md
+.claude/
