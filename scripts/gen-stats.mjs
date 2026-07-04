@@ -11,7 +11,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { C, layoutLine, round, escapeXml, hedera, ansaFrame, incised, toRoman, staticize } from './svglib.mjs';
+import { C, layoutLine, round, escapeXml, hedera, ansaFrame, incised, toRoman, fontTitle, staticize } from './svglib.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -30,6 +30,7 @@ const figures = [
 ];
 
 const missing = [];
+const TITLE = fontTitle();  // engraved Roman caps: title, numerals, Latin labels, focus line
 
 // Plaque geometry.
 const BX = 46, BY = 10, BW = W - 92, BH = H - 20;
@@ -46,17 +47,21 @@ let figSvg = '';
 const MAX_NUM_HALF = W * 0.125 - 5.8 - 4;
 figures.forEach((f, i) => {
   const cx = W * (0.25 + 0.25 * i);
+  // letterSpacing 1 (not 2): Cinzel's capitals are wider than the old Didone, so
+  // the tighter spacing restores headroom in the half-width budget below (wide
+  // live counts fed by tabula.yml, e.g. LXXXVIII / CCCLXXXVIII, must not collide
+  // with the hederae). Still reads as monumental engraved caps at these sizes.
   let numSize = 56;
-  let num = layoutLine(f.roman, numSize, { letterSpacing: 2 });
+  let num = layoutLine(f.roman, numSize, { letterSpacing: 1, font: TITLE });
   while (num.width / 2 > MAX_NUM_HALF && numSize > 28) {
     numSize -= 1;
-    num = layoutLine(f.roman, numSize, { letterSpacing: 2 });
+    num = layoutLine(f.roman, numSize, { letterSpacing: 1, font: TITLE });
   }
   if (num.width / 2 > MAX_NUM_HALF) {
     console.warn(`numeral "${f.roman}" still over budget at minimum size (half-width ${round(num.width / 2)} > ${round(MAX_NUM_HALF)})`);
     process.exitCode = 1;
   }
-  const lat = layoutLine(f.latin, 14, { letterSpacing: 2.6 });
+  const lat = layoutLine(f.latin, 14, { letterSpacing: 2.6, font: TITLE });
   const glo = layoutLine(f.gloss, 11.5, { letterSpacing: 0.8 });
   missing.push(...num.missing, ...lat.missing, ...glo.missing);
   figSvg += incised(num, cx - num.width / 2, figY);
@@ -67,12 +72,12 @@ figures.forEach((f, i) => {
 figSvg += hedera(W * 0.375, figY - 20, 14, C.crimson, 0.9);
 figSvg += hedera(W * 0.625, figY - 20, 14, C.crimson, 0.9, true);
 
-const title = layoutLine('TABVLA · RATIŌNVM', 16, { letterSpacing: 3.2 });
+const title = layoutLine('TABVLA · RATIŌNVM', 16, { letterSpacing: 3.2, font: TITLE });
 const gloss = layoutLine('the public ledger', 13, { letterSpacing: 1.2 });
 missing.push(...title.missing, ...gloss.missing);
 
 const focusText = data.focus.join(' · ').toUpperCase();
-const focus = layoutLine(focusText, 13, { letterSpacing: 2.4 });
+const focus = layoutLine(focusText, 13, { letterSpacing: 2.4, font: TITLE });
 missing.push(...focus.missing);
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="The public ledger: ${escapeXml(years)} years on GitHub, ${escapeXml(data.publicRepos)} public repositories, ${escapeXml(data.followers)} followers. Focus: ${escapeXml(data.focus.join(', '))}.">

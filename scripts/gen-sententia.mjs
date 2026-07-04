@@ -16,7 +16,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { C, fitText, textBlock, layoutLine, round, escapeXml, hedera, ruling, toRoman, staticize } from './svglib.mjs';
+import { C, fitText, textBlock, layoutLine, round, escapeXml, hedera, ruling, toRoman, fontTitle, staticize } from './svglib.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -112,14 +112,16 @@ function buildCard(q, idx, total) {
       </g>`;
 
   // Rubric margin: red-ink label, Roman numeral index, a gold leaf at the foot.
-  const rub1 = layoutLine('SENTENTIA', 15, { letterSpacing: 2.6 });
-  const rub2 = layoutLine('DIEI', 15, { letterSpacing: 2.6 });
+  // All caps, so set in the Cinzel titling face (engraved Roman capitals).
+  const TITLE = fontTitle();
+  const rub1 = layoutLine('SENTENTIA', 15, { letterSpacing: 2.6, font: TITLE });
+  const rub2 = layoutLine('DIEI', 15, { letterSpacing: 2.6, font: TITLE });
   const num = `${toRoman(idx + 1)} · ${toRoman(total)}`;
-  const numLaid = layoutLine(num, 13, { letterSpacing: 1.4 });
+  const numLaid = layoutLine(num, 13, { letterSpacing: 1.4, font: TITLE });
   allMissing.push(...rub1.missing, ...rub2.missing, ...numLaid.missing);
 
   // Language note under the rubric, the way a margin hand flags the tongue.
-  const langNote = layoutLine(isGreek ? 'GRAECE' : 'LATINE', 11.5, { letterSpacing: 2.2 });
+  const langNote = layoutLine(isGreek ? 'GRAECE' : 'LATINE', 11.5, { letterSpacing: 2.2, font: TITLE });
   allMissing.push(...langNote.missing);
 
   // Colophon (source), lower right of the writing zone.

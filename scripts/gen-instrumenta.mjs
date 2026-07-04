@@ -13,7 +13,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { C, layoutLine, round, escapeXml, staticize } from './svglib.mjs';
+import { C, layoutLine, round, escapeXml, fontTitle, staticize } from './svglib.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -40,6 +40,7 @@ const rows = [
 ];
 
 const missing = [];
+const TITLE = fontTitle();  // engraved Roman caps for the heading + Latin row labels
 
 // Wax tablet geometry: outer wooden band, inner writing surface.
 const SX = 24, SY = 22;            // surface top-left
@@ -61,7 +62,7 @@ let rowSvg = '';
 rows.forEach((r, i) => {
   const by = rowBase[i];
 
-  const lab = layoutLine(r.latin, 14.5, { letterSpacing: 2.6 });
+  const lab = layoutLine(r.latin, 14.5, { letterSpacing: 2.6, font: TITLE });
   const glo = layoutLine(r.gloss, 13, { letterSpacing: 0.8 });
   missing.push(...lab.missing, ...glo.missing);
   rowSvg += `<g fill="${C.goldInk}" stroke="${C.goldInk}" stroke-width="0.25"><path transform="translate(${LABEL_X} ${by - 6})" d="${lab.d}"/></g>`;
@@ -93,7 +94,7 @@ const notches =
   `<path d="M${SX + SW} ${SY + SH}v${-NOTCH}l${-NOTCH} ${NOTCH}Z" fill="${C.brown}" opacity="0.22"/>`;
 
 // Header.
-const title = layoutLine('INSTRVMENTA', 16, { letterSpacing: 3.4 });
+const title = layoutLine('INSTRVMENTA', 16, { letterSpacing: 3.4, font: TITLE });
 const gloss = layoutLine('tools of the trade', 13, { letterSpacing: 1.2 });
 missing.push(...title.missing, ...gloss.missing);
 

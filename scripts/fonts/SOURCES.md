@@ -6,7 +6,8 @@ offline (CI never needs a network font fetch).
 
 | File | Font | Used by | Source |
 | :-- | :-- | :-- | :-- |
-| `NotoSerifDisplay.ttf` | Noto Serif Display | banner, sententia, stats, linguae (Latin / Greek / Cyrillic) | google/fonts `ofl/notoserifdisplay` |
+| `Cinzel.ttf` | Cinzel (variable, wght) | titling: the name, engraved card titles, Roman numerals, all-caps labels | google/fonts `ofl/cinzel` |
+| `EBGaramond.ttf` | EB Garamond (variable, wght) | body: prose, quotes, translations, glosses, and the linguae Latin / Greek / Cyrillic native words | google/fonts `ofl/ebgaramond` |
 | `NotoSerifHebrew.ttf` | Noto Serif Hebrew | linguae (Hebrew + square-script Aramaic) | google/fonts `ofl/notoserifhebrew` |
 | `NotoSansGothic.ttf` | Noto Sans Gothic | linguae (Gothic) | google/fonts `ofl/notosansgothic` |
 | `NotoSansImperialAramaic.ttf` | Noto Sans Imperial Aramaic | linguae (Aramaic, in the Imperial script) | google/fonts `ofl/notosansimperialaramaic` |
@@ -26,4 +27,9 @@ labels with `harfbuzzjs` (a HarfBuzz WASM build, the shaper browsers use) and
 bakes the resulting glyph outlines to vector paths. See `scripts/shape.mjs`.
 
 Copyright for the Noto faces: © The Noto Project Authors
-(https://github.com/notofonts).
+(https://github.com/notofonts). Cinzel: © Natanael Gama (Ndiscovery). EB
+Garamond: © Georg Duffner and Octavio Pardo. All under the OFL 1.1 in `OFL.txt`.
+
+Cinzel and EB Garamond ship as variable fonts (a single `wght` axis); the
+generators bake the default instance (Regular) to vector paths via opentype.js,
+which is deterministic, so CI byte-stability holds.

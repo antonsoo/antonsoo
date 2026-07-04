@@ -7,7 +7,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { C, layoutLine, round, meanderStrip, staticize } from './svglib.mjs';
+import { C, layoutLine, round, font, fontTitle, hederaRule, staticize } from './svglib.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -27,8 +27,8 @@ const T = {
 };
 
 const missing = [];
-function lineSvg(text, x, y, size, ls, fill, anchor = 'start') {
-  const l = layoutLine(text, size, { letterSpacing: ls });
+function lineSvg(text, x, y, size, ls, fill, { anchor = 'start', font: fnt } = {}) {
+  const l = layoutLine(text, size, { letterSpacing: ls, font: fnt });
   missing.push(...l.missing);
   let dx = x;
   if (anchor === 'middle') dx = x - l.width / 2;
@@ -63,16 +63,28 @@ const PY = (H - PS) / 2;
 
 // Text column (right of panel). Sized to fill the width: the name reaches deep
 // into the formerly empty right third, and the supporting lines scale with it.
+// Titling (eyebrow + name) is Cinzel (Roman monumental caps); the role and the
+// tagline are EB Garamond (the readable body serif). The name is fit to the
+// available width so Cinzel's wider caps never overrun the right edge.
 const TX = 306;
-const eyebrow = lineSvg('ΓΝΩΘΙ  ΣΑΥΤΟΝ', TX + 2, 95, 22, 7, T.gold);
-const name = lineSvg('ANTON SOLOVIEV', TX, 166, 64, 2.4, T.cream);
-const role1 = lineSvg('Founder & CEO of PRAVIEL', TX + 1, 230, 26, 0.4, T.roleCream);
-const role2 = lineSvg('Reviving the languages the world calls dead.', TX + 1, 265, 21, 0.2, T.muted);
+const NAME_MAXW = 960 - TX; // right edge with a small inset
+const TITLE = fontTitle();
+const BODY = font();
+
+let nameSize = 62;
+while (nameSize > 40 && layoutLine('ANTON SOLOVIEV', nameSize, { letterSpacing: 2.4, font: TITLE }).width > NAME_MAXW) {
+  nameSize -= 1;
+}
+
+const eyebrow = lineSvg('PRAVIEL · ANCIENT LANGUAGES', TX + 2, 92, 15, 4.6, T.gold, { font: TITLE });
+const name = lineSvg('ANTON SOLOVIEV', TX, 166, nameSize, 2.4, T.cream, { font: TITLE });
+const role1 = lineSvg('Founder & CEO of PRAVIEL', TX + 1, 231, 25, 0.2, T.roleCream, { font: BODY });
+const role2 = lineSvg('The old languages, out loud again.', TX + 1, 266, 22, 0.2, T.muted, { font: BODY });
 
 const ulY = 186;
 const ulW = name.width;
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Anton Soloviev. Founder and CEO of PRAVIEL. Reviving the languages the world calls dead.">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Anton Soloviev. Founder and CEO of PRAVIEL. The old languages, out loud again.">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1">
       <stop offset="0" stop-color="#17130E"/>
@@ -97,8 +109,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   <rect width="${W}" height="${H}" rx="18" fill="#000" filter="url(#grain)" opacity="0.45" clip-path="url(#bgClip)"/>
   <rect x="1" y="1" width="${W - 2}" height="${H - 2}" rx="17" fill="none" stroke="${C.gold}" stroke-width="1" opacity="0.30"/>
 
-  <!-- Meander frieze along the foot of the wall -->
-  ${meanderStrip(40, H - 32, W - 80, 3, C.gold, 1, 0.22)}
+  <!-- Hedera rule along the foot of the wall (a single Roman divider, gold leaf on the dark ground) -->
+  ${hederaRule(W / 2, H - 28, 300, { stroke: T.goldLine, leaf: T.gold, size: 19, opacity: 0.6 })}
 
   <!-- Fresco panel in an aedicule: a segmental arch springs from behind it -->
   <path d="M${PX - 8} ${PY + 10}A${PS / 2 + 8} 56 0 0 1 ${PX + PS + 8} ${PY + 10}" fill="none" stroke="${C.gold}" stroke-width="1.1" opacity="0.5"/>

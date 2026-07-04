@@ -20,7 +20,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { C, layoutLine, round, escapeXml, font, loadFont, fontFile, meanderStrip, staticize } from './svglib.mjs';
+import { C, layoutLine, round, escapeXml, font, fontTitle, loadFont, fontFile, hederaRule, staticize } from './svglib.mjs';
 import { shapeLine } from './shape.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -31,7 +31,8 @@ const H = 360;
 const PAD = 44;
 
 // Faces (opentype.js).
-const disp = font();                                       // Latin / Greek / Cyrillic
+const disp = font();                                       // Latin / Greek / Cyrillic (body serif)
+const titleFace = fontTitle();                             // engraved caps (title, labels, footer)
 const heb = loadFont(fontFile('NotoSerifHebrew.ttf'));     // Hebrew
 const imp = loadFont(fontFile('NotoSansImperialAramaic.ttf')); // Imperial Aramaic
 const got = loadFont(fontFile('NotoSansGothic.ttf'));      // Gothic
@@ -94,7 +95,7 @@ if (tiles.length !== colX.length * rowNative.length) {
 const LABEL_MAX_W = 148;
 let labelSize = 13;
 for (const t of tiles) {
-  while (labelSize > 9.5 && layoutLine(t.label, labelSize, { font: disp, letterSpacing: 1.2 }).width > LABEL_MAX_W) labelSize -= 0.5;
+  while (labelSize > 9.5 && layoutLine(t.label, labelSize, { font: titleFace, letterSpacing: 1.2 }).width > LABEL_MAX_W) labelSize -= 0.5;
 }
 
 let tileSvg = '';
@@ -104,7 +105,7 @@ tiles.forEach((t, i) => {
   const ly = rowLabel[Math.floor(i / 5)];
 
   const nat = fitNative(t, TILE_W);
-  const lab = layoutLine(t.label, labelSize, { font: disp, letterSpacing: 1.2 });
+  const lab = layoutLine(t.label, labelSize, { font: titleFace, letterSpacing: 1.2 });
   missing.push(...lab.missing);
 
   tileSvg += `<g fill="${C.ink}" transform="translate(${round(cx - nat.width / 2)} ${ny})">${nat.inner}</g>`;
@@ -120,18 +121,15 @@ for (const rx of colRuleX) {
 }
 
 // Header (epigraphic V for U, rubricated) and gloss.
-const title = layoutLine('LINGVAE', 16, { letterSpacing: 3.6 });
+const title = layoutLine('LINGVAE', 16, { letterSpacing: 3.6, font: titleFace });
 const gloss = layoutLine('each tongue in its own hand', 13, { letterSpacing: 1.2 });
 missing.push(...title.missing, ...gloss.missing);
 
 // Footer: the script we teach but do not draw as vectors here.
-const footer = layoutLine('ALSO IN THE APP · ANCIENT EGYPTIAN, IN HIEROGLYPHS', 12.5, { letterSpacing: 2 });
+const footer = layoutLine('ALSO IN THE APP · ANCIENT EGYPTIAN, IN HIEROGLYPHS', 12.5, { letterSpacing: 2, font: titleFace });
 missing.push(...footer.missing);
 
 const aria = `Linguae. The languages PRAVIEL teaches, each in its native script: Classical Chinese, Classical Arabic, Classical Sanskrit, Classical Latin, Ancient Greek, Hebrew, Aramaic, Church Slavonic, Middle English, and Gothic. Ancient Egyptian, in hieroglyphs, is also taught in the app.`;
-
-// Hook length of one meander unit at s=3 (for the draw-in intro).
-const hookLen = 14 * 3;
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${escapeXml(aria)}">
   <defs>
@@ -148,7 +146,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   <g fill="${C.crimson}" stroke="${C.crimson}" stroke-width="0.25"><path transform="translate(${PAD} 56)" d="${title.d}"/></g>
   <g fill="${C.brownSoft}"><path transform="translate(${round(W - PAD - gloss.width)} 56)" d="${gloss.d}"/></g>
 
-  ${meanderStrip(PAD, 68, W - 2 * PAD, 3, C.gold, 1, 0.4, { len: hookLen, dur: '1s' })}
+  ${hederaRule(W / 2, 74, 150, { leaf: C.crimson, size: 16, opacity: 0.6, drawIn: { dur: '1s' } })}
 
   ${colRules}
 

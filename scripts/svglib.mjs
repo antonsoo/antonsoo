@@ -9,7 +9,17 @@ import { dirname, join } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FONT_DIR = join(__dirname, 'fonts');
-export const FONT_PATH = join(FONT_DIR, 'NotoSerifDisplay.ttf');
+// Two-face system. Body/quote text is EB Garamond (a humanist old-style serif
+// with even stroke weight, so a capital F never thins into a Greek Γ the way the
+// old Didone did, and small text survives high-DPR downscaling). Monumental
+// all-caps titling (the name, the engraved card titles, Roman numerals) is
+// Cinzel, cut after Roman inscriptional capitals. Cinzel is caps-only, so it is
+// only ever handed all-caps strings; anything with lowercase uses the body face.
+export const FONT_BODY = join(FONT_DIR, 'EBGaramond.ttf');
+export const FONT_TITLE = join(FONT_DIR, 'Cinzel.ttf');
+// Back-compat: FONT_PATH / font() are the default (body) face used everywhere a
+// generator does not ask for the titling face explicitly.
+export const FONT_PATH = FONT_BODY;
 
 // PRAVIEL "Imperial Roman" palette (from praviel-website app/globals.css).
 export const C = {
@@ -28,9 +38,10 @@ export const C = {
 };
 
 // Font cache keyed by absolute path, so a generator can mix scripts (the Linguae
-// card pairs the Latin/Greek/Cyrillic display serif with vendored Hebrew, Gothic
-// and CJK faces). The default font stays NotoSerifDisplay for every existing
-// widget; pass `font` to layoutLine/textBlock to use another face.
+// card pairs the Latin/Greek/Cyrillic body serif with vendored Hebrew, Gothic
+// and CJK faces). The default face is EB Garamond (the body serif); pass `font`
+// to layoutLine/textBlock to use another face (fontTitle() for Cinzel, or a
+// vendored script face).
 const _fonts = new Map();
 export function loadFont(path) {
   if (!_fonts.has(path)) _fonts.set(path, opentype.loadSync(path));
@@ -40,8 +51,14 @@ export function loadFont(path) {
 export function fontFile(name) {
   return name.includes('/') ? name : join(FONT_DIR, name);
 }
+// Body face (EB Garamond): default for prose, quotes, translations, glosses.
 export function font() {
   return loadFont(FONT_PATH);
+}
+// Titling face (Cinzel): monumental Roman caps. Hand it ONLY all-caps strings
+// (Cinzel has no true lowercase; lowercase codepoints fall back to small caps).
+export function fontTitle() {
+  return loadFont(FONT_TITLE);
 }
 
 export function escapeXml(s) {
@@ -68,7 +85,7 @@ export function reverseForRtl(text) {
 
 // Lay out one line as a single path `d`, baseline at y=0, starting at x=0.
 // Applies kerning + optional uniform letter-spacing. `font` selects the face
-// (default NotoSerifDisplay); `rtl` reverses for right-to-left scripts.
+// (default EB Garamond); `rtl` reverses for right-to-left scripts.
 // Returns { d, width, missing }.
 export function layoutLine(text, fontSize, { letterSpacing = 0, font: fnt, rtl = false } = {}) {
   const f = fnt || font();
@@ -189,10 +206,13 @@ export function toRoman(n) {
 
 // ---------------------------------------------------------------------------
 // Ornament vocabulary. Authentic Greco-Roman devices, shared by every widget:
-// the hedera distinguens (ivy-leaf divider of Roman inscriptions), the meander
-// fret, the tabula ansata (dovetail-handled dedication plaque), scriptorium
-// ruling, and a chiseled "incised lettering" treatment. These replaced the old
-// corner diamonds / radial glow card template on purpose; do not bring it back.
+// the hedera distinguens (ivy-leaf divider of Roman inscriptions), the hedera
+// rule (a single leaf flanked by interpuncts and a fading rule, the profile's
+// one divider motif), the tabula ansata (dovetail-handled dedication plaque),
+// scriptorium ruling, and a chiseled "incised lettering" treatment. The old
+// corner diamonds / radial glow template AND the repeated Greek-key meander
+// fret were removed on purpose (both read as machine-generated); do not bring
+// either back.
 // ---------------------------------------------------------------------------
 
 // Ivy leaf on a horizontal axis: tip points right, stalk curls away left
@@ -209,27 +229,34 @@ export function hedera(cx, cy, size = 16, fill = C.crimson, opacity = 1, flip = 
     `</g>`;
 }
 
-// Greek-key fret strip: repeated squared-spiral hooks, stroke-drawn. `s` is the
-// step; each hook is 3s wide and 3s tall (path length 14s) on a pitch of 4s.
-// Pass drawIn = { len: 14*s, dur: '1s' } for a SMIL draw-in intro; the dash
-// attributes then live on the <path> itself, because animating an inherited
-// presentation attribute on a parent <g> does not reach child paths in
-// Chromium/Firefox. Base state stays fully drawn (dashoffset 0).
-export function meanderStrip(x, y, w, s = 3, stroke = C.gold, strokeWidth = 1, opacity = 0.45, drawIn = null) {
-  const pitch = 4 * s;
-  const n = Math.max(1, Math.floor((w - 3 * s) / pitch) + 1);
-  const used = (n - 1) * pitch + 3 * s;
-  let d = '';
-  const x0 = round(x + (w - used) / 2);
-  for (let i = 0; i < n; i++) {
-    const ux = round(x0 + i * pitch);
-    d += `M${ux} ${round(y + 3 * s)}v${-3 * s}h${3 * s}v${3 * s}h${-2 * s}v${-2 * s}h${s}`;
-  }
-  const dash = drawIn ? ` stroke-dasharray="${drawIn.len}" stroke-dashoffset="0"` : '';
-  const anim = drawIn
-    ? `<animate attributeName="stroke-dashoffset" from="${drawIn.len}" to="0" dur="${drawIn.dur}" begin="0s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" values="${drawIn.len};0"/>`
-    : '';
-  return `<path d="${d}" fill="none" stroke="${stroke}" stroke-width="${strokeWidth}" opacity="${opacity}"${dash}>${anim}</path>`;
+// Hedera rule: a centred ivy leaf (hedera distinguens) flanked by two interpunct
+// dots and two short rules with softened ends, an authentic Roman inscription
+// divider rather than a repeated machine fret. This is the one horizontal
+// divider used across the profile (banner foot, card sub-headings), keeping the
+// same leaf as divider-gold.svg so the whole family stays in lockstep.
+//
+// `halfWidth` is the reach of each flanking rule from the centre. Pass
+// drawIn = { dur: '1s' } for a SMIL draw-in intro on the rules (dash attributes
+// live on each <line> itself, because an inherited presentation attribute
+// animated on a parent <g> does not reach children in Chromium/Firefox). Base
+// state is fully drawn and visible even if SMIL never runs.
+export function hederaRule(cx, y, halfWidth, { stroke = C.gold, leaf = C.crimson, size = 17, opacity = 0.7, segGap = 30, dotGap = 19, drawIn = null } = {}) {
+  const rule = (x1, x2) => {
+    const len = Math.abs(x2 - x1);
+    const dash = drawIn ? ` stroke-dasharray="${round(len)}" stroke-dashoffset="0"` : '';
+    const anim = drawIn
+      ? `<animate attributeName="stroke-dashoffset" from="${round(len)}" to="0" dur="${drawIn.dur}" begin="0s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" values="${round(len)};0"/>`
+      : '';
+    return `<line x1="${round(x1)}" y1="${round(y)}" x2="${round(x2)}" y2="${round(y)}" stroke="${stroke}" stroke-width="1.1" stroke-linecap="round"${dash}>${anim}</line>`;
+  };
+  return `<g opacity="${opacity}">` +
+    // rules drawn from the centre outward, so the draw-in unfurls away from the leaf
+    rule(cx - segGap, cx - segGap - halfWidth) +
+    rule(cx + segGap, cx + segGap + halfWidth) +
+    `<circle cx="${round(cx - dotGap)}" cy="${round(y)}" r="1.6" fill="${stroke}"/>` +
+    `<circle cx="${round(cx + dotGap)}" cy="${round(y)}" r="1.6" fill="${stroke}"/>` +
+    `</g>` +
+    hedera(cx, y, size, leaf);
 }
 
 // Tabula ansata: plaque body plus trapezoidal dovetail handles (ansae) on the

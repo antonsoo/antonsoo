@@ -7,7 +7,7 @@
 
 <div align="center">
 
-<img src="assets/banner.svg" alt="Anton Soloviev. Founder and CEO of PRAVIEL. Reviving the languages the world calls dead." width="100%" />
+<img src="assets/banner.svg" alt="Anton Soloviev. Founder and CEO of PRAVIEL. The old languages, out loud again." width="100%" />
 
 <br/>
 
@@ -25,8 +25,9 @@
 
 - Founder & CEO of **[PRAVIEL](https://praviel.com)**, a lessons-first app that teaches ancient languages as living, speakable systems.
 - Trained in **artificial intelligence** at the Institute of Science Tokyo. Before PRAVIEL: speech recognition on supercomputers, LLM agents, and a startup or two. These days the models report to the languages.
+- Native in English, Russian, and Ukrainian; Japanese earned over four years in Tokyo; Chinese barely past counting to ten. Five living languages is decent training for reviving the silent ones, which these days I am learning myself: Latin, Ancient Greek, Hebrew, Sanskrit, and the rest of the syllabus.
 - I care about pronunciation, provenance, and shipping. Order depends on the day.
-- My bio reads **ΓΝΩΘΙ ΣΑΥΤΟΝ**, *know thyself*. Thales called it the hardest thing there is; the easiest, advising others (Diogenes Laertius 1.36).
+- My test for a lesson is plain: not whether you can parse an old language, but whether you can say it aloud and be understood. PRAVIEL has to pass it every time.
 
 <img src="assets/divider-gold.svg" alt="" width="100%" />
 
@@ -44,6 +45,8 @@
 <a href="https://apps.apple.com/app/id6756199566"><img src="https://img.shields.io/badge/App_Store-000000?style=for-the-badge&logo=apple&logoColor=white" alt="Download PRAVIEL on the App Store" /></a>
 <a href="https://play.google.com/store/apps/details?id=com.praviel"><img src="https://img.shields.io/badge/Google_Play-000000?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iIzQyODVGNCIgZD0iTTIyLjAxOCAxMy4yOTggMTguMSAxNS41MTZsLTMuNTE2LTMuNDkzIDMuNTQzLTMuNTIxIDMuODkxIDIuMjAyYTEuNDkgMS40OSAwIDAgMSAwIDIuNTk0WiIvPjxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Ik0xLjMzNy45MjRhMS40ODYgMS40ODYgMCAwIDAtLjExMi41Njh2MjEuMDE3YzAgLjIxNy4wNDUuNDE5LjEyNC42bDExLjE1NS0xMS4wODdMMS4zMzcuOTI0WiIvPjxwYXRoIGZpbGw9IiNGQkJDMDUiIGQ9Im0xMy41NDQgMTAuOTg5IDMuMjU4LTMuMjM4TDMuNDUuMTk1YTEuNDY2IDEuNDY2IDAgMCAwLS45NDYtLjE3OWwxMS4wNCAxMC45NzNaIi8%2BPHBhdGggZmlsbD0iI0VBNDMzNSIgZD0ibTEzLjU0NCAxMy4wNTYtMTEgMTAuOTMzYy4yOTguMDM2LjYxMi0uMDE2LjkwNi0uMTgzbDEzLjMyNC03LjU0LTMuMjMtMy4yMVoiLz48L3N2Zz4%3D" alt="Get PRAVIEL on Google Play" /></a>
 <a href="https://www.linkedin.com/company/praviel-ancient-languages/"><img src="https://img.shields.io/badge/PRAVIEL_on_LinkedIn-0A66C2?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D&logoColor=white" alt="PRAVIEL on LinkedIn" /></a>
+<a href="https://x.com/PRAVIELApp"><img src="https://img.shields.io/badge/PRAVIEL_on_X-000000?style=for-the-badge&logo=x&logoColor=white" alt="PRAVIEL on X" /></a>
+<a href="https://www.youtube.com/@PRAVIEL-App"><img src="https://img.shields.io/badge/PRAVIEL_on_YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="PRAVIEL on YouTube" /></a>
 
 </td>
 </tr>
@@ -56,7 +59,7 @@
 | Repository | What it is |
 | :-- | :-- |
 | [pneumonia-detection-xray-resnet](https://github.com/antonsoo/pneumonia-detection-xray-resnet) | A ResNet that reads chest X-rays for signs of pneumonia. |
-| [TS-VAD](https://github.com/antonsoo/TS-VAD) | Target-speaker voice activity detection: who is speaking, and exactly when. |
+| [DiplomAI](https://github.com/antonsoo/DiplomAI) | An LLM and speech-recognition assistant that defuses an argument in real time. |
 | [LLM-Powered-Text-Enhancement-Suite](https://github.com/antonsoo/LLM-Powered-Text-Enhancement-Suite) | An LLM toolchain for rewriting, correcting, and sharpening prose. |
 | [customer-churn-prediction-streamlit](https://github.com/antonsoo/customer-churn-prediction-streamlit) | Predicting who is about to leave, while there is still time to ask them to stay. |
 | [codegen-llm](https://github.com/antonsoo/codegen-llm) | Experiments in teaching models to write code worth keeping. |
@@ -113,6 +116,7 @@ Two ideas sit in the drawer and receive the occasional weekend visit: a proper *
 <a href="https://praviel.com"><img src="https://img.shields.io/badge/praviel.com-8B1E1E?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" /></a>
 <a href="https://www.linkedin.com/in/anton-soloviev/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D&logoColor=white" alt="LinkedIn" /></a>
 <a href="https://x.com/antonsolv"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X (Twitter)" /></a>
+<a href="https://www.youtube.com/@Antonivs-Solovievivs"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Anton on YouTube" /></a>
 <a href="https://discord.gg/XhYdu2XvBs"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="PRAVIEL on Discord" /></a>
 <a href="https://leetcode.com/u/Theophileous/"><img src="https://img.shields.io/badge/LeetCode-000000?style=for-the-badge&logo=leetcode&logoColor=FFA116" alt="Anton on LeetCode" /></a>
 <a href="mailto:anton@praviel.com"><img src="https://img.shields.io/badge/anton@praviel.com-6E1818?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMCA0SDRjLTEuMSAwLTEuOTkuOS0xLjk5IDJMMiAxOGMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjZjMC0xLjEtLjktMi0yLTJ6bTAgNGwtOCA1LTgtNVY2bDggNSA4LTV2MnoiLz48L3N2Zz4%3D&logoColor=white" alt="Email" /></a>
