@@ -7,5 +7,5 @@
     "Ancient languages",
     "Full-stack"
   ],
-  "_note": "Refreshed by .github/workflows/tabula.yml. publicRepos counts public non-fork repos."
+  "_note": "Refreshed daily by scripts/cron/run.mjs, which runs on Railway. publicRepos counts public non-fork repos."
 }

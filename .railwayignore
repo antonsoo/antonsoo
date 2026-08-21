@@ -1,0 +1,8 @@
+# Only package.json, package-lock.json and scripts/cron/ reach the image; the
+# rest of the repo is fetched at run time by cloning it. Keeping the upload
+# small keeps the build fast.
+assets/
+scripts/fonts/
+scripts/*.b64
+.preview/
+node_modules/

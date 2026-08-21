@@ -1,26 +1,18 @@
 name: Verify generators
 
-# Regenerates every SVG from source and fails if anything drifted or degraded:
-# missing glyphs, writing-zone overflow, and grid-size assertions all exit
-# nonzero from the generators themselves; byte-stability then proves the
-# committed assets match the scripts. Two files are excluded from the byte
-# check by design: assets/sententia.svg (gen-sententia seeds it with TODAY's
-# card) and assets/stats.svg (years recompute from the current UTC year and
-# drift briefly at New Year until tabula.yml refreshes).
+# DORMANT, deliberately. This account is locked for billing, so since
+# 2026-08-14 every run fails before its first step with "The job was not started
+# because your account is locked due to a billing issue". The checks themselves
+# live in scripts/verify.mjs now: run them with `npm run verify`, and the daily
+# Railway job (scripts/cron/run.mjs) runs the same file against a fresh clone
+# every morning.
+#
+# It is kept on workflow_dispatch rather than deleted so it is one click away if
+# the billing lock is ever lifted. Do not restore the push trigger while the
+# Railway job is running: its path filter matched scripts/**, which the daily
+# scripts/stats-data.json commit touches, so it would fail on every rotation.
 
 on:
-  push:
-    paths:
-      - "scripts/**"
-      - "package.json"
-      - "package-lock.json"
-      - ".github/workflows/verify.yml"
-  pull_request:
-    paths:
-      - "scripts/**"
-      - "package.json"
-      - "package-lock.json"
-      - ".github/workflows/verify.yml"
   workflow_dispatch:
 
 permissions:
@@ -39,20 +31,6 @@ jobs:
 
       - run: npm ci
 
-      - name: Regenerate all assets
-        run: npm run gen:all
-
-      - name: Check asset byte-stability
-        run: |
-          git diff --exit-code -- assets \
-            ':(exclude)assets/sententia.svg' \
-            ':(exclude)assets/stats.svg'
-
-      - name: Check for em/en dashes
-        run: |
-          if grep -rqP '\x{2014}|\x{2013}' README.md assets/; then
-            echo "ERROR: em or en dash found in README.md or assets/"
-            grep -rlP '\x{2014}|\x{2013}' README.md assets/
-            exit 1
-          fi
-          echo "No em/en dashes."
+      # Generators exit 0, regenerating changes nothing, no em or en dashes.
+      - name: Verify
+        run: npm run verify
