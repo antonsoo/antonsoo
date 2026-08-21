@@ -11,9 +11,13 @@
     "gen:instrumenta": "node scripts/gen-instrumenta.mjs",
     "gen:stats": "node scripts/gen-stats.mjs",
     "gen:divider": "node scripts/gen-divider.mjs",
-    "gen:all": "npm run gen:sententia && npm run gen:banner && npm run gen:linguae && npm run gen:instrumenta && npm run gen:stats && npm run gen:divider"
+    "gen:all": "npm run gen:sententia && npm run gen:banner && npm run gen:linguae && npm run gen:instrumenta && npm run gen:stats && npm run gen:divider",
+    "verify": "node scripts/verify.mjs",
+    "shot": "node scripts/shot.mjs",
+    "cron": "node scripts/cron/run.mjs"
   },
   "devDependencies": {
+    "generate-snake-animation": "^3.5.0",
     "harfbuzzjs": "^1.2.1",
     "opentype.js": "^1.3.4"
   }

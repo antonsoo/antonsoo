@@ -1,7 +1,7 @@
 // Regenerates scripts/thoth.b64, the banner's embedded fresco panel: Thoth, the
 // ibis-headed reckoner of the scribes, papyrus and stylus in hand. Run on demand
-// only (sharp is borrowed from the sibling praviel-website install, same as the
-// raster-QA pattern in CLAUDE.md):
+// only; scripts/tools.mjs finds sharp (see requireSharp for where it looks and
+// how to override it):
 //
 //   node scripts/make-thoth.mjs
 //
@@ -16,14 +16,13 @@
 // gen-banner reads. A fresh clone can render the banner but cannot re-bake it
 // without the local master.
 
-import { createRequire } from 'node:module';
 import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, join } from 'node:path';
+import { requireSharp } from './tools.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const require = createRequire(import.meta.url);
-const sharp = require(resolve(__dirname, '../../praviel-website/node_modules/sharp'));
+const sharp = requireSharp();
 
 const MASTER = join(__dirname, '..', 'assets', 'more_images', 'thoth-1.png');
 
