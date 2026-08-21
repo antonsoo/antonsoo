@@ -1,10 +1,10 @@
-# The daily profile job. Railway runs this container on a cron schedule; it
-# clones the repo, rotates the quote card, refreshes the ledger, redraws the
-# contribution snake, pushes, and exits. See scripts/cron/run.mjs for why the
-# work is here rather than in .github/workflows.
+# The daily profile job: clone the repo, rotate the quote card, refresh the
+# ledger, redraw the contribution snake, push. See scripts/cron/run.mjs for why
+# the work is here rather than in .github/workflows.
 #
-# Railway requires the process to exit: a container still running when the next
-# tick is due causes that tick to be skipped.
+# This runs as a LONG-LIVED service, not a Railway cron job, and owns its own
+# clock. scripts/cron/daemon.mjs explains why: Railway's scheduler skipped three
+# consecutive ticks here with no container and no error.
 
 FROM node:24-slim
 
@@ -32,6 +32,7 @@ COPY scripts/cron ./scripts/cron
 # Sensible defaults; Railway supplies GH_TOKEN as a service variable.
 # NODE_ENV is deliberately NOT set to production: see the npm ci note above.
 ENV PROFILE_USER=antonsoo \
-    PROFILE_REPO=antonsoo/antonsoo
+    PROFILE_REPO=antonsoo/antonsoo \
+    PROFILE_RUN_AT=06:17
 
-CMD ["node", "scripts/cron/run.mjs"]
+CMD ["node", "scripts/cron/daemon.mjs"]
