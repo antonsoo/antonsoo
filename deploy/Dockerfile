@@ -18,14 +18,20 @@ WORKDIR /app
 # Installed at build time purely to warm the npm cache. The job runs `npm ci`
 # again inside the fresh clone, so what actually executes is always the
 # committed lockfile, not this image's copy of it.
+#
+# --include=dev is required, not cosmetic: opentype.js, harfbuzzjs and
+# generate-snake-animation are all declared as devDependencies, because for this
+# repo the generated assets ARE the product and nothing is shipped as a library.
+# A plain `npm ci` under NODE_ENV=production skips all three and gen:all dies
+# with ERR_MODULE_NOT_FOUND on opentype.js.
 COPY package.json package-lock.json ./
-RUN npm ci --no-audit --no-fund
+RUN npm ci --include=dev --no-audit --no-fund
 
 COPY scripts/cron ./scripts/cron
 
 # Sensible defaults; Railway supplies GH_TOKEN as a service variable.
+# NODE_ENV is deliberately NOT set to production: see the npm ci note above.
 ENV PROFILE_USER=antonsoo \
-    PROFILE_REPO=antonsoo/antonsoo \
-    NODE_ENV=production
+    PROFILE_REPO=antonsoo/antonsoo
 
 CMD ["node", "scripts/cron/run.mjs"]

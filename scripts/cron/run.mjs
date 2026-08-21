@@ -119,8 +119,13 @@ async function rotateAndRefresh(work) {
   log('cloning main');
   git(work, ['clone', '--depth', '1', '--branch', 'main', remote, dir]);
 
+  // --include=dev is load-bearing. opentype.js, harfbuzzjs and
+  // generate-snake-animation are devDependencies, so a plain `npm ci` under
+  // NODE_ENV=production installs none of them and gen:all dies on the first
+  // import. Stated here as well as in the Dockerfile so the job does not depend
+  // on whatever NODE_ENV the host happens to set.
   log('installing dependencies');
-  npm(dir, ['ci', '--no-audit', '--no-fund']);
+  npm(dir, ['ci', '--include=dev', '--no-audit', '--no-fund']);
 
   log('refreshing the ledger from the GitHub API');
   const counts = await ledger();
