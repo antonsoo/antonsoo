@@ -7,13 +7,23 @@
 
 <div align="center">
 
-<img src="assets/banner.svg" alt="Anton Soloviev. Founder and CEO of PRAVIEL. The old languages, out loud again." width="100%" />
+<img src="assets/banner.svg" alt="Anton Soloviev. Founder and Lead Engineer, PRAVIEL. The old languages, out loud again. Beside the name, the Soloviev family arms: an oak tree on a blue field beneath a silver chief bearing three bees, with a crowned helm, an anchor crest in blue plumes, and blue and gold mantling." width="100%" />
 
 <br/>
 
-<a href="https://praviel.com"><img src="https://img.shields.io/badge/Visit-PRAVIEL-8B1E1E?style=flat-square&labelColor=6E1818" alt="PRAVIEL" /></a>
+<sub><strong>ANTON</strong> &nbsp;·&nbsp; my own pages</sub>
+
+<a href="https://www.linkedin.com/in/anton-soloviev/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D&logoColor=white" alt="LinkedIn" /></a>
+<a href="https://x.com/antonsolv"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X (Twitter)" /></a>
+<a href="https://www.youtube.com/@Antonivs-Solovievivs"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Anton on YouTube" /></a>
+<a href="https://huggingface.co/antonsoloviev"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Anton on Hugging Face" /></a>
+<a href="https://leetcode.com/u/Theophileous/"><img src="https://img.shields.io/badge/LeetCode-000000?style=for-the-badge&logo=leetcode&logoColor=FFA116" alt="Anton on LeetCode" /></a>
+<a href="mailto:anton@praviel.com"><img src="https://img.shields.io/badge/anton@praviel.com-6E1818?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMCA0SDRjLTEuMSAwLTEuOTkuOS0xLjk5IDJMMiAxOGMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjZjMC0xLjEtLjktMi0yLTJ6bTAgNGwtOCA1LTgtNVY2bDggNSA4LTV2MnoiLz48L3N2Zz4%3D&logoColor=white" alt="Email" /></a>
+
 <a href="https://github.com/antonsoo?tab=followers"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fantonsoo%2Fantonsoo%2Fmain%2Fscripts%2Fstats-data.json&query=%24.followers&style=flat-square&color=181717&labelColor=000000&logo=github&logoColor=white&label=followers" alt="Followers" /></a>
 <img src="https://img.shields.io/badge/est.-MMXVIII-5E4722?style=flat-square&labelColor=F3EFE7" alt="On GitHub since 2018" />
+
+<sub>Looking for the app? <a href="https://praviel.com"><strong>praviel.com</strong></a>. PRAVIEL's other pages are further down, under <em>What I am building</em>.</sub>
 
 </div>
 
@@ -21,17 +31,18 @@
 
 <img src="assets/divider-gold.svg" alt="" width="100%" />
 
-## Dē mē &nbsp;·&nbsp; about
+## About &nbsp;·&nbsp; Dē mē
 
-- Founder & CEO of **[PRAVIEL](https://praviel.com)**, a lessons-first app that teaches ancient languages as living, speakable systems.
-- Trained in **artificial intelligence** at the Institute of Science Tokyo. Before PRAVIEL: speech recognition on supercomputers, LLM agents, and a startup or two. These days the models report to the languages.
+- Founder and lead engineer of **[PRAVIEL](https://praviel.com)**, a lessons-first app that teaches ancient languages as living, speakable systems. I designed it, I built it, and I run it.
+- Trained in **artificial intelligence** at the Institute of Science Tokyo. Before PRAVIEL: speech recognition on supercomputers, LLM agents, production document AI at Quantiphi, and a startup or two. These days the models report to the languages.
 - Native in English, Russian, and Ukrainian; Japanese earned over four years in Tokyo; Chinese barely past counting to ten. Five living languages is decent training for reviving the silent ones, which these days I am learning myself: Latin, Ancient Greek, Hebrew, Sanskrit, and the rest of the syllabus.
 - I care about pronunciation, provenance, and shipping. Order depends on the day.
 - My test for a lesson is plain: not whether you can parse an old language, but whether you can say it aloud and be understood. PRAVIEL has to pass it every time.
+- In San Francisco, in person. Open to good engineering work, full time or contract, and always open to a conversation about languages. <a href="mailto:anton@praviel.com">anton@praviel.com</a>
 
 <img src="assets/divider-gold.svg" alt="" width="100%" />
 
-## Opera &nbsp;·&nbsp; what I am building
+## What I am building &nbsp;·&nbsp; Opera
 
 <table>
 <tr>
@@ -42,17 +53,23 @@
 
 **PRAVIEL: Ancient Languages.** Duolingo proved that five minutes a day can carry a language; PRAVIEL points that habit at Latin, Ancient Greek, and nine other ancient tongues, and holds it to a scholar's standard. Short daily lessons in speaking, listening, and reading, with reconstructed pronunciation you can actually hear. Hold a conversation with a historical persona, or tap any word of a real text to take it apart. Built for beginners, checked by experts. Free to start, on web, iPhone, and Android.
 
+<sub><strong>PRAVIEL</strong> &nbsp;·&nbsp; the company's pages, not mine</sub>
+
+<a href="https://praviel.com"><img src="https://img.shields.io/badge/praviel.com-8B1E1E?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" /></a>
 <a href="https://apps.apple.com/app/id6756199566"><img src="https://img.shields.io/badge/App_Store-000000?style=for-the-badge&logo=apple&logoColor=white" alt="Download PRAVIEL on the App Store" /></a>
 <a href="https://play.google.com/store/apps/details?id=com.praviel"><img src="https://img.shields.io/badge/Google_Play-000000?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iIzQyODVGNCIgZD0iTTIyLjAxOCAxMy4yOTggMTguMSAxNS41MTZsLTMuNTE2LTMuNDkzIDMuNTQzLTMuNTIxIDMuODkxIDIuMjAyYTEuNDkgMS40OSAwIDAgMSAwIDIuNTk0WiIvPjxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Ik0xLjMzNy45MjRhMS40ODYgMS40ODYgMCAwIDAtLjExMi41Njh2MjEuMDE3YzAgLjIxNy4wNDUuNDE5LjEyNC42bDExLjE1NS0xMS4wODdMMS4zMzcuOTI0WiIvPjxwYXRoIGZpbGw9IiNGQkJDMDUiIGQ9Im0xMy41NDQgMTAuOTg5IDMuMjU4LTMuMjM4TDMuNDUuMTk1YTEuNDY2IDEuNDY2IDAgMCAwLS45NDYtLjE3OWwxMS4wNCAxMC45NzNaIi8%2BPHBhdGggZmlsbD0iI0VBNDMzNSIgZD0ibTEzLjU0NCAxMy4wNTYtMTEgMTAuOTMzYy4yOTguMDM2LjYxMi0uMDE2LjkwNi0uMTgzbDEzLjMyNC03LjU0LTMuMjMtMy4yMVoiLz48L3N2Zz4%3D" alt="Get PRAVIEL on Google Play" /></a>
 <a href="https://www.linkedin.com/company/praviel-ancient-languages/"><img src="https://img.shields.io/badge/PRAVIEL_on_LinkedIn-0A66C2?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D&logoColor=white" alt="PRAVIEL on LinkedIn" /></a>
 <a href="https://x.com/PRAVIELApp"><img src="https://img.shields.io/badge/PRAVIEL_on_X-000000?style=for-the-badge&logo=x&logoColor=white" alt="PRAVIEL on X" /></a>
 <a href="https://www.youtube.com/@PRAVIEL-App"><img src="https://img.shields.io/badge/PRAVIEL_on_YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="PRAVIEL on YouTube" /></a>
+<a href="https://discord.gg/XhYdu2XvBs"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="PRAVIEL on Discord" /></a>
 
 </td>
 </tr>
 </table>
 
 <sub>Under the hood: one <strong>Flutter and Dart</strong> codebase carries the app to iPhone, Android, and the web; the marketing site is <strong>Next.js on Node</strong> at praviel.com; the AI tutors keep their sources in order. The languages remain the hard part.</sub>
+
+**Also on the bench.** A private research stack for systematic trading, under QuantGenAI: seven repositories that keep market data, research, laboratory, execution, and monitoring apart, with versioned contracts between them and a risk kernel allowed to refuse anything the laboratory approved. The interesting part is not a strategy. It is that the apparatus is calibrated against planted effects and against deliberately contaminated data, so it can tell a real result from an artifact of how the panel was assembled, and I have turned it on my own best finding more than once and lost. Nothing there has earned the right to trade, and nothing claims to have.
 
 **From the workshop.** A few public pieces from the machine-learning years:
 
@@ -103,23 +120,36 @@
 
 <img src="assets/divider-gold.svg" alt="" width="100%" />
 
-## Sēmina &nbsp;·&nbsp; seeds
+## Seeds &nbsp;·&nbsp; Sēmina
 
-Two ideas sit in the drawer and receive the occasional weekend visit: a proper **game for learning ancient languages**, with a world in it rather than flashcards with confetti, and an app that finally teaches **music theory** the way theory deserves. PRAVIEL holds the floor until further notice. Good seeds keep.
+Two ideas sit in the drawer and receive the occasional weekend visit: a proper **game for learning ancient languages**, with a world in it rather than flashcards with confetti, and an app that finally teaches **music theory** the way theory deserves. Neither has moved to the bench; PRAVIEL holds the floor. Good seeds keep.
 
 <img src="assets/divider-gold.svg" alt="" width="100%" />
 
-## Vincula &nbsp;·&nbsp; the links
+## Links &nbsp;·&nbsp; Vincula
 
 <div align="center">
 
-<a href="https://praviel.com"><img src="https://img.shields.io/badge/praviel.com-8B1E1E?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" /></a>
+<sub><strong>ANTON</strong></sub>
+
 <a href="https://www.linkedin.com/in/anton-soloviev/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D&logoColor=white" alt="LinkedIn" /></a>
 <a href="https://x.com/antonsolv"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X (Twitter)" /></a>
 <a href="https://www.youtube.com/@Antonivs-Solovievivs"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Anton on YouTube" /></a>
-<a href="https://discord.gg/XhYdu2XvBs"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="PRAVIEL on Discord" /></a>
+<a href="https://huggingface.co/antonsoloviev"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Anton on Hugging Face" /></a>
 <a href="https://leetcode.com/u/Theophileous/"><img src="https://img.shields.io/badge/LeetCode-000000?style=for-the-badge&logo=leetcode&logoColor=FFA116" alt="Anton on LeetCode" /></a>
 <a href="mailto:anton@praviel.com"><img src="https://img.shields.io/badge/anton@praviel.com-6E1818?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMCA0SDRjLTEuMSAwLTEuOTkuOS0xLjk5IDJMMiAxOGMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjZjMC0xLjEtLjktMi0yLTJ6bTAgNGwtOCA1LTgtNVY2bDggNSA4LTV2MnoiLz48L3N2Zz4%3D&logoColor=white" alt="Email" /></a>
+
+<br/>
+
+<sub><strong>PRAVIEL</strong></sub>
+
+<a href="https://praviel.com"><img src="https://img.shields.io/badge/praviel.com-8B1E1E?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" /></a>
+<a href="https://apps.apple.com/app/id6756199566"><img src="https://img.shields.io/badge/App_Store-000000?style=for-the-badge&logo=apple&logoColor=white" alt="Download PRAVIEL on the App Store" /></a>
+<a href="https://play.google.com/store/apps/details?id=com.praviel"><img src="https://img.shields.io/badge/Google_Play-000000?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iIzQyODVGNCIgZD0iTTIyLjAxOCAxMy4yOTggMTguMSAxNS41MTZsLTMuNTE2LTMuNDkzIDMuNTQzLTMuNTIxIDMuODkxIDIuMjAyYTEuNDkgMS40OSAwIDAgMSAwIDIuNTk0WiIvPjxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Ik0xLjMzNy45MjRhMS40ODYgMS40ODYgMCAwIDAtLjExMi41Njh2MjEuMDE3YzAgLjIxNy4wNDUuNDE5LjEyNC42bDExLjE1NS0xMS4wODdMMS4zMzcuOTI0WiIvPjxwYXRoIGZpbGw9IiNGQkJDMDUiIGQ9Im0xMy41NDQgMTAuOTg5IDMuMjU4LTMuMjM4TDMuNDUuMTk1YTEuNDY2IDEuNDY2IDAgMCAwLS45NDYtLjE3OWwxMS4wNCAxMC45NzNaIi8%2BPHBhdGggZmlsbD0iI0VBNDMzNSIgZD0ibTEzLjU0NCAxMy4wNTYtMTEgMTAuOTMzYy4yOTguMDM2LjYxMi0uMDE2LjkwNi0uMTgzbDEzLjMyNC03LjU0LTMuMjMtMy4yMVoiLz48L3N2Zz4%3D" alt="Get PRAVIEL on Google Play" /></a>
+<a href="https://www.linkedin.com/company/praviel-ancient-languages/"><img src="https://img.shields.io/badge/PRAVIEL_on_LinkedIn-0A66C2?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D&logoColor=white" alt="PRAVIEL on LinkedIn" /></a>
+<a href="https://x.com/PRAVIELApp"><img src="https://img.shields.io/badge/PRAVIEL_on_X-000000?style=for-the-badge&logo=x&logoColor=white" alt="PRAVIEL on X" /></a>
+<a href="https://www.youtube.com/@PRAVIEL-App"><img src="https://img.shields.io/badge/PRAVIEL_on_YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="PRAVIEL on YouTube" /></a>
+<a href="https://discord.gg/XhYdu2XvBs"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="PRAVIEL on Discord" /></a>
 
 </div>
 
