@@ -13,3 +13,15 @@ assets/more_images/
 CLAUDE.md
 AGENTS.md
 .claude/
+
+# Local-only work tracking and agent tooling. This repo is PUBLIC: job-search
+# context and agent scaffolding must never ship. `bd init` creates all three.
+.beads/
+.agents/
+.codex/
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+*.db
+.beads-credential-key
+.beads/proxieddb/
