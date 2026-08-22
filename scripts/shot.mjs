@@ -21,7 +21,7 @@
 // Flags: --width (CSS px of the image, default the SVG's own width), --bg,
 // --scale (device pixel ratio), --pad, --out, --animated, --wait.
 
-import { readFileSync, writeFileSync, mkdtempSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join, resolve, basename, extname } from 'node:path';
@@ -80,9 +80,10 @@ img{width:${width}px;height:${height}px;display:block}</style>
 );
 
 const chrome = requireChrome({ shell: true });
-execFileSync(
-  chrome,
-  [
+try {
+  execFileSync(
+    chrome,
+    [
     '--headless',
     '--disable-gpu',
     '--no-sandbox',
@@ -90,11 +91,17 @@ execFileSync(
     '--force-color-profile=srgb',
     `--force-device-scale-factor=${scale}`,
     `--virtual-time-budget=${wait}`,
-    `--window-size=${width + pad * 2},${height + pad * 2}`,
-    `--screenshot=${out}`,
-    `file://${html}`,
-  ],
-  { stdio: ['ignore', 'ignore', 'pipe'] },
-);
+      `--window-size=${width + pad * 2},${height + pad * 2}`,
+      `--screenshot=${out}`,
+      `file://${html}`,
+    ],
+    { stdio: ['ignore', 'ignore', 'pipe'], timeout: 120_000 },
+  );
+} catch (err) {
+  console.error(`chrome failed: ${err.stderr || err.message}`);
+  process.exit(1);
+} finally {
+  rmSync(dir, { recursive: true, force: true });
+}
 
 console.log(`${out}  (${(width + pad * 2) * scale}x${(height + pad * 2) * scale}, bg ${bg}, ${scale}x)`);

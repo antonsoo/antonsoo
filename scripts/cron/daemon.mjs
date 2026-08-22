@@ -15,9 +15,11 @@
 // month of Railway credit, in exchange for a schedule that is auditable in the
 // logs and does not depend on a black box.
 //
-//   PROFILE_RUN_AT  "HH:MM" UTC, default 06:17 (the slot sententia.yml used)
-//   RUN_ON_BOOT     "0" to skip the run at startup; on by default, and safe,
-//                   because the job commits nothing when nothing changed
+//   PROFILE_RUN_AT   "HH:MM" UTC, default 06:17 (the slot sententia.yml used)
+//   RUN_ON_BOOT      "0" to skip the run at startup; on by default, and safe,
+//                    because the job commits nothing when nothing changed
+//   PROFILE_JOB_TIMEOUT_MS  watchdog per attempt, default 15 minutes
+//   PROFILE_RETRY_MS        wait before the single retry, default 10 minutes
 
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -26,6 +28,8 @@ import { dirname, join } from 'node:path';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const JOB = join(HERE, 'run.mjs');
 const AT = process.env.PROFILE_RUN_AT || '06:17';
+const JOB_TIMEOUT_MS = Number(process.env.PROFILE_JOB_TIMEOUT_MS || 15 * 60_000);
+const RETRY_MS = Number(process.env.PROFILE_RETRY_MS || 10 * 60_000);
 
 const [HH, MM] = AT.split(':').map(Number);
 if (!Number.isInteger(HH) || !Number.isInteger(MM) || HH > 23 || MM > 59) {
@@ -46,31 +50,72 @@ function untilNext() {
   return { ms: next - now, at: next };
 }
 
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * Run the job once. ALWAYS settles, which is the whole point of the watchdog:
+ * this promise is awaited before the next run is scheduled, so anything that
+ * can hang it stops the daily job forever, with no crash for Railway to
+ * restart and nothing in the logs to notice. run.mjs shells out to git and npm
+ * and talks to the GitHub API, so a stalled clone or a hung socket is a real
+ * possibility however many timeouts those calls carry.
+ */
 function runJob() {
   return new Promise((resolve) => {
     log('starting the daily job');
     const child = spawn(process.execPath, [JOB], { stdio: 'inherit' });
-    child.on('exit', (code, signal) => {
-      // Never rethrow: a failed run must not stop tomorrow's.
-      log(signal ? `job killed by ${signal}` : `job exited ${code}`);
-      resolve(code ?? 1);
-    });
-    child.on('error', (err) => {
-      log(`job could not start: ${err.message}`);
-      resolve(1);
-    });
+    const timers = [];
+    let settled = false;
+
+    const finish = (code, note) => {
+      if (settled) return;
+      settled = true;
+      for (const t of timers) clearTimeout(t);
+      log(note);
+      resolve(code);
+    };
+
+    timers.push(
+      setTimeout(() => {
+        log(`job still running after ${(JOB_TIMEOUT_MS / 60_000).toFixed(0)} minutes, terminating it`);
+        child.kill('SIGTERM');
+      }, JOB_TIMEOUT_MS),
+      setTimeout(() => child.kill('SIGKILL'), JOB_TIMEOUT_MS + 15_000),
+      // Last resort. If even SIGKILL leaves us without an exit event, give up
+      // on the child rather than on every future run.
+      setTimeout(() => finish(1, 'job abandoned: it did not exit after SIGKILL'), JOB_TIMEOUT_MS + 45_000),
+    );
+
+    child.on('exit', (code, signal) =>
+      finish(signal ? 1 : (code ?? 1), signal ? `job killed by ${signal}` : `job exited ${code}`),
+    );
+    child.on('error', (err) => finish(1, `job could not start: ${err.message}`));
   });
 }
 
+/**
+ * One retry, because a network blip at 06:17 should not cost the day its quote
+ * card. Two failures in a row is a real problem and waits for tomorrow: a
+ * tighter loop would just hammer GitHub.
+ */
+async function runWithRetry() {
+  if ((await runJob()) === 0) return 0;
+  log(`retrying once in ${(RETRY_MS / 60_000).toFixed(0)} minutes`);
+  await sleep(RETRY_MS);
+  const code = await runJob();
+  if (code !== 0) log('JOB FAILED TWICE. The profile is stale until the next scheduled run.');
+  return code;
+}
+
 log(`scheduler up, daily at ${AT} UTC`);
-if (process.env.RUN_ON_BOOT !== '0') await runJob();
+if (process.env.RUN_ON_BOOT !== '0') await runWithRetry();
 
 for (;;) {
   const { ms, at } = untilNext();
   log(`next run ${at.toISOString()} (in ${(ms / 3600000).toFixed(2)}h)`);
-  await new Promise((r) => setTimeout(r, ms));
-  await runJob();
+  await sleep(ms);
+  await runWithRetry();
   // Guard against a run that finishes inside the same minute it started, which
   // would otherwise recompute to a delay of ~0 and fire again immediately.
-  await new Promise((r) => setTimeout(r, 61_000));
+  await sleep(61_000);
 }

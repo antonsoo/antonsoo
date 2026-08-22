@@ -37,6 +37,17 @@ const DRY_RUN = !!process.env.DRY_RUN;
 const AUTHOR_NAME = process.env.PROFILE_AUTHOR_NAME || 'praviel-scriptorium';
 const AUTHOR_EMAIL = process.env.PROFILE_AUTHOR_EMAIL || 'antonnsoloviev@gmail.com';
 
+// Nothing here may hang. The daemon awaits this whole script before scheduling
+// the next day, so a stalled clone or a socket that never closes would cost
+// every future run, not just this one. Every subprocess and every request
+// below carries a deadline. maxBuffer is raised well past anything npm or git
+// actually prints, because overflowing it fails the run with an opaque ENOBUFS.
+const EXEC = { encoding: 'utf8', stdio: 'pipe', maxBuffer: 64 * 1024 * 1024 };
+const GIT_TIMEOUT_MS = 5 * 60_000;
+const NPM_TIMEOUT_MS = 8 * 60_000;
+const SNAKE_TIMEOUT_MS = 5 * 60_000;
+const API_TIMEOUT_MS = 30_000;
+
 if (!TOKEN) {
   console.error('GH_TOKEN is not set. Nothing can be fetched or pushed without it.');
   process.exit(1);
@@ -48,29 +59,41 @@ const redact = (s) => String(s).split(TOKEN).join('***');
 
 const log = (...a) => console.log(`[${new Date().toISOString().slice(11, 19)}]`, ...a);
 
+/** Describe why a subprocess died, distinguishing a timeout from a bad exit. */
+function why(err, timeoutMs) {
+  if (err.signal === 'SIGTERM' && err.killed) return ` (timed out after ${timeoutMs / 60_000} min)`;
+  return '';
+}
+
 function git(cwd, args, opts = {}) {
   try {
     return execFileSync('git', ['-c', `user.name=${AUTHOR_NAME}`, '-c', `user.email=${AUTHOR_EMAIL}`, ...args], {
       cwd,
-      encoding: 'utf8',
-      stdio: 'pipe',
+      timeout: GIT_TIMEOUT_MS,
+      ...EXEC,
       ...opts,
     });
   } catch (err) {
-    throw new Error(redact(`git ${args[0]} failed\n${err.stdout ?? ''}${err.stderr ?? ''}`));
+    throw new Error(
+      redact(`git ${args[0]} failed${why(err, GIT_TIMEOUT_MS)}\n${err.stdout ?? ''}${err.stderr ?? ''}`),
+    );
   }
 }
 
-function npm(cwd, args) {
+function npm(cwd, args, timeout = NPM_TIMEOUT_MS) {
   try {
-    return execFileSync('npm', args, { cwd, encoding: 'utf8', stdio: 'pipe' });
+    return execFileSync('npm', args, { cwd, timeout, ...EXEC });
   } catch (err) {
-    throw new Error(`npm ${args.join(' ')} failed\n${err.stdout ?? ''}${err.stderr ?? ''}`);
+    throw new Error(
+      redact(`npm ${args.join(' ')} failed${why(err, timeout)}\n${err.stdout ?? ''}${err.stderr ?? ''}`),
+    );
   }
 }
 
 async function api(path) {
+  // Node's fetch has no default timeout; without this a hung socket waits forever.
   const res = await fetch(`https://api.github.com/${path}`, {
+    signal: AbortSignal.timeout(API_TIMEOUT_MS),
     headers: {
       Authorization: `Bearer ${TOKEN}`,
       Accept: 'application/vnd.github+json',
@@ -85,11 +108,15 @@ async function api(path) {
 async function ledger() {
   const me = await api(`users/${USER}`);
   let repos = 0;
-  for (let page = 1; ; page++) {
+  // Capped rather than open-ended: a paginator that never terminates would hang
+  // the run, and 20 pages is 2000 repositories.
+  let page = 1;
+  for (; page <= 20; page++) {
     const batch = await api(`users/${USER}/repos?per_page=100&type=owner&page=${page}`);
     repos += batch.filter((r) => !r.private && !r.fork).length;
     if (batch.length < 100) break;
   }
+  if (page > 20) throw new Error('repo pagination did not terminate within 20 pages');
   return { followers: me.followers, createdYear: Number(me.created_at.slice(0, 4)), publicRepos: repos };
 }
 
@@ -164,16 +191,27 @@ function redrawSnake(work, mainDir) {
   // all: a raw # would be read as a URL fragment and the colour would be lost.
   const cli = join(mainDir, 'node_modules', 'generate-snake-animation', 'cli.js');
   log('drawing the snake');
-  execFileSync(
-    process.execPath,
-    [
-      cli,
+  try {
+    execFileSync(
+      process.execPath,
+      [
+        cli,
       `--github_user=${USER}`,
-      '--output=snake.svg?color_snake=%238B1E1E&color_dots=%23EDE4D3,%23E6CF94,%23C5A059,%23A24E30,%238B1E1E',
-      '--output=snake-dark.svg?palette=github-dark&color_snake=%23E6CF94&color_dots=%23262220,%234A3A22,%237A5C2E,%23A8853F,%23C5A059',
-    ],
-    { cwd: dir, encoding: 'utf8', stdio: 'pipe', env: { ...process.env, GITHUB_TOKEN: TOKEN } },
-  );
+        '--output=snake.svg?color_snake=%238B1E1E&color_dots=%23EDE4D3,%23E6CF94,%23C5A059,%23A24E30,%238B1E1E',
+        '--output=snake-dark.svg?palette=github-dark&color_snake=%23E6CF94&color_dots=%23262220,%234A3A22,%237A5C2E,%23A8853F,%23C5A059',
+      ],
+      {
+        cwd: dir,
+        timeout: SNAKE_TIMEOUT_MS,
+        ...EXEC,
+        env: { ...process.env, GITHUB_TOKEN: TOKEN },
+      },
+    );
+  } catch (err) {
+    throw new Error(
+      redact(`snake generator failed${why(err, SNAKE_TIMEOUT_MS)}\n${err.stdout ?? ''}${err.stderr ?? ''}`),
+    );
+  }
 
   commitAndPush(dir, ['snake.svg', 'snake-dark.svg'], 'chore(snake): redraw the contribution snake', 'output');
 }
