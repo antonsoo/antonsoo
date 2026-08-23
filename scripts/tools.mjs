@@ -12,7 +12,7 @@
 //
 // Nothing here is needed to render the SVGs: `npm run gen:all` is pure
 // opentype.js and harfbuzzjs. These are for rebaking embedded rasters
-// (make-thoth, make-arms) and for raster QA, both of which run on demand.
+// (make-arms) and for raster QA, both of which run on demand.
 
 import { existsSync, readdirSync, statSync, accessSync, constants } from 'node:fs';
 import { createRequire } from 'node:module';

@@ -1,5 +1,5 @@
-// The three checks .github/workflows/verify.yml used to run, moved into the
-// repo so they survive GitHub Actions being unavailable. Run them locally with
+// The three checks the old verify.yml workflow used to run (deleted in 2026-08),
+// moved into the repo so they survive GitHub Actions being unavailable. Run them locally with
 // `npm run verify`; the Railway cron runs the same file every morning against a
 // fresh clone, which is now the only automated guard the generators have.
 //

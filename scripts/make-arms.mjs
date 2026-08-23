@@ -11,16 +11,16 @@
 //
 // PNG, not JPEG: heraldry has to stand free on the banner ground, which is a
 // gradient under two radial washes and a grain filter, so there is nothing flat
-// to flatten against and the alpha has to survive. That rules out the mozjpeg
-// recipe in make-thoth.mjs. The device displays at 228px inside the 1000px
+// to flatten against and the alpha has to survive. That rules out a mozjpeg
+// recipe. The device displays at 228px inside the 1000px
 // banner, so 684px covers 3x device pixel ratios. The 256-colour palette was
 // chosen by comparison: it is visually indistinguishable from true colour at
 // display size and costs a third of the bytes, while 128 colours dithers
 // visibly across the blue plumes.
 //
-// The master under assets/more_images/ is gitignored (local-only, like
-// thoth-1.png); the committed artifact is scripts/arms.b64, which gen-banner
-// reads. A fresh clone can render the banner but cannot re-bake it.
+// The master under assets/more_images/ is gitignored (local-only); the
+// committed artifact is scripts/arms.b64, which gen-banner reads. A fresh
+// clone can render the banner but cannot re-bake it.
 
 import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
