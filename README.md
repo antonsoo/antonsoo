@@ -71,6 +71,28 @@
 
 **Also on the bench.** A private research stack for systematic trading, under QuantGenAI: seven repositories that keep market data, research, laboratory, execution, and monitoring apart, with versioned contracts between them and a risk kernel allowed to refuse anything the laboratory approved. The interesting part is not a strategy. It is that the apparatus is calibrated against planted effects and against deliberately contaminated data, so it can tell a real result from an artifact of how the panel was assembled, and I have turned it on my own best finding more than once and lost. Nothing there has earned the right to trade, and nothing claims to have.
 
+**Opera minora.** Small tools, released under the MIT license in September MMXXVI. Most run in the browser, and all of them are on [one page, with pictures](https://antonsoo.github.io/officina/):
+
+| Repository | What it is |
+| :-- | :-- |
+| [horologium](https://github.com/antonsoo/horologium) | What time is it in Babylon? Thirteen ancient calendars, live, on an Antikythera-style dial. |
+| [gnomon](https://github.com/antonsoo/gnomon) | Designs a working sundial for any place on Earth, ready to print or laser-cut. |
+| [planisphere](https://github.com/antonsoo/planisphere) | A printable star wheel for any latitude and any century, the sky over Babylon included. |
+| [tonemirror](https://github.com/antonsoo/tonemirror) | Draws your pitch contour over a reference voice, for tones and pitch accent, Ancient Greek among them. |
+| [errorbars](https://github.com/antonsoo/errorbars) | Error bars for LLM evals, and how many questions you actually need. |
+| [contextscope](https://github.com/antonsoo/contextscope) | What fills an LLM context window, and why the prompt cache keeps missing. |
+| [fieldproof](https://github.com/antonsoo/fieldproof) | Document extraction that shows its work: every field tied to the words it came from. |
+| [veil](https://github.com/antonsoo/veil) | Reversible masking of personal data in LLM calls, restored even mid-stream. |
+| [mcplint](https://github.com/antonsoo/mcplint) | Lints an MCP server's tools the way the model reads them. |
+| [tracelens](https://github.com/antonsoo/tracelens) | Every model call, tool call, token, and dollar of an agent run, on one timeline. |
+| [trainspotter](https://github.com/antonsoo/trainspotter) | Reads a training run's logs and names what went wrong. |
+| [ghostchars](https://github.com/antonsoo/ghostchars) | Finds the characters you cannot see: Trojan Source, invisible Unicode, smuggled prompts. |
+| [logdelta](https://github.com/antonsoo/logdelta) | Diffs logs by meaning, to show what the failing run did that the good one did not. |
+| [flakemap](https://github.com/antonsoo/flakemap) | Finds the flaky tests in a CI history, with honest error bars. |
+| [stutterscope](https://github.com/antonsoo/stutterscope) | The stutter that an average frame rate hides. |
+| [splitscope](https://github.com/antonsoo/splitscope) | Reads a speedrunner's splits and prices the odds of the next personal best. |
+| [am-i-unlucky](https://github.com/antonsoo/am-i-unlucky) | Exact drop-rate and pity math: unlucky, or is it the system? |
+
 **From the workshop.** A few public pieces from the machine-learning years:
 
 | Repository | What it is |
