@@ -38,6 +38,7 @@
 - Native in English, Russian, and Ukrainian; Japanese earned over four years in Tokyo; Chinese barely past counting to ten. Five living languages is decent training for reviving the silent ones, which these days I am learning myself: Latin, Ancient Greek, Hebrew, Sanskrit, and the rest of the syllabus.
 - I care about pronunciation, provenance, and shipping. Order depends on the day.
 - My test for a lesson is plain: not whether you can parse an old language, but whether you can say it aloud and be understood. PRAVIEL has to pass it every time.
+- I also build small open-source tools: for engineers who work with language models, for speedrunners, and for anyone who wants to know what time it is in Babylon. They are below, under *Opera minora*.
 - In San Francisco, in person. Open to good engineering work, full time or contract, and always open to a conversation about languages. <a href="mailto:anton@praviel.com">anton@praviel.com</a>
 
 <img src="assets/divider-gold.svg" alt="" width="100%" />
@@ -71,7 +72,68 @@
 
 **Also on the bench.** A private research stack for systematic trading, under QuantGenAI: seven repositories that keep market data, research, laboratory, execution, and monitoring apart, with versioned contracts between them and a risk kernel allowed to refuse anything the laboratory approved. The interesting part is not a strategy. It is that the apparatus is calibrated against planted effects and against deliberately contaminated data, so it can tell a real result from an artifact of how the panel was assembled, and I have turned it on my own best finding more than once and lost. Nothing there has earned the right to trade, and nothing claims to have.
 
-**From the workshop.** A few public pieces from the machine-learning years:
+<img src="assets/divider-gold.svg" alt="" width="100%" />
+
+## Open-source tools &nbsp;·&nbsp; Opera minora
+
+A growing shelf of small tools, MIT-licensed, and most of them run in the browser with nothing to install. Some serve PRAVIEL's world, some serve the people who build with language models, and a few are for players who suspect the game is lying to them. The whole shelf, with pictures: **[antonsoo.github.io/officina](https://antonsoo.github.io/officina/)**.
+
+<table>
+<tr>
+<td width="33%" valign="top">
+<a href="https://antonsoo.github.io/horologium/"><img src="assets/opera-minora/horologium.jpg" width="100%" alt="horologium: a brass dial on parchment, its rings marking the ancient calendars" /></a>
+<br/><strong><a href="https://github.com/antonsoo/horologium">horologium</a></strong><br/>
+<sub>What time is it in Babylon? Thirteen ancient calendars, live, on an Antikythera-style dial.</sub>
+</td>
+<td width="33%" valign="top">
+<a href="https://antonsoo.github.io/planisphere/"><img src="assets/opera-minora/planisphere.jpg" width="100%" alt="planisphere: a star wheel of the night sky, with latitude and epoch controls" /></a>
+<br/><strong><a href="https://github.com/antonsoo/planisphere">planisphere</a></strong><br/>
+<sub>A printable star wheel for any latitude and any century, the sky over Babylon included.</sub>
+</td>
+<td width="33%" valign="top">
+<a href="https://antonsoo.github.io/tracelens/"><img src="assets/opera-minora/tracelens.jpg" width="100%" alt="tracelens: an agent run drawn as a timeline of model and tool calls" /></a>
+<br/><strong><a href="https://github.com/antonsoo/tracelens">tracelens</a></strong><br/>
+<sub>Every model call, tool call, token, and dollar of an agent run, on one timeline.</sub>
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top">
+<a href="https://antonsoo.github.io/errorbars/"><img src="assets/opera-minora/errorbars.jpg" width="100%" alt="errorbars: a calculator answering how many eval questions a comparison needs" /></a>
+<br/><strong><a href="https://github.com/antonsoo/errorbars">errorbars</a></strong><br/>
+<sub>Error bars for LLM evals, and how many questions you actually need.</sub>
+</td>
+<td width="33%" valign="top">
+<a href="https://antonsoo.github.io/veil/"><img src="assets/opera-minora/veil.jpg" width="100%" alt="veil: a prompt with personal details, about to be masked" /></a>
+<br/><strong><a href="https://github.com/antonsoo/veil">veil</a></strong><br/>
+<sub>Reversible masking of personal data in LLM calls, restored even mid-stream.</sub>
+</td>
+<td width="33%" valign="top">
+<a href="https://antonsoo.github.io/splitscope/"><img src="assets/opera-minora/splitscope.jpg" width="100%" alt="splitscope: a speedrun's personal best, its splits, and the odds of beating it" /></a>
+<br/><strong><a href="https://github.com/antonsoo/splitscope">splitscope</a></strong><br/>
+<sub>Reads a speedrunner's splits and prices the odds of the next personal best.</sub>
+</td>
+</tr>
+</table>
+
+The rest of the shelf:
+
+| Repository | What it is |
+| :-- | :-- |
+| [gnomon](https://github.com/antonsoo/gnomon) | Designs a working sundial for any place on Earth, ready to print or laser-cut. |
+| [tonemirror](https://github.com/antonsoo/tonemirror) | Draws your pitch contour over a reference voice, for tones and pitch accent, Ancient Greek among them. |
+| [contextscope](https://github.com/antonsoo/contextscope) | What fills an LLM context window, and why the prompt cache keeps missing. |
+| [fieldproof](https://github.com/antonsoo/fieldproof) | Document extraction that shows its work: every field tied to the words it came from. |
+| [mcplint](https://github.com/antonsoo/mcplint) | Lints an MCP server's tools the way the model reads them. |
+| [trainspotter](https://github.com/antonsoo/trainspotter) | Reads a training run's logs and names what went wrong. |
+| [ghostchars](https://github.com/antonsoo/ghostchars) | Finds the characters you cannot see: Trojan Source, invisible Unicode, smuggled prompts. |
+| [logdelta](https://github.com/antonsoo/logdelta) | Diffs logs by meaning, to show what the failing run did that the good one did not. |
+| [flakemap](https://github.com/antonsoo/flakemap) | Finds the flaky tests in a CI history, with honest error bars. |
+| [stutterscope](https://github.com/antonsoo/stutterscope) | The stutter that an average frame rate hides. |
+| [am-i-unlucky](https://github.com/antonsoo/am-i-unlucky) | Exact drop-rate and pity math: unlucky, or is it the system? |
+
+<sub>Editors print Tacitus' shorter works together as his <em>opera minora</em>: the Agricola, the Germania, the Dialogus. These are mine, and a good deal cheerier.</sub>
+
+**Earlier, from the machine-learning years.** A few public pieces:
 
 | Repository | What it is |
 | :-- | :-- |
@@ -99,7 +161,7 @@
 
 <img src="assets/sententia.svg" alt="The sententia of the day: a Greek or Latin line with its translation and source, changed each morning. A catchword in the lower margin gives tomorrow's first word." width="100%" />
 
-<sub>A new line each morning, by GitHub Action, from people considerably wiser than me. The small word in the lower margin is the catchword: tomorrow's first word, the way scribes kept their quires in order.</sub>
+<sub>A new line each morning, set by a script in this repo, from people considerably wiser than me. The small word in the lower margin is the catchword: tomorrow's first word, the way scribes kept their quires in order.</sub>
 
 <br/><br/>
 
