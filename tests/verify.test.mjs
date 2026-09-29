@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { test } from 'node:test';
-import { dashes, unexpectedDrift } from '../scripts/verify.mjs';
+import { dashes, missingReferences, unexpectedDrift } from '../scripts/verify.mjs';
 
 function fixture(t) {
   const root = mkdtempSync(join(tmpdir(), 'profile-verify-'));
@@ -69,4 +69,25 @@ test('only the daily card and stats may drift; additions and deletions count', (
     'assets/banner.svg', 'assets/deleted.svg', 'assets/new.svg',
   ]);
   assert.deepEqual(unexpectedDrift(before, before), []);
+});
+
+test('every local file the README points at must exist', (t) => {
+  const root = fixture(t);
+  writeFileSync(join(root, 'assets', 'banner.svg'), '<svg/>');
+  writeFileSync(join(root, 'README.md'), [
+    '<img src="assets/banner.svg" alt="" />',
+    '<img src="assets/opera-minora/renamed.jpg" alt="" />',
+    '<source srcset="assets/dark.svg 2x, https://example.com/x.svg" />',
+    '![card](assets/sententia/missing%20card.svg "title")',
+    '[scripts](scripts/) [site](https://praviel.com) [mail](mailto:a@b.c) [top](#about)',
+    '<a href="https://github.com/antonsoo"><img src="https://img.shields.io/x" /></a>',
+  ].join('\n'));
+  mkdirSync(join(root, 'scripts'));
+  assert.deepEqual(missingReferences(root), [
+    'assets/dark.svg', 'assets/opera-minora/renamed.jpg', 'assets/sententia/missing card.svg',
+  ]);
+});
+
+test('the real README references only files that exist', () => {
+  assert.deepEqual(missingReferences(), []);
 });

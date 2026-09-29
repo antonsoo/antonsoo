@@ -1,4 +1,4 @@
-// The three checks the old verify.yml workflow used to run (deleted in 2026-08),
+// The checks the old verify.yml workflow used to run (deleted in 2026-08),
 // moved into the repo so they survive GitHub Actions being unavailable. Run them locally with
 // `npm run verify`; the Railway cron runs the same file every morning against a
 // fresh clone, which is now the only automated guard the generators have.
@@ -8,6 +8,11 @@
 //      overflow and grid-size assertions all exit nonzero from the generators)
 //   2. byte-stability: re-running the generators changes nothing
 //   3. no em or en dashes anywhere in the README or the assets
+//   4. every local file the README points at exists (added 2026-09-29). A
+//      renamed or deleted asset otherwise ships as a broken image on the
+//      public profile while every other check stays green. The daily job runs
+//      this against a fresh clone, so an asset that exists only because it is
+//      untracked or gitignored locally fails there too.
 //
 // The byte check hashes the assets before and after regenerating rather than
 // asking git what changed. The workflow it replaced could use `git diff`
@@ -22,7 +27,7 @@
 
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join, relative } from 'node:path';
 
@@ -83,6 +88,21 @@ export function dashes(root = ROOT) {
     .sort();
 }
 
+/** Local paths README.md references that do not exist under root. */
+export function missingReferences(root = ROOT) {
+  const readme = readFileSync(join(root, 'README.md'), 'utf8');
+  const refs = [];
+  for (const [, attr, value] of readme.matchAll(/\b(src|srcset|href)="([^"]+)"/g)) {
+    // A srcset lists candidates as "url [descriptor]", comma-separated.
+    refs.push(...(attr === 'srcset' ? value.split(',').map((c) => c.trim().split(/\s+/)[0]) : [value]));
+  }
+  for (const [, url] of readme.matchAll(/\]\(([^)\s]+)[^)]*\)/g)) refs.push(url);
+  const local = refs.filter((url) => url && !/^(?:[a-z][a-z0-9+.-]*:|#|\/\/)/i.test(url));
+  return [...new Set(local.map((url) => decodeURIComponent(url.split(/[?#]/)[0])))]
+    .filter((path) => !existsSync(join(root, path)))
+    .sort();
+}
+
 export function verify({ quiet = false } = {}) {
   const say = (...a) => !quiet && console.log(...a);
   const before = hashAssets();
@@ -104,6 +124,10 @@ export function verify({ quiet = false } = {}) {
   const bad = dashes();
   if (bad.length) throw new Error(`em or en dash found in:\n  ${bad.join('\n  ')}`);
   say('no dashes    ok');
+
+  const missing = missingReferences();
+  if (missing.length) throw new Error(`README.md points at files that do not exist:\n  ${missing.join('\n  ')}`);
+  say('references   ok');
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
