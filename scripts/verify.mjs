@@ -2,6 +2,7 @@
 // moved into the repo so they survive GitHub Actions being unavailable. Run them locally with
 // `npm run verify`; the Railway cron runs the same file every morning against a
 // fresh clone, which is now the only automated guard the generators have.
+// `npm run verify` also runs the offline regression tests before these checks.
 //
 //   1. every generator regenerates and exits 0 (missing glyphs, writing-zone
 //      overflow and grid-size assertions all exit nonzero from the generators)
@@ -19,10 +20,10 @@
 // assets/sententia.svg with TODAY's card, and gen-stats recomputes years from
 // the current UTC year, so both legitimately move.
 
-import { execFileSync, spawnSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join, relative } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -40,19 +41,26 @@ export function generate() {
   }
 }
 
-/** sha256 of every file under assets/, keyed by repo-relative path. */
-export function hashAssets(dir = join(ROOT, 'assets')) {
-  const out = {};
+/** Generated/public asset files, excluding the ignored local image masters. */
+function assetFiles(dir) {
+  const out = [];
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const full = join(dir, entry.name);
     // more_images/ holds the gitignored local masters; they are inputs.
     if (entry.isDirectory()) {
-      if (entry.name !== 'more_images') Object.assign(out, hashAssets(full));
+      if (entry.name !== 'more_images') out.push(...assetFiles(full));
     } else {
-      out[relative(ROOT, full)] = createHash('sha256').update(readFileSync(full)).digest('hex');
+      out.push(full);
     }
   }
   return out;
+}
+
+/** sha256 of every public file under assets/, keyed by repo-relative path. */
+export function hashAssets(dir = join(ROOT, 'assets')) {
+  return Object.fromEntries(assetFiles(dir).map((full) => [
+    relative(ROOT, full), createHash('sha256').update(readFileSync(full)).digest('hex'),
+  ]));
 }
 
 /** Assets that regenerating moved, other than the two date-seeded ones. */
@@ -62,15 +70,17 @@ export function unexpectedDrift(before, after) {
 }
 
 /** Files containing an em dash or en dash. The house style forbids both. */
-export function dashes() {
-  // -I skips binaries: the gitignored image masters under assets/more_images/
-  // are full of byte sequences that look like an em dash to grep.
-  // grep exits 1 when it finds nothing, which is the success case here.
-  const r = spawnSync('grep', ['-rlIP', '\\x{2014}|\\x{2013}', 'README.md', 'assets/'], {
-    cwd: ROOT,
-    encoding: 'utf8',
-  });
-  return r.stdout.trim() ? r.stdout.trim().split('\n') : [];
+export function dashes(root = ROOT) {
+  // Scan in Node so a missing grep, unsupported -P, or unreadable input cannot
+  // masquerade as "no matches". Binary files have no prose to lint; NUL is
+  // the same binary marker used by the old grep -I invocation.
+  return [join(root, 'README.md'), ...assetFiles(join(root, 'assets'))]
+    .filter((full) => {
+      const bytes = readFileSync(full);
+      return !bytes.includes(0) && /[\u2013\u2014]/u.test(bytes.toString('utf8'));
+    })
+    .map((full) => relative(root, full))
+    .sort();
 }
 
 export function verify({ quiet = false } = {}) {
@@ -96,7 +106,7 @@ export function verify({ quiet = false } = {}) {
   say('no dashes    ok');
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
     verify();
     console.log('\nverified.');

@@ -20,22 +20,24 @@
 //                    because the job commits nothing when nothing changed
 //   PROFILE_JOB_TIMEOUT_MS  watchdog per attempt, default 15 minutes
 //   PROFILE_RETRY_MS        wait before the single retry, default 10 minutes
+// Times must use two-digit HH:MM. Durations must be whole milliseconds within
+// Node's timer range (including watchdog grace); invalid values fail on boot.
 
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { readSchedule, KILL_GRACE_MS, ABANDON_GRACE_MS } from './config.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const JOB = join(HERE, 'run.mjs');
-const AT = process.env.PROFILE_RUN_AT || '06:17';
-const JOB_TIMEOUT_MS = Number(process.env.PROFILE_JOB_TIMEOUT_MS || 15 * 60_000);
-const RETRY_MS = Number(process.env.PROFILE_RETRY_MS || 10 * 60_000);
-
-const [HH, MM] = AT.split(':').map(Number);
-if (!Number.isInteger(HH) || !Number.isInteger(MM) || HH > 23 || MM > 59) {
-  console.error(`PROFILE_RUN_AT must be HH:MM in UTC, got ${JSON.stringify(AT)}`);
+let schedule;
+try {
+  schedule = readSchedule();
+} catch (err) {
+  console.error(err.message);
   process.exit(1);
 }
+const { at: AT, hour: HH, minute: MM, jobTimeoutMs: JOB_TIMEOUT_MS, retryMs: RETRY_MS } = schedule;
 
 const stamp = () => new Date().toISOString().slice(11, 19);
 const log = (...a) => console.log(`[${stamp()}]`, ...a);
@@ -80,10 +82,10 @@ function runJob() {
         log(`job still running after ${(JOB_TIMEOUT_MS / 60_000).toFixed(0)} minutes, terminating it`);
         child.kill('SIGTERM');
       }, JOB_TIMEOUT_MS),
-      setTimeout(() => child.kill('SIGKILL'), JOB_TIMEOUT_MS + 15_000),
+      setTimeout(() => child.kill('SIGKILL'), JOB_TIMEOUT_MS + KILL_GRACE_MS),
       // Last resort. If even SIGKILL leaves us without an exit event, give up
       // on the child rather than on every future run.
-      setTimeout(() => finish(1, 'job abandoned: it did not exit after SIGKILL'), JOB_TIMEOUT_MS + 45_000),
+      setTimeout(() => finish(1, 'job abandoned: it did not exit after SIGKILL'), JOB_TIMEOUT_MS + ABANDON_GRACE_MS),
     );
 
     child.on('exit', (code, signal) =>
