@@ -33,10 +33,10 @@
 
 ## About &nbsp;·&nbsp; Dē mē
 
-- **AI/ML and software engineer.** Master's in artificial intelligence from the Institute of Science Tokyo, where I trained speech recognition models on supercomputers. Since then: production document AI at Quantiphi, LLM agents and jailbreak research at a small company of my own, and full-stack apps shipped to both app stores.
+- **AI/ML and software engineer.** Master's in artificial intelligence from the Institute of Science Tokyo, where I trained speech recognition models on supercomputers. Since then: production document AI at Quantiphi, LLM agents and jailbreak research at a small company of my own, and full-stack work from the backend to both app stores.
 - Founder and lead engineer of **[PRAVIEL](https://praviel.com)**, a lessons-first app that teaches ancient languages as living, speakable systems. I designed it, I built it, and I run it.
-- I publish small open-source tools, most of them for engineers who build with language models (eval statistics, agent traces, PII masking, MCP linting), plus a few for speedrunners and for anyone who wants to know what time it is in Babylon. They are below, under *Opera minora*.
-- Contributing upstream as well: fixes in review at [Luau](https://github.com/luau-lang/luau) and [raylib](https://github.com/raysan5/raylib). <a href="https://github.com/search?q=author%3Aantonsoo+type%3Apr+-user%3Aantonsoo&amp;type=pullrequests">All my pull requests</a>, live.
+- I publish small open-source tools: for engineers who build with language models (eval statistics, agent traces, PII masking, MCP linting), for developers at large, for speedrunners, and for anyone who wants to know what time it is in Babylon. They are below, under *Opera minora*.
+- I send fixes to other people's projects too, among them [Luau](https://github.com/luau-lang/luau) and [raylib](https://github.com/raysan5/raylib). <a href="https://github.com/search?q=author%3Aantonsoo+type%3Apr+-user%3Aantonsoo&amp;type=pullrequests">All my pull requests</a>, live.
 - Native in English, Russian, and Ukrainian; Japanese earned over four years in Tokyo; Chinese barely past counting to ten. Five living languages is decent training for reviving the silent ones, which these days I am learning myself: Latin, Ancient Greek, Hebrew, Sanskrit, and the rest of the syllabus.
 - I care about evidence, provenance, and shipping. Order depends on the day.
 - In San Francisco, in person. Open to AI/ML and software engineering work, full time or contract, and always open to a conversation about languages. <a href="mailto:anton@praviel.com">anton@praviel.com</a>
@@ -78,7 +78,7 @@
 
 ## Open-source tools &nbsp;·&nbsp; Opera minora
 
-A growing shelf of small tools, MIT-licensed, and most of them run in the browser with nothing to install. Most serve the people who build with language models, some serve PRAVIEL's world, and a few are for players who suspect the game is lying to them. The whole shelf, with pictures: **[antonsoo.github.io/officina](https://antonsoo.github.io/officina/)**.
+A growing shelf of small tools, MIT-licensed, and most of them run in the browser with nothing to install. Many serve the people who build with language models, others serve developers at large or PRAVIEL's world, and a few are for players who suspect the game is lying to them. The whole shelf, with pictures: **[antonsoo.github.io/officina](https://antonsoo.github.io/officina/)**.
 
 <table>
 <tr>
