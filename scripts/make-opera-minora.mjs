@@ -24,7 +24,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const sharp = requireSharp();
 
 // Order is the README's reading order, three to a row.
-const TOOLS = ['horologium', 'planisphere', 'tracelens', 'errorbars', 'veil', 'splitscope'];
+const TOOLS = ['errorbars', 'tracelens', 'veil', 'fieldproof', 'horologium', 'splitscope'];
 
 const W = 640;
 const MAT = 14; // parchment border around the picture

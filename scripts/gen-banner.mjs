@@ -92,15 +92,21 @@ while (nameSize > 40 && layoutLine('ANTON SOLOVIEV', nameSize, { letterSpacing: 
   nameSize -= 1;
 }
 
-const eyebrow = lineSvg('PRAVIEL · ANCIENT LANGUAGES', TX + 2, 92, 15, 4.6, T.gold, { font: TITLE });
+const eyebrow = lineSvg('AI · SOFTWARE · SAN FRANCISCO', TX + 2, 92, 15, 4.6, T.gold, { font: TITLE });
 const name = lineSvg('ANTON SOLOVIEV', TX, 166, nameSize, 2.4, T.cream, { font: TITLE });
-const role1 = lineSvg('Founder and Lead Engineer, PRAVIEL', TX + 1, 231, 25, 0.2, T.roleCream, { font: BODY });
-const role2 = lineSvg('The old languages, out loud again.', TX + 1, 266, 22, 0.2, T.muted, { font: BODY });
+const role1 = lineSvg('AI/ML and Software Engineer', TX + 1, 231, 25, 0.2, T.roleCream, { font: BODY });
+const role2 = lineSvg('Founder of PRAVIEL. The old languages, out loud again.', TX + 1, 266, 22, 0.2, T.muted, { font: BODY });
+
+// The text column is NAME_MAXW wide; fail the bake rather than let a line run
+// past the right edge (the role lines are not auto-fit like the name).
+for (const [label, line] of [['eyebrow', eyebrow], ['role1', role1], ['role2', role2]]) {
+  if (line.width > NAME_MAXW) throw new Error(`banner ${label} is ${line.width}px, over the ${NAME_MAXW}px column`);
+}
 
 // Describes what is visible, not a formal blazon: the arms have not been
 // checked against a heraldic source and the label should not pretend otherwise.
 const ARIA =
-  'Anton Soloviev. Founder and Lead Engineer, PRAVIEL. The old languages, out loud again. ' +
+  'Anton Soloviev. AI, software, San Francisco. AI/ML and Software Engineer. Founder of PRAVIEL. The old languages, out loud again. ' +
   'Beside the name, the Soloviev family arms: an oak tree on a blue field beneath a silver ' +
   'chief bearing three bees, with a crowned helm, an anchor crest in blue plumes, and blue ' +
   'and gold mantling.';

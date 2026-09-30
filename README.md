@@ -7,7 +7,7 @@
 
 <div align="center">
 
-<img src="assets/banner.svg" alt="Anton Soloviev. Founder and Lead Engineer, PRAVIEL. The old languages, out loud again. Beside the name, the Soloviev family arms: an oak tree on a blue field beneath a silver chief bearing three bees, with a crowned helm, an anchor crest in blue plumes, and blue and gold mantling." width="100%" />
+<img src="assets/banner.svg" alt="Anton Soloviev. AI, software, San Francisco. AI/ML and Software Engineer. Founder of PRAVIEL. The old languages, out loud again. Beside the name, the Soloviev family arms: an oak tree on a blue field beneath a silver chief bearing three bees, with a crowned helm, an anchor crest in blue plumes, and blue and gold mantling." width="100%" />
 
 <br/>
 
@@ -27,23 +27,25 @@
 
 </div>
 
-<p align="center"><em>I am building <strong>PRAVIEL</strong>, an app that rests on one small heresy: the old languages are not dead, only unspoken, and unspoken is a curable condition.</em></p>
+<p align="center"><em>AI/ML and software engineer in San Francisco. I build LLM systems, the software around them, and the tests that say whether either works.</em></p>
 
 <img src="assets/divider-gold.svg" alt="" width="100%" />
 
 ## About &nbsp;·&nbsp; Dē mē
 
+- **AI/ML and software engineer.** Master's in artificial intelligence from the Institute of Science Tokyo, where I trained speech recognition models on supercomputers. Since then: production document AI at Quantiphi, LLM agents and jailbreak research at a small company of my own, and full-stack apps shipped to both app stores.
 - Founder and lead engineer of **[PRAVIEL](https://praviel.com)**, a lessons-first app that teaches ancient languages as living, speakable systems. I designed it, I built it, and I run it.
-- Trained in **artificial intelligence** at the Institute of Science Tokyo. Before PRAVIEL: speech recognition on supercomputers, LLM agents, production document AI at Quantiphi, and a startup or two. These days the models report to the languages.
+- I publish small open-source tools, most of them for engineers who build with language models (eval statistics, agent traces, PII masking, MCP linting), plus a few for speedrunners and for anyone who wants to know what time it is in Babylon. They are below, under *Opera minora*.
+- Contributing upstream as well: fixes in review at [Luau](https://github.com/luau-lang/luau) and [raylib](https://github.com/raysan5/raylib). <a href="https://github.com/search?q=author%3Aantonsoo+type%3Apr+-user%3Aantonsoo&amp;type=pullrequests">All my pull requests</a>, live.
 - Native in English, Russian, and Ukrainian; Japanese earned over four years in Tokyo; Chinese barely past counting to ten. Five living languages is decent training for reviving the silent ones, which these days I am learning myself: Latin, Ancient Greek, Hebrew, Sanskrit, and the rest of the syllabus.
-- I care about pronunciation, provenance, and shipping. Order depends on the day.
-- My test for a lesson is plain: not whether you can parse an old language, but whether you can say it aloud and be understood. PRAVIEL has to pass it every time.
-- I also build small open-source tools: for engineers who work with language models, for speedrunners, and for anyone who wants to know what time it is in Babylon. They are below, under *Opera minora*.
-- In San Francisco, in person. Open to good engineering work, full time or contract, and always open to a conversation about languages. <a href="mailto:anton@praviel.com">anton@praviel.com</a>
+- I care about evidence, provenance, and shipping. Order depends on the day.
+- In San Francisco, in person. Open to AI/ML and software engineering work, full time or contract, and always open to a conversation about languages. <a href="mailto:anton@praviel.com">anton@praviel.com</a>
 
 <img src="assets/divider-gold.svg" alt="" width="100%" />
 
 ## What I am building &nbsp;·&nbsp; Opera
+
+*PRAVIEL rests on one small heresy: the old languages are not dead, only unspoken, and unspoken is a curable condition. My test for a lesson is plain: not whether you can parse an old language, but whether you can say it aloud and be understood.*
 
 <table>
 <tr>
@@ -76,26 +78,9 @@
 
 ## Open-source tools &nbsp;·&nbsp; Opera minora
 
-A growing shelf of small tools, MIT-licensed, and most of them run in the browser with nothing to install. Some serve PRAVIEL's world, some serve the people who build with language models, and a few are for players who suspect the game is lying to them. The whole shelf, with pictures: **[antonsoo.github.io/officina](https://antonsoo.github.io/officina/)**.
+A growing shelf of small tools, MIT-licensed, and most of them run in the browser with nothing to install. Most serve the people who build with language models, some serve PRAVIEL's world, and a few are for players who suspect the game is lying to them. The whole shelf, with pictures: **[antonsoo.github.io/officina](https://antonsoo.github.io/officina/)**.
 
 <table>
-<tr>
-<td width="33%" valign="top">
-<a href="https://antonsoo.github.io/horologium/"><img src="assets/opera-minora/horologium.jpg" width="100%" alt="horologium: a brass dial on parchment, its rings marking the ancient calendars" /></a>
-<br/><strong><a href="https://github.com/antonsoo/horologium">horologium</a></strong><br/>
-<sub>What time is it in Babylon? Thirteen ancient calendars, live, on an Antikythera-style dial.</sub>
-</td>
-<td width="33%" valign="top">
-<a href="https://antonsoo.github.io/planisphere/"><img src="assets/opera-minora/planisphere.jpg" width="100%" alt="planisphere: a star wheel of the night sky, with latitude and epoch controls" /></a>
-<br/><strong><a href="https://github.com/antonsoo/planisphere">planisphere</a></strong><br/>
-<sub>A printable star wheel for any latitude and any century, the sky over Babylon included.</sub>
-</td>
-<td width="33%" valign="top">
-<a href="https://antonsoo.github.io/tracelens/"><img src="assets/opera-minora/tracelens.jpg" width="100%" alt="tracelens: an agent run drawn as a timeline of model and tool calls" /></a>
-<br/><strong><a href="https://github.com/antonsoo/tracelens">tracelens</a></strong><br/>
-<sub>Every model call, tool call, token, and dollar of an agent run, on one timeline.</sub>
-</td>
-</tr>
 <tr>
 <td width="33%" valign="top">
 <a href="https://antonsoo.github.io/errorbars/"><img src="assets/opera-minora/errorbars.jpg" width="100%" alt="errorbars: a calculator answering how many eval questions a comparison needs" /></a>
@@ -103,9 +88,26 @@ A growing shelf of small tools, MIT-licensed, and most of them run in the browse
 <sub>Error bars for LLM evals, and how many questions you actually need.</sub>
 </td>
 <td width="33%" valign="top">
+<a href="https://antonsoo.github.io/tracelens/"><img src="assets/opera-minora/tracelens.jpg" width="100%" alt="tracelens: an agent run drawn as a timeline of model and tool calls" /></a>
+<br/><strong><a href="https://github.com/antonsoo/tracelens">tracelens</a></strong><br/>
+<sub>Every model call, tool call, token, and dollar of an agent run, on one timeline.</sub>
+</td>
+<td width="33%" valign="top">
 <a href="https://antonsoo.github.io/veil/"><img src="assets/opera-minora/veil.jpg" width="100%" alt="veil: a prompt with personal details, about to be masked" /></a>
 <br/><strong><a href="https://github.com/antonsoo/veil">veil</a></strong><br/>
 <sub>Reversible masking of personal data in LLM calls, restored even mid-stream.</sub>
+</td>
+</tr>
+<tr>
+<td width="33%" valign="top">
+<a href="https://antonsoo.github.io/fieldproof/"><img src="assets/opera-minora/fieldproof.jpg" width="100%" alt="fieldproof: an invoice with each extracted field highlighted beside a review list of verified and unsupported values" /></a>
+<br/><strong><a href="https://github.com/antonsoo/fieldproof">fieldproof</a></strong><br/>
+<sub>Document extraction that shows its work: every field tied to the words it came from.</sub>
+</td>
+<td width="33%" valign="top">
+<a href="https://antonsoo.github.io/horologium/"><img src="assets/opera-minora/horologium.jpg" width="100%" alt="horologium: a brass dial on parchment, its rings marking the ancient calendars" /></a>
+<br/><strong><a href="https://github.com/antonsoo/horologium">horologium</a></strong><br/>
+<sub>What time is it in Babylon? Thirteen ancient calendars, live, on an Antikythera-style dial.</sub>
 </td>
 <td width="33%" valign="top">
 <a href="https://antonsoo.github.io/splitscope/"><img src="assets/opera-minora/splitscope.jpg" width="100%" alt="splitscope: a speedrun's personal best, its splits, and the odds of beating it" /></a>
@@ -119,21 +121,21 @@ The rest of the shelf:
 
 | Repository | What it is |
 | :-- | :-- |
-| [gnomon](https://github.com/antonsoo/gnomon) | Designs a working sundial for any place on Earth, ready to print or laser-cut. |
-| [tonemirror](https://github.com/antonsoo/tonemirror) | Draws your pitch contour over a reference voice, for tones and pitch accent, Ancient Greek among them. |
 | [contextscope](https://github.com/antonsoo/contextscope) | What fills an LLM context window, and why the prompt cache keeps missing. |
-| [fieldproof](https://github.com/antonsoo/fieldproof) | Document extraction that shows its work: every field tied to the words it came from. |
 | [mcplint](https://github.com/antonsoo/mcplint) | Lints an MCP server's tools the way the model reads them. |
 | [trainspotter](https://github.com/antonsoo/trainspotter) | Reads a training run's logs and names what went wrong. |
-| [ghostchars](https://github.com/antonsoo/ghostchars) | Finds the characters you cannot see: Trojan Source, invisible Unicode, smuggled prompts. |
-| [logdelta](https://github.com/antonsoo/logdelta) | Diffs logs by meaning, to show what the failing run did that the good one did not. |
 | [flakemap](https://github.com/antonsoo/flakemap) | Finds the flaky tests in a CI history, with honest error bars. |
+| [logdelta](https://github.com/antonsoo/logdelta) | Diffs logs by meaning, to show what the failing run did that the good one did not. |
+| [ghostchars](https://github.com/antonsoo/ghostchars) | Finds the characters you cannot see: Trojan Source, invisible Unicode, smuggled prompts. |
+| [planisphere](https://github.com/antonsoo/planisphere) | A printable star wheel for any latitude and any century, the sky over Babylon included. |
+| [gnomon](https://github.com/antonsoo/gnomon) | Designs a working sundial for any place on Earth, ready to print or laser-cut. |
+| [tonemirror](https://github.com/antonsoo/tonemirror) | Draws your pitch contour over a reference voice, for tones and pitch accent, Ancient Greek among them. |
 | [stutterscope](https://github.com/antonsoo/stutterscope) | The stutter that an average frame rate hides. |
 | [am-i-unlucky](https://github.com/antonsoo/am-i-unlucky) | Exact drop-rate and pity math: unlucky, or is it the system? |
 
 <sub>Editors print Tacitus' shorter works together as his <em>opera minora</em>: the Agricola, the Germania, the Dialogus. These are mine, and a good deal cheerier.</sub>
 
-**Earlier, from the machine-learning years.** A few public pieces:
+**Earlier machine-learning work.** A few public pieces from before the shelf:
 
 | Repository | What it is |
 | :-- | :-- |
