@@ -4,8 +4,9 @@
   "followers": 23,
   "focus": [
     "Machine learning",
-    "Ancient languages",
-    "Full-stack"
+    "LLM agents",
+    "Full-stack",
+    "Ancient languages"
   ],
   "_note": "Refreshed daily by scripts/cron/run.mjs, which runs on Railway. publicRepos counts public non-fork repos."
 }

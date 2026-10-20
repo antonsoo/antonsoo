@@ -7,17 +7,17 @@
 
 <div align="center">
 
-<img src="assets/banner.svg" alt="Anton Soloviev. AI, software, San Francisco. AI/ML and Software Engineer. Founder of PRAVIEL. The old languages, out loud again. Beside the name, the Soloviev family arms: an oak tree on a blue field beneath a silver chief bearing three bees, with a crowned helm, an anchor crest in blue plumes, and blue and gold mantling." width="100%" />
+<img src="assets/banner.svg" alt="Anthony Mercer. AI, software, San Francisco. AI/ML and Software Engineer. Founder of PRAVIEL. The old languages, out loud again. Behind the name, a faint sea chart: a map grid in Mercator's projection, crossed by rhumb lines." width="100%" />
 
 <br/>
 
-<sub><strong>ANTON</strong> &nbsp;·&nbsp; my own pages</sub>
+<sub><strong>ANTHONY</strong> &nbsp;·&nbsp; my own pages</sub>
 
 <a href="https://www.linkedin.com/in/anton-soloviev/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D&logoColor=white" alt="LinkedIn" /></a>
 <a href="https://x.com/antonsolv"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X (Twitter)" /></a>
-<a href="https://www.youtube.com/@Antonivs-Solovievivs"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Anton on YouTube" /></a>
-<a href="https://huggingface.co/antonsoloviev"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Anton on Hugging Face" /></a>
-<a href="https://leetcode.com/u/Theophileous/"><img src="https://img.shields.io/badge/LeetCode-000000?style=for-the-badge&logo=leetcode&logoColor=FFA116" alt="Anton on LeetCode" /></a>
+<a href="https://www.youtube.com/@Antonivs-Solovievivs"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Anthony on YouTube" /></a>
+<a href="https://huggingface.co/antonsoloviev"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Anthony on Hugging Face" /></a>
+<a href="https://leetcode.com/u/Theophileous/"><img src="https://img.shields.io/badge/LeetCode-000000?style=for-the-badge&logo=leetcode&logoColor=FFA116" alt="Anthony on LeetCode" /></a>
 <a href="mailto:anton@praviel.com"><img src="https://img.shields.io/badge/anton@praviel.com-6E1818?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMCA0SDRjLTEuMSAwLTEuOTkuOS0xLjk5IDJMMiAxOGMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjZjMC0xLjEtLjktMi0yLTJ6bTAgNGwtOCA1LTgtNVY2bDggNSA4LTV2MnoiLz48L3N2Zz4%3D&logoColor=white" alt="Email" /></a>
 
 <a href="https://github.com/antonsoo?tab=followers"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fantonsoo%2Fantonsoo%2Fmain%2Fscripts%2Fstats-data.json&query=%24.followers&style=flat-square&color=181717&labelColor=000000&logo=github&logoColor=white&label=followers" alt="Followers" /></a>
@@ -35,9 +35,10 @@
 
 - **AI/ML and software engineer.** Master's in artificial intelligence from the Institute of Science Tokyo, where I trained speech recognition models on supercomputers. Since then: production document AI at Quantiphi, LLM agents and jailbreak research at a small company of my own, and full-stack work from the backend to both app stores.
 - Founder and lead engineer of **[PRAVIEL](https://praviel.com)**, a lessons-first app that teaches ancient languages as living, speakable systems. I designed it, I built it, and I run it.
-- I publish small open-source tools: for engineers who build with language models (eval statistics, agent traces, PII masking, MCP linting), for developers at large, for speedrunners, and for anyone who wants to know what time it is in Babylon. They are below, under *Opera minora*.
-- I send fixes to other people's projects too, among them [Luau](https://github.com/luau-lang/luau) and [raylib](https://github.com/raysan5/raylib). <a href="https://github.com/search?q=author%3Aantonsoo+type%3Apr+-user%3Aantonsoo&amp;type=pullrequests">All my pull requests</a>, live.
+- I publish small open-source tools: for engineers who build with language models (eval statistics, agent traces, PII masking, MCP linting, LoRA merges), for developers at large, for speedrunners, and for anyone who wants to know what time it is in Babylon. They are below, under *Opera minora*.
+- I fix other people's projects too, and a good many of the fixes have been merged: [ESPnet](https://github.com/espnet/espnet), [Kornia](https://github.com/kornia/kornia), [Pipecat](https://github.com/pipecat-ai/pipecat), [PettingZoo](https://github.com/Farama-Foundation/PettingZoo), [raylib](https://github.com/raysan5/raylib), [Pillow](https://github.com/python-pillow/Pillow), and a long tail of scientific Python. The roll is below, under *Symbolae*.
 - Native in English, Russian, and Ukrainian; Japanese earned over four years in Tokyo; Chinese barely past counting to ten. Five living languages is decent training for reviving the silent ones, which these days I am learning myself: Latin, Ancient Greek, Hebrew, Sanskrit, and the rest of the syllabus.
+- In Latin I am *Antōnius Mercātor*. The *h* in Anthony crept in later, from a guess that the name was Greek *ánthos*, "flower"; the Romans never wrote one. A mercer sold fine cloth and a *mercātor* sold anything. Plautus wrote a whole comedy called *Mercator*, and a Flemish schoolboy named Gerard Kremer ("merchant") took the Latin for his own and, as Mercator, redrew the world. His grid is the faint one behind my name at the top of this page.
 - I care about evidence, provenance, and shipping. Order depends on the day.
 - In San Francisco, in person. Open to AI/ML and software engineering work, full time or contract, and always open to a conversation about languages. <a href="mailto:anton@praviel.com">anton@praviel.com</a>
 
@@ -72,7 +73,7 @@
 
 <sub>Under the hood: one <strong>Flutter and Dart</strong> codebase carries the app to iPhone, Android, and the web; the marketing site is <strong>Next.js on Node</strong> at praviel.com; the AI tutors keep their sources in order. The languages remain the hard part.</sub>
 
-**Also on the bench.** A private research stack for systematic trading, under QuantGenAI: seven repositories that keep market data, research, laboratory, execution, and monitoring apart, with versioned contracts between them and a risk kernel allowed to refuse anything the laboratory approved. The interesting part is not a strategy. It is that the apparatus is calibrated against planted effects and against deliberately contaminated data, so it can tell a real result from an artifact of how the panel was assembled, and I have turned it on my own best finding more than once and lost. Nothing there has earned the right to trade, and nothing claims to have.
+**Also on the bench.** A private research stack for systematic trading, under QuantGenAI: seven repositories that keep market data, research, laboratory, execution, and monitoring apart, with versioned contracts between them and a risk kernel allowed to refuse anything the laboratory approved. The interesting part is not a strategy. It is that the apparatus is calibrated against planted effects and deliberately contaminated data, so it can tell a real result from an artifact of how the panel was assembled. I have turned it on my own best finding more than once, and lost. Nothing there has earned the right to trade, and nothing claims to have.
 
 <img src="assets/divider-gold.svg" alt="" width="100%" />
 
@@ -124,6 +125,7 @@ The rest of the shelf:
 | [contextscope](https://github.com/antonsoo/contextscope) | What fills an LLM context window, and why the prompt cache keeps missing. |
 | [mcplint](https://github.com/antonsoo/mcplint) | Lints an MCP server's tools the way the model reads them. |
 | [trainspotter](https://github.com/antonsoo/trainspotter) | Reads a training run's logs and names what went wrong. |
+| [mergeglass](https://github.com/antonsoo/mergeglass) | Checks whether a LoRA update survived the merge, weight by weight, or quietly rounded away. |
 | [flakemap](https://github.com/antonsoo/flakemap) | Finds the flaky tests in a CI history, with honest error bars. |
 | [logdelta](https://github.com/antonsoo/logdelta) | Diffs logs by meaning, to show what the failing run did that the good one did not. |
 | [ghostchars](https://github.com/antonsoo/ghostchars) | Finds the characters you cannot see: Trojan Source, invisible Unicode, smuggled prompts. |
@@ -147,6 +149,27 @@ The rest of the shelf:
 
 <img src="assets/divider-gold.svg" alt="" width="100%" />
 
+## Upstream fixes &nbsp;·&nbsp; Symbolae
+
+In Terence, a young man at a dinner among friends *symbolam dedit, cenavit*: "paid his share, and dined" (Andria 88-89). A *symbola* was your share of the common table. These are mine, paid into other people's open-source projects and merged by their maintainers. A few favorites:
+
+- **libtcod** ([#204](https://github.com/libtcod/libtcod/pull/204)): symmetric shadowcasting rounded negative half-ties the wrong way, so a roguelike hero could see floor tiles behind a wall. Now it sees what the walls allow.
+- **python-sounddevice** ([#645](https://github.com/spatialaudio/python-sounddevice/pull/645)): in unsigned 8-bit audio, silence is 128, not 0. Channels meant to be silent had been carrying a DC signal.
+- **Pipecat** ([#5989](https://github.com/pipecat-ai/pipecat/pull/5989)): Deepgram's HTTP voice could end a chunk halfway through a 16-bit sample, and a voice agent could go mute for the rest of the call.
+- **ESPnet** ([#6865](https://github.com/espnet/espnet/pull/6865)): a training run that had stopped early trained one more epoch every time it was resumed. Stopped now means stopped.
+- **raylib** ([#6198](https://github.com/raysan5/raylib/pull/6198), [#6199](https://github.com/raysan5/raylib/pull/6199)): BDF fonts load without crashing, and a malformed OBJ model no longer sends the loader reading past its own vertices.
+
+| Field | Merged fixes of mine, by project |
+| :-- | :-- |
+| Speech and audio | [ESPnet](https://github.com/espnet/espnet/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [Pipecat](https://github.com/pipecat-ai/pipecat/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [python-soundfile](https://github.com/bastibe/python-soundfile/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [python-sounddevice](https://github.com/spatialaudio/python-sounddevice/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [pyfar](https://github.com/pyfar/pyfar/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [MeetEval](https://github.com/fgnt/meeteval/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) |
+| Machine learning | [Kornia](https://github.com/kornia/kornia/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [braindecode](https://github.com/braindecode/braindecode/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [TensorLy](https://github.com/tensorly/tensorly/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [NumPyro](https://github.com/pyro-ppl/numpyro/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [pycma](https://github.com/CMA-ES/pycma/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [PyPose](https://github.com/pypose/pypose/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [PyNNDescent](https://github.com/lmcinnes/pynndescent/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [StatsForecast](https://github.com/Nixtla/statsforecast/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [pyts](https://github.com/johannfaouzi/pyts/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) |
+| Reinforcement learning, games, and graphics | [PettingZoo](https://github.com/Farama-Foundation/PettingZoo/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [MO-Gymnasium](https://github.com/Farama-Foundation/MO-Gymnasium/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [skrl](https://github.com/Toni-SM/skrl/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [raylib](https://github.com/raysan5/raylib/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [libtcod](https://github.com/libtcod/libtcod/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [python-tcod](https://github.com/libtcod/python-tcod/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [tcod-ecs](https://github.com/HexDecimal/python-tcod-ecs/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [Pymunk](https://github.com/viblo/pymunk/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [ModernGL](https://github.com/moderngl/moderngl/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [Ursina](https://github.com/pokepetter/ursina/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) |
+| Imaging, science, and statistics | [Pillow](https://github.com/python-pillow/Pillow/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [py-pde](https://github.com/zwicker-group/py-pde/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [scikit-fem](https://github.com/kinnala/scikit-fem/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [scikit-posthocs](https://github.com/maximtrp/scikit-posthocs/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [numpy-groupies](https://github.com/ml31415/numpy-groupies/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [Pingouin](https://github.com/raphaelvallat/pingouin/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [arch](https://github.com/bashtage/arch/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [LMFIT](https://github.com/lmfit/lmfit-py/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [qpsolvers](https://github.com/qpsolvers/qpsolvers/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [PyLops](https://github.com/PyLops/pylops/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) · [dill](https://github.com/uqfoundation/dill/pulls?q=is%3Apr+author%3Aantonsoo+is%3Amerged) |
+
+<sub>Every merged pull request, live: <a href="https://github.com/search?q=author%3Aantonsoo+type%3Apr+is%3Amerged+-user%3Aantonsoo&amp;type=pullrequests">the full list</a>, or <a href="https://github.com/search?q=author%3Aantonsoo+type%3Apr+-user%3Aantonsoo&amp;type=pullrequests">all of them</a>, open and closed. In the play, the young man's father was glad to hear it (<em>gaudebam</em>): paying your share was the respectable part of the evening.</sub>
+
+<img src="assets/divider-gold.svg" alt="" width="100%" />
+
 <div align="center">
 
 <img src="assets/linguae.svg" alt="Linguae: the languages PRAVIEL teaches, each in its native script: Classical Chinese, Classical Arabic, Classical Sanskrit, Classical Latin, Ancient Greek, Hebrew, Aramaic, Church Slavonic, Middle English, and Gothic. Ancient Egyptian, in hieroglyphs, is also taught in the app." width="100%" />
@@ -155,9 +178,9 @@ The rest of the shelf:
 
 <br/><br/>
 
-<img src="assets/instrumenta.svg" alt="Instrumenta, the tools of the trade, on a wax tablet. Machine learning: Python, PyTorch, TensorFlow, scikit-learn. Web and mobile: Dart, Flutter, TypeScript, React, Next.js, Tailwind, Node.js. Systems and infrastructure: C++, Docker, Postgres, Redis, Cloudflare, Git, Linux." width="100%" />
+<img src="assets/instrumenta.svg" alt="Instrumenta, the tools of the trade, on a wax tablet. Machine learning: Python, PyTorch, TensorFlow, scikit-learn, ESPnet. LLMs and agents: OpenAI, Anthropic, Vertex AI, MCP, RAG, OpenTelemetry. Web and mobile: Dart, Flutter, TypeScript, React, Next.js, Tailwind, Node.js. Systems and infrastructure: C++, Docker, Postgres, Redis, GCP, Cloudflare, Linux." width="100%" />
 
-<sub>The first row's adjective is Pliny's: he files Archimedes under <em>machinalis scientia</em> (Natural History 7.125).</sub>
+<sub>The first row's adjective is Pliny's, who credits Archimedes with <em>machinalis scientia</em> (Natural History 7.125). The second row calls language models oracles; ask Croesus how far a fluent answer goes unchecked (Herodotus 1.53).</sub>
 
 <br/><br/>
 
@@ -194,13 +217,13 @@ Two ideas sit in the drawer and receive the occasional weekend visit: a proper *
 
 <div align="center">
 
-<sub><strong>ANTON</strong></sub>
+<sub><strong>ANTHONY</strong></sub>
 
 <a href="https://www.linkedin.com/in/anton-soloviev/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D&logoColor=white" alt="LinkedIn" /></a>
 <a href="https://x.com/antonsolv"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X (Twitter)" /></a>
-<a href="https://www.youtube.com/@Antonivs-Solovievivs"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Anton on YouTube" /></a>
-<a href="https://huggingface.co/antonsoloviev"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Anton on Hugging Face" /></a>
-<a href="https://leetcode.com/u/Theophileous/"><img src="https://img.shields.io/badge/LeetCode-000000?style=for-the-badge&logo=leetcode&logoColor=FFA116" alt="Anton on LeetCode" /></a>
+<a href="https://www.youtube.com/@Antonivs-Solovievivs"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Anthony on YouTube" /></a>
+<a href="https://huggingface.co/antonsoloviev"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Anthony on Hugging Face" /></a>
+<a href="https://leetcode.com/u/Theophileous/"><img src="https://img.shields.io/badge/LeetCode-000000?style=for-the-badge&logo=leetcode&logoColor=FFA116" alt="Anthony on LeetCode" /></a>
 <a href="mailto:anton@praviel.com"><img src="https://img.shields.io/badge/anton@praviel.com-6E1818?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMCA0SDRjLTEuMSAwLTEuOTkuOS0xLjk5IDJMMiAxOGMwIDEuMS45IDIgMiAyaDE2YzEuMSAwIDItLjkgMi0yVjZjMC0xLjEtLjktMi0yLTJ6bTAgNGwtOCA1LTgtNVY2bDggNSA4LTV2MnoiLz48L3N2Zz4%3D&logoColor=white" alt="Email" /></a>
 
 <br/>
@@ -220,5 +243,5 @@ Two ideas sit in the drawer and receive the occasional weekend visit: a proper *
 <br/>
 
 <div align="center">
-<sub>The banner, the cards, and the ledger were drawn by code in <a href="https://github.com/antonsoo/antonsoo/tree/main/scripts">/scripts</a>. Yes, even the Greek, the Hebrew, and the Gothic. <strong>Manū propriā.</strong></sub>
+<sub>The banner, the cards, and the ledger were drawn by code in <a href="https://github.com/antonsoo/antonsoo/tree/main/scripts">/scripts</a>. Yes, even the Greek, the Hebrew, and the Gothic. <strong>Antōnius Mercātor, manū propriā.</strong></sub>
 </div>

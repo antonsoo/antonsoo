@@ -1,9 +1,12 @@
 // Renders assets/instrumenta.svg: the "Instrumenta" ledger of working tools,
-// replacing the third-party skillicons strip. Three engraved rows (machine
-// learning / web & mobile / systems), each headed by a Latin label: ars
-// machinalis is this repo's coinage after Pliny's machinalis scientia, the
-// learning he credits to Archimedes (NH 7.125); fabrica the workshop,
-// fundamenta the foundations.
+// replacing the third-party skillicons strip. Four engraved rows (machine
+// learning / LLMs and agents / web & mobile / systems), each headed by a Latin
+// label: ars machinalis is this repo's coinage after Pliny's machinalis
+// scientia, the learning he credits to Archimedes (NH 7.125); oracula the
+// oracles, which also answered fluently and still had to be checked; fabrica
+// the workshop, fundamenta the foundations. Engraved labels take the
+// epigraphic V for U, like every engraved title in the repo (FVNDAMENTA,
+// INSTRVMENTA, LINGVAE, TABVLA).
 //
 // Design: a tabula cerata (Roman wax tablet). A wooden border band around a
 // recessed writing surface with cut corners, a margin rule separating the
@@ -19,23 +22,33 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 
 const W = 860;
-const H = 300;
+const H = 360;
 
+// `spoken` is the row's name in the aria-label, where "&" would be read out.
 const rows = [
   {
     latin: 'ARS MACHINALIS',
     gloss: 'machine learning',
-    tools: ['Python', 'PyTorch', 'TensorFlow', 'scikit-learn'],
+    spoken: 'Machine learning',
+    tools: ['Python', 'PyTorch', 'TensorFlow', 'scikit-learn', 'ESPnet'],
+  },
+  {
+    latin: 'ORACVLA',
+    gloss: 'LLMs & agents',
+    spoken: 'LLMs and agents',
+    tools: ['OpenAI', 'Anthropic', 'Vertex AI', 'MCP', 'RAG', 'OpenTelemetry'],
   },
   {
     latin: 'FABRICA',
     gloss: 'web & mobile',
+    spoken: 'Web and mobile',
     tools: ['Dart', 'Flutter', 'TypeScript', 'React', 'Next.js', 'Tailwind', 'Node.js'],
   },
   {
-    latin: 'FUNDAMENTA',
+    latin: 'FVNDAMENTA',
     gloss: 'systems & infrastructure',
-    tools: ['C++', 'Docker', 'Postgres', 'Redis', 'Cloudflare', 'Git', 'Linux'],
+    spoken: 'Systems and infrastructure',
+    tools: ['C++', 'Docker', 'Postgres', 'Redis', 'GCP', 'Cloudflare', 'Linux'],
   },
 ];
 
@@ -44,15 +57,15 @@ const TITLE = fontTitle();  // engraved Roman caps for the heading + Latin row l
 
 // Wax tablet geometry: outer wooden band, inner writing surface.
 const SX = 24, SY = 22;            // surface top-left
-const SW = W - 48, SH = H - 50;    // surface size (24..836 x 22..272)
+const SW = W - 48, SH = H - 50;    // surface size (24..836 x 22..332)
 const PAD = 46;                    // text inset from card edge
 const LABEL_X = PAD;
 const RULE_X = 238;                // margin rule between labels and tools
 const TOOLS_X = 254;
 const TOOLS_MAX = W - PAD - TOOLS_X;
-const rowBase = [126, 187, 248];
+const rowBase = [126, 187, 248, 309];
 
-// A fourth row would index past rowBase and render at a silent undefined
+// A fifth row would index past rowBase and render at a silent undefined
 // baseline. Fail loudly instead.
 if (rows.length !== rowBase.length) {
   throw new Error(`instrumenta row count mismatch: ${rows.length} rows, ${rowBase.length} baselines`);
@@ -98,10 +111,10 @@ const title = layoutLine('INSTRVMENTA', 16, { letterSpacing: 3.4, font: TITLE })
 const gloss = layoutLine('tools of the trade', 13, { letterSpacing: 1.2 });
 missing.push(...title.missing, ...gloss.missing);
 
-const aria = `Instrumenta, the tools of the trade. Machine learning: ${rows[0].tools.join(', ')}. Web and mobile: ${rows[1].tools.join(', ')}. Systems and infrastructure: ${rows[2].tools.join(', ')}.`;
+const aria = `Instrumenta, the tools of the trade. ${rows.map((r) => `${r.spoken}: ${r.tools.join(', ')}.`).join(' ')}`;
 
 const marginTop = 96;
-const marginLen = 168;
+const marginLen = 229;
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${escapeXml(aria)}">
   <defs>

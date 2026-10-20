@@ -11,8 +11,8 @@
 //   PROFILE_CHROME=/abs/path/to/chrome
 //
 // Nothing here is needed to render the SVGs: `npm run gen:all` is pure
-// opentype.js and harfbuzzjs. These are for rebaking embedded rasters
-// (make-arms) and for raster QA, both of which run on demand.
+// opentype.js and harfbuzzjs. These are for baking rasters on demand
+// (make-opera-minora) and for raster QA.
 
 import { existsSync, readdirSync, statSync, accessSync, constants } from 'node:fs';
 import { createRequire } from 'node:module';

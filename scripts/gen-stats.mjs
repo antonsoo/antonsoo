@@ -72,7 +72,11 @@ figures.forEach((f, i) => {
 figSvg += hedera(W * 0.375, figY - 20, 14, C.crimson, 0.9);
 figSvg += hedera(W * 0.625, figY - 20, 14, C.crimson, 0.9, true);
 
-const title = layoutLine('TABVLA · RATIŌNVM', 16, { letterSpacing: 3.2, font: TITLE });
+// No macron: Roman inscriptions marked long vowels, when they marked them at
+// all, with an apex, and macrons are a modern classroom convention. Engraved
+// caps here follow the stone (V for U, no length marks); the macrons stay in
+// lowercase prose, where readers expect them.
+const title = layoutLine('TABVLA · RATIONVM', 16, { letterSpacing: 3.2, font: TITLE });
 const gloss = layoutLine('the public ledger', 13, { letterSpacing: 1.2 });
 missing.push(...title.missing, ...gloss.missing);
 
