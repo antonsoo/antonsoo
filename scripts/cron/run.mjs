@@ -35,7 +35,7 @@ const USER = process.env.PROFILE_USER || 'antonsoo';
 const REPO = process.env.PROFILE_REPO || 'antonsoo/antonsoo';
 const DRY_RUN = !!process.env.DRY_RUN;
 const AUTHOR_NAME = process.env.PROFILE_AUTHOR_NAME || 'praviel-scriptorium';
-const AUTHOR_EMAIL = process.env.PROFILE_AUTHOR_EMAIL || 'antonnsoloviev@gmail.com';
+const AUTHOR_EMAIL = process.env.PROFILE_AUTHOR_EMAIL || 'anthony@praviel.com';
 
 // Nothing here may hang. The daemon awaits this whole script before scheduling
 // the next day, so a stalled clone or a socket that never closes would cost
