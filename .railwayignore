@@ -6,3 +6,6 @@ scripts/fonts/
 scripts/*.b64
 .preview/
 node_modules/
+# Railway configuration is applied with `railway config apply`, never read
+# from an upload, and its SDK lives in .railway/node_modules.
+.railway/
