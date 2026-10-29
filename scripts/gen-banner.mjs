@@ -81,10 +81,18 @@ while (nameSize > 40 && layoutLine(NAME, nameSize, { letterSpacing: 3, font: TIT
   nameSize -= 1;
 }
 
-const eyebrow = lineSvg('AI · SOFTWARE · SAN FRANCISCO', CX, 96, 15, 4.6, T.gold, { anchor: 'middle', font: TITLE });
+// The eyebrow is San Francisco's position rather than its name (37.7749 N,
+// 122.4194 W, which is 37 deg 46.49 min N, 122 deg 25.16 min W, rounded to
+// the minute): the sea chart behind the name makes it read as a fix
+// on that chart, and the GitHub location field already says "SF". Cinzel has
+// the degree sign but no prime (U+2032), so the minutes take its straight
+// apostrophe, the typewriter stand-in for a prime; carved in Cinzel it is a
+// tapered vertical tick.
+const EYEBROW = "37° 46' N · 122° 25' W";
+const eyebrow = lineSvg(EYEBROW, CX, 96, 15, 4.6, T.gold, { anchor: 'middle', font: TITLE });
 const name = lineSvg(NAME, CX, 174, nameSize, 3, T.cream, { anchor: 'middle', font: TITLE });
-const role1 = lineSvg('AI/ML and Software Engineer', CX, 240, 25, 0.2, T.roleCream, { anchor: 'middle', font: BODY });
-const role2 = lineSvg('Founder of PRAVIEL. The old languages, out loud again.', CX, 273, 21, 0.2, T.muted, { anchor: 'middle', font: BODY });
+const role1 = lineSvg('Founder & CEO, PRAVIEL', CX, 240, 25, 0.2, T.roleCream, { anchor: 'middle', font: BODY });
+const role2 = lineSvg('AI/ML and software engineer', CX, 273, 21, 0.2, T.muted, { anchor: 'middle', font: BODY });
 
 // Only the name is auto-fit; fail the bake rather than let another line run
 // past the text block.
@@ -133,8 +141,8 @@ for (const [rx, ry] of ROSES) {
 const roseMarks = ROSES.map(([rx, ry]) => `<circle cx="${rx}" cy="${ry}" r="2.2"/>`).join('');
 
 const ARIA =
-  'Anthony Mercer. AI, software, San Francisco. AI/ML and Software Engineer. Founder of PRAVIEL. ' +
-  'The old languages, out loud again. Behind the name, a faint sea chart: a map grid in Mercator\'s ' +
+  'Anthony Mercer, Founder and CEO of PRAVIEL, AI/ML and software engineer. Above the name, the ' +
+  'position of San Francisco: 37 degrees 46 minutes north, 122 degrees 25 minutes west. Behind it, a faint sea chart: a map grid in Mercator\'s ' +
   'projection, crossed by rhumb lines, its equator running under the name as a gold rule.';
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${ARIA}">

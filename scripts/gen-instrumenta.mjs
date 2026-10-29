@@ -1,17 +1,16 @@
 // Renders assets/instrumenta.svg: the "Instrumenta" ledger of working tools,
 // replacing the third-party skillicons strip. Four engraved rows (machine
-// learning / LLMs and agents / web & mobile / systems), each headed by a Latin
-// label: ars machinalis is this repo's coinage after Pliny's machinalis
-// scientia, the learning he credits to Archimedes (NH 7.125); oracula the
-// oracles, which also answered fluently and still had to be checked; fabrica
-// the workshop, fundamenta the foundations. Engraved labels take the
-// epigraphic V for U, like every engraved title in the repo (FVNDAMENTA,
-// INSTRVMENTA, LINGVAE, TABVLA).
+// learning / LLMs and agents / web & mobile / systems), each headed by a plain
+// English label in engraved caps. Until 2026-10-29 each row carried a Latin
+// label with an English gloss under it (ARS MACHINALIS, ORACVLA, FABRICA,
+// FVNDAMENTA); the owner found the doubled labels cluttered, so the Latin now
+// lives only in the card's one engraved title, INSTRVMENTA (epigraphic V for U,
+// like LINGVAE and TABVLA).
 //
 // Design: a tabula cerata (Roman wax tablet). A wooden border band around a
 // recessed writing surface with cut corners, a margin rule separating the
-// Latin labels from the tool lines, scratched row rules. All text baked to
-// vector paths, like every card in this repo.
+// labels from the tool lines, scratched row rules. All text baked to vector
+// paths, like every card in this repo.
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -27,33 +26,29 @@ const H = 360;
 // `spoken` is the row's name in the aria-label, where "&" would be read out.
 const rows = [
   {
-    latin: 'ARS MACHINALIS',
-    gloss: 'machine learning',
+    label: 'MACHINE LEARNING',
     spoken: 'Machine learning',
     tools: ['Python', 'PyTorch', 'TensorFlow', 'scikit-learn', 'ESPnet'],
   },
   {
-    latin: 'ORACVLA',
-    gloss: 'LLMs & agents',
+    label: 'LLMS & AGENTS',
     spoken: 'LLMs and agents',
     tools: ['OpenAI', 'Anthropic', 'Vertex AI', 'MCP', 'RAG', 'OpenTelemetry'],
   },
   {
-    latin: 'FABRICA',
-    gloss: 'web & mobile',
+    label: 'WEB & MOBILE',
     spoken: 'Web and mobile',
     tools: ['Dart', 'Flutter', 'TypeScript', 'React', 'Next.js', 'Tailwind', 'Node.js'],
   },
   {
-    latin: 'FVNDAMENTA',
-    gloss: 'systems & infrastructure',
+    label: 'SYSTEMS',
     spoken: 'Systems and infrastructure',
     tools: ['C++', 'Docker', 'Postgres', 'Redis', 'GCP', 'Cloudflare', 'Linux'],
   },
 ];
 
 const missing = [];
-const TITLE = fontTitle();  // engraved Roman caps for the heading + Latin row labels
+const TITLE = fontTitle();  // engraved Roman caps for the heading + row labels
 
 // Wax tablet geometry: outer wooden band, inner writing surface.
 const SX = 24, SY = 22;            // surface top-left
@@ -62,6 +57,7 @@ const PAD = 46;                    // text inset from card edge
 const LABEL_X = PAD;
 const RULE_X = 238;                // margin rule between labels and tools
 const TOOLS_X = 254;
+const LABEL_MAX = RULE_X - LABEL_X - 12;
 const TOOLS_MAX = W - PAD - TOOLS_X;
 const rowBase = [126, 187, 248, 309];
 
@@ -75,11 +71,17 @@ let rowSvg = '';
 rows.forEach((r, i) => {
   const by = rowBase[i];
 
-  const lab = layoutLine(r.latin, 14.5, { letterSpacing: 2.6, font: TITLE });
-  const glo = layoutLine(r.gloss, 13, { letterSpacing: 0.8 });
-  missing.push(...lab.missing, ...glo.missing);
-  rowSvg += `<g fill="${C.goldInk}" stroke="${C.goldInk}" stroke-width="0.25"><path transform="translate(${LABEL_X} ${by - 6})" d="${lab.d}"/></g>`;
-  rowSvg += `<g fill="${C.brownSoft}"><path transform="translate(${LABEL_X} ${by + 13})" d="${glo.d}"/></g>`;
+  // One label line, on the tool line's baseline, tightened rather than allowed
+  // to cross the margin rule.
+  let ls = 2.2;
+  let lab = layoutLine(r.label, 13.5, { letterSpacing: ls, font: TITLE });
+  while (lab.width > LABEL_MAX && ls > 0.8) {
+    ls -= 0.2;
+    lab = layoutLine(r.label, 13.5, { letterSpacing: ls, font: TITLE });
+  }
+  if (lab.width > LABEL_MAX) throw new Error(`instrumenta label ${r.label} is ${lab.width}px, over ${LABEL_MAX}px`);
+  missing.push(...lab.missing);
+  rowSvg += `<g fill="${C.goldInk}" stroke="${C.goldInk}" stroke-width="0.25"><path transform="translate(${LABEL_X} ${by - 1})" d="${lab.d}"/></g>`;
 
   // Tool line, shrunk to fit if a list ever grows.
   const text = r.tools.join('  ·  ');
