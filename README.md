@@ -39,7 +39,7 @@
 
 *The old languages, out loud again.*
 
-Latin, Ancient Greek, and nine other ancient languages, taught the way apps teach the living ones: short daily lessons, reconstructed pronunciation you can hear, conversations with historical personas, and real texts you can take apart word by word. Built for beginners, checked by experts. Free to start, on web, iPhone, and Android.
+Latin, Ancient Greek, and nine other ancient languages, taught the way apps teach the living ones: short daily lessons, reconstructed pronunciation you can hear, conversations with historical personas, and real texts you can take apart word by word. Built for beginners, drawn from curated sources. Free on web, iPhone, and Android.
 
 <a href="https://praviel.com"><img src="https://img.shields.io/badge/praviel.com-8B1E1E?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website" /></a>
 <a href="https://apps.apple.com/app/id6756199566"><img src="https://img.shields.io/badge/App_Store-000000?style=for-the-badge&logo=apple&logoColor=white" alt="Download PRAVIEL on the App Store" /></a>
