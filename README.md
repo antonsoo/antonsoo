@@ -21,7 +21,7 @@
 
 ## About
 
-- **Founder & CEO of [PRAVIEL](https://praviel.com)**: ancient languages, spoken aloud again. Live on iOS, Android, and the web.
+- **Founder & CEO of [PRAVIEL](https://praviel.com)**, the app that teaches ancient languages as living ones. 3,000+ unique devices in six months, zero paid acquisition.
 - **AI/ML and software engineer.** Master's in AI from Tokyo Tech (speech recognition), production ML at Quantiphi, then LLM agents and safety research. I take contract work too.
 - **Open source.** Small tools for people who build with LLMs, and fixes merged into ESPnet, Kornia, Pipecat, raylib, and others.
 - **AGI** has had my attention for over a decade. As a kid I meant to be a physics professor, until I figured physics would get further with AI. Still into physics, math, philosophy, history, and music.
@@ -54,6 +54,10 @@ Latin, Ancient Greek, and nine other ancient languages, taught the way apps teac
 </table>
 
 <div align="center">
+
+<a href="https://praviel.com"><img src="assets/praviel-screens.jpg" alt="Four screens from the PRAVIEL app. Choosing a language, from Classical Latin to Classical Arabic. A Latin word card: navis, a ship, with its sound and its meaning. Choosing a conversation partner: a Roman merchant, a baker, or a student of rhetoric. And the opening lines of the Aeneid in the reader." width="100%" /></a>
+
+<br/><br/>
 
 <img src="assets/linguae.svg" alt="Linguae: the languages PRAVIEL teaches, each in its native script: Classical Chinese, Classical Arabic, Classical Sanskrit, Classical Latin, Ancient Greek, Hebrew, Aramaic, Church Slavonic, Middle English, and Gothic. Ancient Egyptian, in hieroglyphs, is also taught in the app." width="100%" />
 
