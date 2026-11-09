@@ -67,7 +67,7 @@ Latin, Ancient Greek, and nine other ancient languages, taught the way apps teac
 
 ## Open source
 
-Small tools, MIT-licensed, most of them running in the browser with nothing to install; four also run as [Hugging Face Spaces](https://huggingface.co/collections/tonymerx/engineering-workbenches). The whole shelf, with pictures: **[antonsoo.github.io/officina](https://antonsoo.github.io/officina/)**.
+Small tools, most of them running in the browser with nothing to install; four also run as [Hugging Face Spaces](https://huggingface.co/collections/tonymerx/engineering-workbenches). The whole shelf, with pictures: **[antonsoo.github.io/officina](https://antonsoo.github.io/officina/)**.
 
 <table>
 <tr>
