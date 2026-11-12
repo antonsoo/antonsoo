@@ -2,9 +2,8 @@
 // directory move breaks one file instead of several.
 //
 // History: this repo used to sit beside praviel-website and borrowed sharp and
-// puppeteer from its node_modules by relative path. The 2026 career
-// reorganization moved it to career/antonsoo-profile and every one of those
-// paths died at once. Both lookups below take an environment override first, so
+// puppeteer from its node_modules by relative path. A 2026 directory move
+// broke every one of those paths at once. Both lookups below take an environment override first, so
 // a move needs no code change at all.
 //
 //   PROFILE_SHARP=/abs/path/to/node_modules/sharp
@@ -58,7 +57,7 @@ export function requireSharp() {
   const candidates = [
     process.env.PROFILE_SHARP,
     join(ROOT, 'node_modules', 'sharp'),
-    // The old sibling, three levels up since the career reorganization.
+    // The old sibling, three levels up since that move.
     resolve(__dirname, '../../../praviel_files/praviel-website/node_modules/sharp'),
   ].filter(Boolean);
 
@@ -80,9 +79,8 @@ export function requireSharp() {
 
 /**
  * The first Chrome that exists and is executable. ~/bin/google-chrome is
- * excluded on purpose: it is a wrapper around a path the reorganization
- * deleted, so it sits on PATH and always fails. Same exclusion, same reason, as
- * career-dossier/scripts/render.py's find_chrome().
+ * excluded on purpose: it is a wrapper around a path that no longer exists,
+ * so it sits on PATH and always fails.
  *
  * Pass { shell: true } for screenshots. Chrome 132 and later run "new
  * headless", a real browser with real window furniture, and --window-size then

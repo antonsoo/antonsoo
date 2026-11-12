@@ -9,10 +9,9 @@
 // fresh clone can rebake the strip without the website checkout, and so the
 // profile only ever shows a screen the product already shows the public.
 //
-// Which four, and why not the others: a language to choose, a word card, a
-// conversation partner, and a real text, in the order a learner meets them.
-// "course-path" is left out on purpose: its headline promises fluency, which
-// the career dossier's claim rules do not let this page say.
+// Which four: a language to choose, a word card, a conversation partner, and
+// a real text, in the order a learner meets them. Four fill one row; the
+// product tour on praviel.com has the rest.
 //
 // Recipe: the same mat as the Open source thumbnails (make-opera-minora.mjs),
 // one sheet instead of four files so the row keeps its proportions on a phone

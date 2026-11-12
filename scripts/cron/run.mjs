@@ -1,14 +1,11 @@
 // The daily job that keeps the profile alive, run by Railway rather than by
 // GitHub Actions.
 //
-// WHY THIS EXISTS. Until 2026-08-13 three workflows did this work:
+// WHY THIS EXISTS. Until 2026-08-13 three scheduled workflows did this work:
 // sententia.yml rotated the quote card, tabula.yml refreshed the ledger, and
-// snake.yml redrew the contribution snake. On 2026-08-14 they all began failing
-// before their first step with "The job was not started because your account is
-// locked due to a billing issue". That lock is account-wide, so the
-// free-for-public-repos rule does not rescue it, and the profile froze. Pushing
-// is unaffected, so the work moved to a Railway cron container that does
-// exactly what the runners used to do.
+// snake.yml redrew the contribution snake. The work has since moved to one
+// small container that does exactly what the runners used to do, on a clock
+// this repository owns.
 //
 //   node scripts/cron/run.mjs           # the real thing
 //   DRY_RUN=1 node scripts/cron/run.mjs # everything except the two pushes
