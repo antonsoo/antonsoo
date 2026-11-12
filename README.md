@@ -21,7 +21,7 @@
 
 ## About
 
-- **Founder & CEO of [PRAVIEL](https://praviel.com).** I am building a revival of the classical world, starting with its languages: Latin, Greek, Egyptian, and more, learned the way people learn living ones. 3,000+ unique devices in six months, zero paid acquisition.
+- **Founder & CEO of [PRAVIEL](https://praviel.com).** I am building a revival of the classical world, starting with its languages: Latin, Greek, Egyptian, and more, taught as living, spoken languages. 3,000+ unique devices in six months, zero paid acquisition.
 - **AI/ML and software engineer.** Master's in AI from Tokyo Tech (speech recognition), production ML at Quantiphi, then LLM agents and safety research. I take contract work too.
 - **Open source, because I like to build.** Small tools for people who build with LLMs, a workshop for the sciences of the ancient world, and fixes merged into ESPnet, Kornia, Pipecat, raylib, and others.
 - **AGI** has had my attention for over a decade. As a kid I meant to be a physics professor, until I figured physics would get further with AI. Still into physics, math, philosophy, history, and music.
@@ -39,7 +39,7 @@
 
 *The old languages, out loud again.*
 
-Latin, Ancient Greek, and nine other ancient languages, taught the way apps teach the living ones: a few minutes a day, from the first letters to real texts. Every line is spoken in the language's own tradition, the conversations are with historical personas, and any word in a real text opens at a tap. Built for beginners, drawn from curated sources. Free on web, iPhone, and Android.
+Latin, Ancient Greek, and nine other ancient languages, taught the way apps teach modern ones: a few minutes a day, from the first letters to real texts. Every line is spoken in the language's own tradition, the conversations are with historical personas, and any word in a real text opens at a tap. Built for beginners, drawn from curated sources. Free on web, iPhone, and Android.
 
 **Opening next:** Teach at home, for parents and teachers who want to lead Latin themselves. **After that:** study circles, a community for everyone who wants the ancient world back in daily life, and possibly togas.
 
@@ -61,7 +61,7 @@ Latin, Ancient Greek, and nine other ancient languages, taught the way apps teac
 
 <br/>
 
-<em>“I'm glad I've finally found a reliable, free source for learning ancient languages.”</em><br/><sub>A learner, on Google Play</sub>
+<em>“I really like it! I am astounded by the wide range of languages the app has…”</em><br/><sub>A learner, on Discord</sub>
 
 <br/><br/>
 
