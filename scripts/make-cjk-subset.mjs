@@ -6,10 +6,11 @@
 // Re-run this only if you change the Han string on the card:
 //   node scripts/make-cjk-subset.mjs
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
+import { writeFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import opentype from 'opentype.js';
+import { parseFont } from './svglib.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FONTS = join(__dirname, 'fonts');
@@ -29,7 +30,7 @@ if (!existsSync(FULL)) {
   writeFileSync(FULL, Buffer.from(await res.arrayBuffer()));
 }
 
-const full = opentype.loadSync(FULL);
+const full = parseFont(FULL);
 const notdef = full.glyphs.get(0);
 notdef.name = '.notdef';
 const glyphs = [notdef];
@@ -51,7 +52,7 @@ const sub = new opentype.Font({
 writeFileSync(OUT, Buffer.from(sub.toArrayBuffer()));
 
 // Verify the written subset reloads and every char has a real outline.
-const re = opentype.loadSync(OUT);
+const re = parseFont(OUT);
 for (const ch of CJK_CHARS) {
   const g = re.charToGlyph(ch);
   const bb = g.getPath(0, 0, 40).getBoundingBox();

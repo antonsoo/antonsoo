@@ -4,6 +4,7 @@
 // image proxy with no font dependency.
 
 import opentype from 'opentype.js';
+import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -44,8 +45,15 @@ export const C = {
 // vendored script face).
 const _fonts = new Map();
 export function loadFont(path) {
-  if (!_fonts.has(path)) _fonts.set(path, opentype.loadSync(path));
+  if (!_fonts.has(path)) _fonts.set(path, parseFont(path));
   return _fonts.get(path);
+}
+// Read and parse a font file, uncached. opentype.js 2 dropped loadSync (it now
+// logs a deprecation and returns undefined), and parse() wants an ArrayBuffer,
+// so it gets exactly the file's bytes rather than Node's shared buffer pool.
+export function parseFont(path) {
+  const b = readFileSync(path);
+  return opentype.parse(b.buffer.slice(b.byteOffset, b.byteOffset + b.byteLength));
 }
 // Resolve a bare filename against scripts/fonts/, or use an absolute path as-is.
 export function fontFile(name) {
@@ -100,8 +108,7 @@ export function layoutLine(text, fontSize, { letterSpacing = 0, font: fnt, rtl =
     const g = glyphs[i];
     const ch = cps[i];
     if (g.index === 0 && ch && ch.trim()) missing.push(ch);
-    const p = g.getPath(x, 0, fontSize);
-    const pd = p.toPathData(2);
+    const pd = glyphPathData(g, x, 0, fontSize);
     if (pd) d += pd + ' ';
     let adv = (g.advanceWidth || 0) * scale;
     if (i < glyphs.length - 1) {
@@ -110,6 +117,32 @@ export function layoutLine(text, fontSize, { letterSpacing = 0, font: fnt, rtl =
     x += adv + letterSpacing;
   }
   return { d: d.trim(), width: Math.max(0, x - letterSpacing), missing };
+}
+
+// One glyph's outline as SVG path data, its origin at (x, y) on the baseline, at
+// fontSize px: what opentype.js 1.x's getPath(x, y, fontSize).toPathData(2)
+// returned, which is the format every committed asset is baked in. opentype.js 2
+// changed that output, not the outline: its getPath() keeps a contour's closepath
+// only when the glyph itself is stroked (the engraved labels here are stroked by
+// the SVG instead), and its toPathData() rounds differently and by default drops
+// closing segments shorter than one output unit, here a whole pixel. So the
+// outline is read in font units from glyph.path and scaled and written here,
+// with the same arithmetic and number format as before.
+export function glyphPathData(glyph, x, y, fontSize) {
+  const { commands, unitsPerEm } = glyph.path;
+  const s = 1 / (unitsPerEm || 1000) * fontSize;
+  const X = (v) => x + v * s;
+  const Y = (v) => y + -v * s;
+  const num = (v) => (Math.round(v) === v ? '' + Math.round(v) : v.toFixed(2));
+  const pack = (...vs) => vs.map((v, i) => (v >= 0 && i > 0 ? ' ' : '') + num(v)).join('');
+  let d = '';
+  for (const c of commands) {
+    if (c.type === 'M' || c.type === 'L') d += c.type + pack(X(c.x), Y(c.y));
+    else if (c.type === 'Q') d += 'Q' + pack(X(c.x1), Y(c.y1), X(c.x), Y(c.y));
+    else if (c.type === 'C') d += 'C' + pack(X(c.x1), Y(c.y1), X(c.x2), Y(c.y2), X(c.x), Y(c.y));
+    else if (c.type === 'Z') d += 'Z';
+  }
+  return d;
 }
 
 export function measure(text, fontSize, letterSpacing = 0, fnt) {
