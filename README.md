@@ -21,7 +21,7 @@
 
 ## About
 
-- **Founder & CEO of [PRAVIEL](https://praviel.com).** I am building a revival of the classical world, starting with its languages: Latin, Greek, Egyptian, and more, taught as living, spoken languages. 3,000+ unique devices in six months, zero paid acquisition.
+- **Founder & CEO of [PRAVIEL](https://praviel.com).** I am building a revival of the classical world, starting with its languages: Latin, Greek, Egyptian, and more, taught as living, spoken languages. 4,000+ unique devices in six months, zero paid acquisition.
 - **AI/ML and software engineer.** Master's in AI from Tokyo Tech (speech recognition), production ML at Quantiphi, then LLM agents and safety research. I take contract work too.
 - **Open source, because I like to build.** Small tools for people who build with LLMs, a workshop for the sciences of the ancient world, and fixes merged into ESPnet, Kornia, Pipecat, raylib, and others.
 - **AGI** has had my attention for over a decade. As a kid I meant to be a physics professor, until I figured physics would get further with AI. Still into physics, math, philosophy, history, and music.
