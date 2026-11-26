@@ -6,7 +6,7 @@
 # clock. scripts/cron/daemon.mjs explains why: Railway's scheduler skipped three
 # consecutive ticks here with no container and no error.
 
-FROM node:24-slim
+FROM node:26-slim
 
 # git to clone and push; ca-certificates for HTTPS to github.com.
 RUN apt-get update \
